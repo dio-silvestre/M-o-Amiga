@@ -13,6 +13,17 @@ function Form() {
     password2: yup.string().required("Senhas não correspondentes"),
   });
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(formSchema)
+  });
+
+  const onSubmitFunction = (data) => console.log(data);
+
+
   return()
 }
 
