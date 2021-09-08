@@ -1,11 +1,14 @@
 import { AuthProvider } from "./Auth";
 import { UserProvider } from "./User";
+import { ActionsProvider } from "./Actions";
 
 const Providers = ({ children }) => {
     return (
         <AuthProvider>
             <UserProvider>
-                {children}
+                <ActionsProvider>
+                    {children}
+                </ActionsProvider>
             </UserProvider>
         </AuthProvider>
     );
