@@ -27,6 +27,7 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem("authToken", response.data.accessToken);
             setIsLogged(true);
             history.push("/dashboard");
+            window.location.reload();
         })
         .catch((error) => console.error(error))
     };
