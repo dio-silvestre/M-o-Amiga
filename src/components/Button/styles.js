@@ -10,6 +10,7 @@ export const StyledButton = styled.button`
   transition: all 300ms ease-in-out;
   outline: none;
   cursor: pointer;
+  margin-top: 2rem;
 
   ${({ theme }) =>
     theme === "login" &&
