@@ -8,7 +8,7 @@ function Form() {
     name: yup.string().required("Nome obrigatório"),
     city: yup.string().required("Cidade obrigatória"),
     state: yup.string().required("Estado obrigatório"),
-    interestField: yup.string().required("Endereço obrigatório"),
+    areas_interest: yup.string().required("Endereço obrigatório"),
     password: yup.string().required("Senha obrigatória"),
     password2: yup.string().required("Senhas não correspondentes"),
   });
@@ -35,8 +35,11 @@ function Form() {
         {errors.city?.message}
         <input placeholder="Estado" {...register("state")} />
         {errors.state?.message}
-        <input placeholder="Área de interesse" {...register("interestField")} />
-        {errors.interestField?.message}
+        <input
+          placeholder="Área de interesse"
+          {...register("areas_interest")}
+        />
+        {errors.areas_interest?.message}
         <input placeholder="Senha" {...register("password")} />
         {errors.password?.message}
         <input placeholder="Confirme a senha" {...register("password2")} />
