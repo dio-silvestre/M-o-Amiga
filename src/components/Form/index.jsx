@@ -16,15 +16,35 @@ function Form() {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm({
-    resolver: yupResolver(formSchema)
+    resolver: yupResolver(formSchema),
   });
 
   const onSubmitFunction = (data) => console.log(data);
 
-
-  return()
+  return (
+    <div className="container">
+      <h3>Crie sua conta</h3>
+      <form className="form" onSubmit={handleSubmit(onSubmitFunction)}>
+        <input placeholder="Nome" {...register("name")} />
+        {errors.name?.message}
+        <input placeholder="Email" {...register("email")} />
+        {errors.email?.message}
+        <input placeholder="Cidade" {...register("city")} />
+        {errors.city?.message}
+        <input placeholder="Estado" {...register("state")} />
+        {errors.state?.message}
+        <input placeholder="Área de interesse" {...register("interestField")} />
+        {errors.interestField?.message}
+        <input placeholder="Senha" {...register("password")} />
+        {errors.password?.message}
+        <input placeholder="Confirme a senha" {...register("password2")} />
+        {errors.password2?.message}
+        <button type="submit">Finalizar Cadastro</button>
+      </form>
+    </div>
+  );
 }
 
 export default Form;
