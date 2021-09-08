@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import "./styles.css";
+import "./styles.js";
 
 function Form() {
   const formSchema = yup.object().shape({
@@ -28,10 +28,12 @@ function Form() {
     <div className="container">
       <h3>Crie sua conta</h3>
       <form className="form" onSubmit={handleSubmit(onSubmitFunction)}>
-        <input type="radio" id="instituition" value="instituition"></input>
-        <label for="instituition">Instituição</label>
-        <input type="radio" id="voluntary" value="voluntary"></input>
-        <label for="voluntary">Voluntario</label>
+        <div className="BigChoice">
+          <input type="radio" id="instituition" value="instituition"></input>
+          <label for="instituition">Instituição</label>
+          <input type="radio" id="voluntary" value="voluntary"></input>
+          <label for="voluntary">Voluntario</label>
+        </div>
 
         <input placeholder="Nome" {...register("name")} />
         {errors.name?.message}
