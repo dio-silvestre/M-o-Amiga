@@ -43,6 +43,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-secondary-two: #C09500;
         --color-title: #111111;
         --color-text: #666665;
+        --color-text-two: #e5e5e5;
         --color-placeholder: #94969E;
         --color-error: #DF1545;
         --color-success: #25D970;
