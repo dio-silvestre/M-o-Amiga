@@ -1,9 +1,12 @@
 import { AuthProvider } from "./Auth";
+import { UserProvider } from "./User";
 
 const Providers = ({ children }) => {
     return (
         <AuthProvider>
-            {children}
+            <UserProvider>
+                {children}
+            </UserProvider>
         </AuthProvider>
     );
 };
