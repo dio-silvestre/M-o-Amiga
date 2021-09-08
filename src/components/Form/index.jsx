@@ -52,7 +52,7 @@ function Form() {
         {errors.password?.message}
         <input placeholder="Confirme a senha" {...register("password2")} />
         {errors.password2?.message}
-        <button type="submit">Enviar!</button>
+        <button type="submit">Finalizar Cadastro</button>
       </form>
     </div>
   );
