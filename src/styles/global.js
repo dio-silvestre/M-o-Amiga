@@ -48,7 +48,8 @@ export const GlobalStyle = createGlobalStyle`
         --color-error: #DF1545;
         --color-success: #25D970;
         --color-base-default: #f4f4f9;
-        --font-text: "Nunito", sans-serif;
+        --font-text-primary: "Nunito", sans-serif;
+        --font-text-secondary: "Raleway", sans-serif;
         --border-radius: 8px;
     }
 `;
