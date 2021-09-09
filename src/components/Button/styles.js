@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
-  font-family: var(--font-text);
+  font-family: var(--font-text-primary);
   color: var(--color-base-default);
   border: none;
   font-weight: 700;

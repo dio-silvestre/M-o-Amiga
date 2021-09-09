@@ -6,7 +6,7 @@ export const Container = styled.div`
       ? "var(--color-primary-two)"
       : "var(--color-base-default)"};
   text-align: left;
-  font-family: var(--font-text);
+  font-family: var(--font-text-primary);
   font-size: 1.1rem;
   font-weight: 400;
 
@@ -38,7 +38,7 @@ export const InputContainer = styled.div`
     `}
 
   input {
-    font-family: var(--font-text);
+    font-family: var(--font-text-secondary);
     font-weight: 600;
     font-size: 1.1rem;
     background-color: ${(props) =>
