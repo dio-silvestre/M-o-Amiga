@@ -55,7 +55,7 @@ const Login = () => {
         <div className="form-mobile">
           <AnimationContainer>
             <form onSubmit={handleSubmit(onSubmitFunction)}>
-              <h1>Bem-vindo de volta!</h1>
+              <h1>Acesse sua conta!</h1>
               <Input
                 register={register}
                 name="email"
