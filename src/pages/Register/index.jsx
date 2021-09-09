@@ -39,12 +39,21 @@ const Register = () => {
     <div className="container">
       <h3>Crie sua conta</h3>
       <form className="form" onSubmit={handleSubmit(onSubmitFunction)}>
-        <div className="TypeChoice">
-          <input type="radio" id="instituition" value="instituition"></input>
-          <label for="instituition">Instituição</label>
-          <input type="radio" id="voluntary" value="voluntary"></input>
-          <label for="voluntary">Voluntário</label>
-        </div>
+        <ul className="TypeChoice">
+          <li>
+            <input
+              type="radio"
+              value="instituition"
+              name="radio"
+              id="instituition"
+            />
+            <label for="instituition">Instituição</label>
+          </li>
+          <li>
+            <input type="radio" value="voluntary" name="radio" id="voluntary" />
+            <label for="voluntary">Voluntário</label>
+          </li>
+        </ul>
 
         <Input
           register={register}
