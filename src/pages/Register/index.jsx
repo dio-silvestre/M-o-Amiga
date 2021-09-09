@@ -8,6 +8,7 @@ import {
   FiMapPin,
   FiHeart,
   FiKey,
+  FiThumbsUp,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -49,10 +50,12 @@ const Register = () => {
     <>
       <Blue>
         <Msg1>
+          <FiThumbsUp color="black" fill="black" />
           <h2>Recrute!</h2>
           <h3>Aqui você pode recrutar voluntários para sua ação social</h3>
         </Msg1>
         <Msg2>
+          <FiHeart color="black" fill="black" />
           <h2>Procurando fazer o bem?</h2>
           <h3>
             Aqui você pode pesquisar por eventos sociais para fazer parte!

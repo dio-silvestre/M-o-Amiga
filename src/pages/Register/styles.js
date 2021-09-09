@@ -8,8 +8,6 @@ export const Container = styled.div`
   font-family: var(--font-text);
 `;
 
-//
-
 export const Blue = styled.div`
   width: 100vw;
   height: 449px;
