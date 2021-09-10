@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import WomanBaloons from "./../../assets/img/woman-with-balloons.svg"
+import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
+import WomanBaloon from "./../../assets/img/woman-with-balloon.svg";
+import MiniLogoColor from "./../../assets/img/logo-mini-color.svg"
 
 export const Container = styled.div `
     width: 100vw;
@@ -116,4 +118,25 @@ export const WomanWithBaloons = styled.div `
     background: url(${WomanBaloons}) no-repeat right top;
     background-size: 130%;
     display: flex;
+`
+
+export const CalendarSection = styled.section `
+    display: none;
+
+    @media (min-width: 1024px) {
+        display: flex;
+
+        div {
+            display: flex;
+        }
+    }
+`
+
+export const WomanBaloonComponent = styled.div `
+    background: url(${WomanBaloon}) no-repeat center;
+`
+
+export const MiniLogoColorComponent = styled.div `
+    width: 220px;
+    background: url(${MiniLogoColor}) no-repeat center;
 `

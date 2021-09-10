@@ -11,7 +11,10 @@ import {
     PresentationSection,
     ContentOne,
     ContentTwo,
-    WomanWithBaloons
+    WomanWithBaloons, 
+    CalendarSection,
+    WomanBaloonComponent, 
+    MiniLogoColorComponent, 
 } from "./styles"
 
 const LandingPage = () => {
@@ -45,12 +48,13 @@ const LandingPage = () => {
                     <Button theme={"signUp"} onClick={() => history.push("/register")}>Quero ajudar!</Button>
                 </PresentationSection>
 
-                <section id="calendar">
+                <CalendarSection id="calendar">
                     <div>
-                        imagens
+                        <MiniLogoColorComponent />
+                        <WomanBaloonComponent /> 
                     </div>
                     <Calendar />
-                </section>
+                </CalendarSection>
 
                 <section>
                     <span>Ainda não faz parte? Faça seu cadastro!</span>
