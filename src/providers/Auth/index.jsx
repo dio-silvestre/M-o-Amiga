@@ -1,12 +1,18 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { api } from "../../services/api";
+import jwtDecode from "jwt-decode";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
+    const localToken = localStorage.getItem("authToken") || "";
+    const decodedToken = localToken === "" ? "" : jwtDecode(localToken);
+    const userID = decodedToken.sub;
+
     const history = useHistory();
+    const [myData, setMyData] = useState({});
 
     const [isLogged, setIsLogged] = useState(
         localStorage.getItem("authToken") ? true : false
@@ -16,9 +22,17 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem("authToken") || "";
     
         if (!!token) {
-          return setIsLogged(true);
+
+            api
+            .get(`/users/${userID}`)
+            .then((response) => {
+                setMyData(response.data);
+            })
+            .catch((error) => console.error(error))
+
+            return setIsLogged(true);
         }
-    }, [isLogged]);
+    }, [isLogged, userID]);
 
     const signIn = (data) => {
         api
@@ -27,7 +41,6 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem("authToken", response.data.accessToken);
             setIsLogged(true);
             history.push("/dashboard");
-            window.location.reload();
         })
         .catch((error) => console.error(error))
     };
@@ -39,7 +52,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{isLogged, signIn, signOut}}>
+        <AuthContext.Provider value={{myData, isLogged, signIn, signOut}}>
             {children}
         </AuthContext.Provider>
     );
