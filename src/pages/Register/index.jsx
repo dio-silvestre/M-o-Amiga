@@ -25,6 +25,8 @@ import {
   Ul,
   Logo,
   Ballon,
+  Square1,
+  Square2,
 } from "./styles";
 import RegisterBallons from "../../assets/RegisterBallons.svg";
 import RegisterWhiteLogo from "../../assets/RegisterWhiteLogo.svg";
@@ -52,6 +54,8 @@ const Register = () => {
 
   return (
     <>
+      <Square1 />
+      <Square2 />
       <Blue>
         <Msg1>
           <FiThumbsUp color="black" fill="black" size={70} />
@@ -173,8 +177,9 @@ const Register = () => {
           </Form>
         </Container>
       </AnimationContainer>
+
       <div className="images">
-        <Logo className="logo" src={RegisterWhiteLogo} alt="Logo" />
+        <Logo className="logo" src={RegisterWhiteLogo} alt="Logo"></Logo>
         <Ballon className="ballon" src={RegisterBallons} alt="Figura garota" />
       </div>
     </>

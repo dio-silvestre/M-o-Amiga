@@ -69,7 +69,6 @@ export const Form = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   border: 2px solid var(--color-primary-two);
   border-radius: var(--border-radius);
   background-color: var(--color-base-default);
@@ -107,6 +106,27 @@ export const Ballon = styled.img`
   height: 630.84px;
   left: 906px;
   top: 406px;
+`;
+
+export const Square1 = styled.div`
+  background-color: var(--color-base-default);
+  width: 70px;
+  height: 70px;
+  position: absolute;
+
+  left: 597px;
+  top: 60px;
+  transform: rotate(45deg);
+`;
+export const Square2 = styled.div`
+  background-color: var(--color-base-default);
+  width: 70px;
+  height: 70px;
+  position: absolute;
+
+  left: 990px;
+  top: 260.4px;
+  transform: rotate(45deg);
 `;
 
 export const Ul = styled.ul`
