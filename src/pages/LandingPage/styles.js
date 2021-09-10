@@ -8,7 +8,7 @@ export const Container = styled.div `
     height: 3560px;
     padding-top: 2rem;
     background: linear-gradient(0deg, rgba(71, 148, 255, 0) 90.5%, #4794FF 98.38%);
-    font-family: var(--font-text);
+    font-family: var(--font-text-primary);
     font-weight: bold;
 `
 
@@ -124,7 +124,7 @@ export const CalendarSection = styled.section `
     border: 2px solid blue;
 
     @media (min-width: 1024px) {
-        display: flex;
+        display: none;
 
         div {
             width: 40%;
@@ -192,6 +192,10 @@ export const DivBar = styled.div `
     height: 10px;
     background-color: var(--color-primary-two);
     margin: 2rem auto;
+
+    @media (min-width: 1024px) {
+        display: none;
+    }
 `
 
 export const ThirdSectionMobile = styled.div `
@@ -233,4 +237,68 @@ export const ThirdSectionMobile = styled.div `
     @media (min-width: 1024px) {
         display: none;
     }
+`
+
+export const LastSection = styled.section `
+    display: flex;
+    flex-direction: column;
+
+    p {
+        font-size: 1rem;
+        margin: 0 auto;
+        width: 65%;
+        color: var(--color-text-two);
+        background-color: var(--color-placeholder);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 28px 31px 0px -1px rgba(71,148,255,1);
+
+        @media (min-width: 500px) {
+            font-size: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            font-size: 2rem;
+        }
+
+        @media (min-width: 1366px) {
+            font-size: 3.5rem;
+        }
+    }
+
+    img {
+        width: 50%;
+        max-width: 500px;
+    }
+
+    section {
+        display: flex;
+    }
+
+    section>div {
+        display: none;
+        @media (min-width: 1024px) {
+            display: block;
+            height: 40px;
+        }
+    }
+`
+
+export const DivBarOne = styled.div `
+    display: none;
+
+    @media (min-width: 1024px) {
+        width: 60%;
+        height: 10px;
+        background-color: var(--color-primary-two);
+        margin: auto 0 0 0;
+    }
+`
+
+export const WomansHeartComponent = styled.img `
+    margin: 0 0 0 auto;
+`
+
+export const WheelchairManComponent = styled.img `
+    margin: 0 0 0 -10%;
 `

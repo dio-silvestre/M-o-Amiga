@@ -2,6 +2,8 @@ import LogoFullColor from "./../../assets/img/logo.svg";
 import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
 import ManBolering from "./../../assets/img/man-bolering.svg";
 import WomanBaloon from "./../../assets/img/woman-with-balloon.svg";
+import WomansHeart from "./../../assets/img/woman-with-heart.svg";
+import WheelchairMan from "./../../assets/img/wheelchair-man.svg"
 import Button from "../../components/Button";
 import Calendar from "../../components/Calendar";
 import { useHistory } from "react-router";
@@ -21,6 +23,10 @@ import {
     SecondSectionMobile,
     DivBar,
     ThirdSectionMobile,
+    LastSection,
+    WomansHeartComponent,
+    WheelchairManComponent,
+    DivBarOne
 } from "./styles"
 
 const LandingPage = () => {
@@ -86,11 +92,19 @@ const LandingPage = () => {
                     </DivCalendar>
                 </CalendarSection>
 
-                <section>
-                    <span>Precisando de uma mão para um evento social? Cadastre em nosso site o evento para recrutar 
-                        voluntários!
-                    </span>
-                </section>
+                <LastSection>
+                    <DivBar />
+                    <WomansHeartComponent src={WomansHeart} alt="Womans Heart" />
+                    <section>
+                        <DivBarOne />
+                        <p>
+                            Precisando de uma mão para um evento social? Cadastre em nosso site o evento para recrutar 
+                            voluntários!
+                        </p>
+                        <DivBar />
+                    </section>
+                    <WheelchairManComponent src={WheelchairMan} alt="Wheelchair Man" />
+                </LastSection>
 
                 <section>
                     <span>Ainda não faz parte? Faça seu cadastro!</span>
