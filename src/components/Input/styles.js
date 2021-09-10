@@ -6,12 +6,14 @@ export const Container = styled.div`
       ? "var(--color-primary-two)"
       : "var(--color-base-default)"};
   text-align: left;
-  font-family: var(--font-text);
+  font-family: var(--font-text-primary);
   font-size: 1.1rem;
   font-weight: 400;
+
   div {
     span {
       color: var(--color-error);
+      font-size: 1rem;
     }
   }
 `;
@@ -24,19 +26,19 @@ export const InputContainer = styled.div`
   padding: 1rem;
   width: 100%;
   display: flex;
-  transition: 300ms;
+  transition: all 300ms ease-in-out;
 
   ${(props) =>
     props.isErrored &&
     css`
-      border-color: var(--color-error);
+      border: 2px solid var(--color-error);
       svg {
         color: var(--color-error);
       }
     `}
 
   input {
-    font-family: var(--font-text);
+    font-family: var(--font-text-secondary);
     font-weight: 600;
     font-size: 1.1rem;
     background-color: ${(props) =>

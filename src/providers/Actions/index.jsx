@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { api, userID, localToken } from "../../services/api";
+import { api } from "../../services/api";
+import jwtDecode from "jwt-decode";
 
 const ActionsContext = createContext();
 
