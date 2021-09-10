@@ -8,7 +8,7 @@ export const ActionsProvider = ({ children }) => {
 
     const [actions, setActions] = useState(JSON.parse(localStorage.getItem("actions")) || []);
     
-    const loadActions = () => {
+    useEffect(()=>{
         api
             .get(`/actions`)
             .then((response) =>{
@@ -16,10 +16,6 @@ export const ActionsProvider = ({ children }) => {
                 localStorage.setItem("actions", JSON.stringify(response.data));
             })
             .catch((error) => console.error(error));
-    };
-
-    useEffect(()=>{
-        loadActions();
     },[])
 
     const addAction = (data) => {
@@ -83,7 +79,7 @@ export const ActionsProvider = ({ children }) => {
     };
 
     return (
-       <ActionsContext.Provider value={{actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction, loadActions}}>
+       <ActionsContext.Provider value={{actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction}}>
            {children}
        </ActionsContext.Provider> 
     );
