@@ -27,6 +27,8 @@ import {
   Ballon,
   Square1,
   Square2,
+  LI1,
+  LI2,
 } from "./styles";
 import RegisterBallons from "../../assets/RegisterBallons.svg";
 import RegisterWhiteLogo from "../../assets/RegisterWhiteLogo.svg";
@@ -76,7 +78,7 @@ const Register = () => {
           <Form>
             <form className="form" onSubmit={handleSubmit(onSubmitFunction)}>
               <Ul>
-                <li>
+                <LI1>
                   <input
                     type="radio"
                     value="instituition"
@@ -84,8 +86,8 @@ const Register = () => {
                     id="instituition"
                   />
                   <label for="instituition">Instituição</label>
-                </li>
-                <li>
+                </LI1>
+                <LI2>
                   <input
                     type="radio"
                     value="voluntary"
@@ -93,7 +95,7 @@ const Register = () => {
                     id="voluntary"
                   />
                   <label for="voluntary">Voluntário</label>
-                </li>
+                </LI2>
               </Ul>
 
               <Input
@@ -166,7 +168,7 @@ const Register = () => {
                 error={errors.password2?.message}
               ></Input>
 
-              <Button type="submit" theme="register">
+              <Button type="submit" theme="signUp">
                 Finalizar Cadastro
               </Button>
 

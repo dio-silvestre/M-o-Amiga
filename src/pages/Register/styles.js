@@ -74,21 +74,14 @@ export const Form = styled.div`
   background-color: var(--color-base-default);
 
   width: 370px;
-  height: 900px;
+  /* height: 900px; */
   //com erro height: 1200px;
   position: absolute;
   left: 250px;
   top: 282px;
 
-  button {
-    background-color: var(--color-secondary-two);
-  }
-  button:hover {
-    background-color: var(--color-secondary);
-  }
-
   input {
-    max-width: 150%;
+    margin: 0;
   }
 `;
 
@@ -131,28 +124,51 @@ export const Square2 = styled.div`
   transform: rotate(45deg);
 `;
 
-export const Ul = styled.ul`
-  width: 350px;
+export const Ul = styled.div`
+  width: 105%;
   padding: 0;
   font-size: 30px;
+  display: block;
   position: relative;
-  left: -7.6px;
-  top: 7px;
+  left: -9px;
+  top: -76px;
+  /* border-radius: 20px 20px 0px 0px; */
+`;
 
-  li {
-    display: inline-block;
+export const LI1 = styled.div`
+  display: inline-block;
+  color: var(--color-text-two);
+  padding-bottom: 10px;
+  width: 50%;
+  margin-bottom: 10px;
+  background-color: var(--color-primary-two);
+
+  input {
+    visibility: hidden;
+  }
+  label {
+    cursor: pointer;
+  }
+
+  input:checked + label {
+    background: var(--color-primary);
+    color: white;
+  }
+`;
+
+export const LI2 = styled.div`
+   display: inline-block;
     color: var(--color-text-two);
     padding-bottom: 10px;
-    width: 175px;
+    width: 50%;
     margin-bottom: 10px;
+    background-color: var(--color-primary-two);
 
     input {
       visibility: hidden;
     }
     label {
       cursor: pointer;
-      background-color: var(--color-primary-two);
-      padding: 32px;
       /* border-radius: 20px 20px 0px 0px; */
     }
 
