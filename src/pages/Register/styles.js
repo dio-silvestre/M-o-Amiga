@@ -73,9 +73,10 @@ export const Form = styled.div`
   border-radius: var(--border-radius);
   background-color: var(--color-base-default);
 
-  position: absolute;
-  width: 420px;
+  width: 370px;
   height: 900px;
+  //com erro height: 1200px;
+  position: absolute;
   left: 250px;
   top: 282px;
 
@@ -93,11 +94,12 @@ export const Form = styled.div`
 
 export const Logo = styled.img`
   position: absolute;
-  width: 275px;
+  width: 270px;
   height: 255px;
   left: -5px;
   top: -17px;
   z-index: 1;
+  opacity: 0.9;
 `;
 
 export const Ballon = styled.img`
@@ -130,14 +132,19 @@ export const Square2 = styled.div`
 `;
 
 export const Ul = styled.ul`
-  width: 300px;
+  width: 350px;
   padding: 0;
+  font-size: 30px;
+  position: relative;
+  left: -7.6px;
+  top: 7px;
 
   li {
     display: inline-block;
     color: var(--color-text-two);
     padding-bottom: 10px;
-    width: 131px;
+    width: 175px;
+    margin-bottom: 10px;
 
     input {
       visibility: hidden;
@@ -146,8 +153,9 @@ export const Ul = styled.ul`
       cursor: pointer;
       background-color: var(--color-primary-two);
       padding: 32px;
-      border-radius: 20px 20px 0px 0px;
+      /* border-radius: 20px 20px 0px 0px; */
     }
+
     input:checked + label {
       background: var(--color-primary);
       color: white;
