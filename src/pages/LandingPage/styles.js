@@ -90,10 +90,6 @@ export const ContentOne = styled.div `
         display: block;
         margin: 0 auto;
     }
-/* 
-    position: absolute;
-    left: 74px;
-    top: 16px; */
 `
 
 export const ContentTwo = styled.div `
@@ -112,13 +108,6 @@ export const ContentTwo = styled.div `
         display: block;
         margin: 0 auto;
     }
-
-    border: 2px solid blue;
-
-    position: relative;
-    left: 94px;
-    top: -200px;
-    z-index: 2;
 `
 
 export const WomanWithBaloons = styled.div `
@@ -127,11 +116,4 @@ export const WomanWithBaloons = styled.div `
     background: url(${WomanBaloons}) no-repeat right top;
     background-size: 130%;
     display: flex;
-
-    border: 2px solid red;
-
-    position: static;
-    left: -16px;
-    top: -30px;
-    z-index: 1;
 `
