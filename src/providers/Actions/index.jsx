@@ -6,21 +6,21 @@ const ActionsContext = createContext();
 
 export const ActionsProvider = ({ children }) => {
 
-    const [actions, setActions] = useState(JSON.parse(localStorage.getItem("actions")) || []);
-    
-    const loadActions = () => {
-        api
-            .get(`/actions`)
-            .then((response) =>{
-                setActions(response.data);
-                localStorage.setItem("actions", JSON.stringify(response.data));
-            })
-            .catch((error) => console.error(error));
-    };
+    const localToken = localStorage.getItem("authToken") || "";
+    const decodedToken = localToken === "" ? "" : jwtDecode(localToken);
+    const userID = decodedToken.sub;
 
-    useEffect(()=>{
-        loadActions();
-    },[])
+    const [actions, setActions] = useState([]);
+
+    useEffect(() => {
+        api
+        .get(`/actions`)
+        .then((response) =>{
+            setActions(response.data);
+            localStorage.setItem("actions", JSON.stringify(response.data));
+        })
+        .catch((error) => console.error(error));
+    }, [])
 
     const addAction = (data) => {
         api
@@ -83,7 +83,7 @@ export const ActionsProvider = ({ children }) => {
     };
 
     return (
-       <ActionsContext.Provider value={{actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction, loadActions}}>
+       <ActionsContext.Provider value={{actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction}}>
            {children}
        </ActionsContext.Provider> 
     );
