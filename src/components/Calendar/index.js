@@ -6,7 +6,8 @@ import {FiChevronLeft,FiChevronRight} from "react-icons/fi"
 
 
 const Calendar = () => {
-
+    
+    const {actions} = useActions();
     const createCalendar = (month) => {
         
         let year = new Date().getFullYear();

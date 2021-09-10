@@ -18,7 +18,7 @@ const Input = ({
         <input {...register(name)} {...rest} colorSchema={colorSchema} />
       </InputContainer>
 
-      <div>{!!error && <span> - {error}</span>}</div>
+      <div>{!!error && <span>{error}</span>}</div>
     </Container>
   );
 };
