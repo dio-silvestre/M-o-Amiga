@@ -5,7 +5,7 @@ import MiniLogoColor from "./../../assets/img/logo-mini-color.svg"
 
 export const Container = styled.div `
     width: 100vw;
-    height: 3560px;
+    /* height: 3560px; */
     padding-top: 2rem;
     background: linear-gradient(0deg, rgba(71, 148, 255, 0) 90.5%, #4794FF 98.38%);
     font-family: var(--font-text-primary);
@@ -301,4 +301,28 @@ export const WomansHeartComponent = styled.img `
 
 export const WheelchairManComponent = styled.img `
     margin: 0 0 0 -10%;
+`
+
+export const Footer = styled.footer `
+    width: 100vw;
+    height: 130px;
+    background-color: var(--color-placeholder);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-two);
+    font-size: 30px;
+
+    img {
+        width: 100px;
+        margin-left: 30px;
+    }
+
+    @media (min-width: 1024px) {
+        height: 200px;
+    }
+`
+
+export const ThirdSectionDesktop = styled.section `
+    display: none;
 `

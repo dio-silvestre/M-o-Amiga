@@ -26,7 +26,9 @@ import {
     LastSection,
     WomansHeartComponent,
     WheelchairManComponent,
-    DivBarOne
+    DivBarOne,
+    Footer, 
+    ThirdSectionDesktop
 } from "./styles"
 
 const LandingPage = () => {
@@ -106,17 +108,18 @@ const LandingPage = () => {
                     <WheelchairManComponent src={WheelchairMan} alt="Wheelchair Man" />
                 </LastSection>
 
-                <section>
+                <ThirdSectionDesktop>
                     <span>Ainda não faz parte? Faça seu cadastro!</span>
                     <Button theme={"signUp"} onClick={() => history.push("/register")}>Cadastrar</Button>
                     <Button theme={"login"} onClick={() => history.push("/login")}>Login</Button>
                     <span>Agende, acompanhe, cadastre e busque por ações voluntárias !</span>
-                </section>
+                </ThirdSectionDesktop>
 
-                <footer id="aboutUs">
-                    <img src={LogoMiniWhite} alt="Logo Mão Amiga"></img>
-                </footer>
             </FullContainer>
+            <Footer id="aboutUs">
+                <p>Sobre nós</p>
+                <img src={LogoMiniWhite} alt="Logo Mão Amiga"></img>
+            </Footer>
         </Container>
     );
 };
