@@ -8,6 +8,10 @@ import {
     FullContainer,
     Header,
     NavBar,
+    PresentationSection,
+    ContentOne,
+    ContentTwo,
+    WomanWithBaloons
 } from "./styles"
 
 const LandingPage = () => {
@@ -16,29 +20,30 @@ const LandingPage = () => {
 
     return (
         <Container>
-                <Header>
-                    <img src={LogoFullColor} alt="Logo Mão Amiga"></img>
-                    <NavBar>
-                        <a href="#aboutUs">SOBRE NÓS</a>
-                        <a href="#calendar">CALENDÁRIO</a>
-                        <span onClick={() => history.push("/login")}>LOGIN</span>
-                    </NavBar>
-                </Header>
+            <Header>
+                <img src={LogoFullColor} alt="Logo Mão Amiga"></img>
+                <NavBar>
+                    <a href="#aboutUs">SOBRE NÓS</a>
+                    <a href="#calendar">CALENDÁRIO</a>
+                    <span onClick={() => history.push("/login")}>LOGIN</span>
+                </NavBar>
+            </Header>
             <FullContainer>
-                <section>
-                    <div>
-                        <span>
-                        Transforme o mundo com uma pequena ação
-                        </span>
-                    </div>
-                    <div>
-                        <span>
-                        Plataforma que conecta Instituição organizadora de ação e voluntário disponível, 
-                        sincronizando seus calendários gerando e compartilhando experiências !                
-                        </span>
-                    </div>
+                <PresentationSection>
+                    <ContentOne>
+                        <p>Transforme o mundo com uma pequena ação</p>
+                    </ContentOne>
+                    {/* <section> */}
+                        <WomanWithBaloons />
+                        <ContentTwo>
+                            <p>
+                            Plataforma que conecta Instituição organizadora de ação e voluntário disponível, 
+                            sincronizando seus calendários gerando e compartilhando experiências !
+                            </p>                
+                        </ContentTwo>
+                    {/* </section> */}
                     <Button theme={"signUp"} onClick={() => history.push("/register")}>Quero ajudar!</Button>
-                </section>
+                </PresentationSection>
 
                 <section id="calendar">
                     <div>
