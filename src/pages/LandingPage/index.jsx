@@ -1,6 +1,7 @@
 import LogoFullColor from "./../../assets/img/logo.svg";
 import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
-import ManBolering from "./../../assets/img/man-bolering.svg"
+import ManBolering from "./../../assets/img/man-bolering.svg";
+import WomanBaloon from "./../../assets/img/woman-with-balloon.svg";
 import Button from "../../components/Button";
 import Calendar from "../../components/Calendar";
 import { useHistory } from "react-router";
@@ -19,7 +20,7 @@ import {
     MiniLogoColorComponent, 
     SecondSectionMobile,
     DivBar,
-
+    ThirdSectionMobile,
 } from "./styles"
 
 const LandingPage = () => {
@@ -64,7 +65,16 @@ const LandingPage = () => {
                             Faça parte do nosso site para acompanhar as próximas ações voluntárias
                         </p>
                     </section>
+                    <DivBar />
                 </SecondSectionMobile>
+
+                <ThirdSectionMobile>
+                    <div>
+                        <p>Ainda não faz parte? Faça seu cadastro!</p>
+                        <Button theme={"signUp"} onClick={() => history.push("/register")}>Cadastrar</Button>
+                    </div>
+                    <img src={WomanBaloon} alt="Woman with baloon" />
+                </ThirdSectionMobile>
 
                 <CalendarSection id="calendar">
                     <div>
@@ -77,19 +87,19 @@ const LandingPage = () => {
                 </CalendarSection>
 
                 <section>
+                    <span>Precisando de uma mão para um evento social? Cadastre em nosso site o evento para recrutar 
+                        voluntários!
+                    </span>
+                </section>
+
+                <section>
                     <span>Ainda não faz parte? Faça seu cadastro!</span>
                     <Button theme={"signUp"} onClick={() => history.push("/register")}>Cadastrar</Button>
                     <Button theme={"login"} onClick={() => history.push("/login")}>Login</Button>
                     <span>Agende, acompanhe, cadastre e busque por ações voluntárias !</span>
                 </section>
 
-                <section id="aboutUs">
-                    <span>Precisando de uma mão para um evento social? Cadastre em nosso site o evento para recrutar 
-                        voluntários!
-                    </span>
-                </section>
-
-                <footer>
+                <footer id="aboutUs">
                     <img src={LogoMiniWhite} alt="Logo Mão Amiga"></img>
                 </footer>
             </FullContainer>

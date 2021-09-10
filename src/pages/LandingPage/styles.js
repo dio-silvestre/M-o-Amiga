@@ -9,6 +9,7 @@ export const Container = styled.div `
     padding-top: 2rem;
     background: linear-gradient(0deg, rgba(71, 148, 255, 0) 90.5%, #4794FF 98.38%);
     font-family: var(--font-text);
+    font-weight: bold;
 `
 
 export const Header = styled.header `
@@ -46,7 +47,6 @@ export const NavBar = styled.div `
     height: 50px;
     display: none;
     color: var(--color-text);
-    font-weight: bolder;
     font-size: 18px;
 
     a, span {
@@ -88,7 +88,6 @@ export const ContentOne = styled.div `
         width: 90%;
         text-align: center;
         font-size: 12px;
-        font-weight: bold;
         display: block;
         margin: 0 auto;
     }
@@ -106,7 +105,6 @@ export const ContentTwo = styled.div `
         width: 90%;
         text-align: center;
         font-size: 12px;
-        font-weight: bold;
         display: block;
         margin: 0 auto;
     }
@@ -154,13 +152,12 @@ export const MiniLogoColorComponent = styled.div `
 `
 
 export const SecondSectionMobile = styled.div `
-    margin: 0 auto;
+    /* width: 100%; */
+    /* margin: 0 auto; */
 
     p {
         width: 200px;
         font-size: 1rem;
-        font-family: var(--font-text);
-        font-weight: bold;
 
         @media (min-width: 500px) {
             font-size: 1.2rem;
@@ -195,4 +192,45 @@ export const DivBar = styled.div `
     height: 10px;
     background-color: var(--color-primary-two);
     margin: 2rem auto;
+`
+
+export const ThirdSectionMobile = styled.div `
+    display: flex;
+    align-items: center;
+
+    div {
+        width: 60%;
+        z-index: 1;
+        margin-top: -2rem;
+        display: flex;
+        flex-direction: column;
+
+        p {
+            font-size: 1rem;
+            text-align: center;
+
+            @media (min-width: 500px) {
+                margin-top: -4rem;
+                font-size: 1.5rem;
+            }
+            @media (min-width: 768px) {
+                font-size: 2rem;
+            }
+        }
+        
+        button {
+            width: 90%;
+            margin: 1rem auto;
+        }
+    }
+
+    img {
+        width: 70%;
+        margin-left: -30%;
+        margin-top: -20%;
+    }
+
+    @media (min-width: 1024px) {
+        display: none;
+    }
 `
