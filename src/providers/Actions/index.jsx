@@ -1,23 +1,26 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { api, userID, localToken } from "../../services/api";
+import { api } from "../../services/api";
+import jwtDecode from "jwt-decode";
 
 const ActionsContext = createContext();
 
 export const ActionsProvider = ({ children }) => {
 
-    const [actions, setActions] = useState([]);
-
-    useEffect(() => {
-        if (!!localToken) {
-            api
+    const [actions, setActions] = useState(JSON.parse(localStorage.getItem("actions")) || []);
+    
+    const loadActions = () => {
+        api
             .get(`/actions`)
             .then((response) =>{
                 setActions(response.data);
                 localStorage.setItem("actions", JSON.stringify(response.data));
             })
             .catch((error) => console.error(error));
-        }
-    }, [])
+    };
+
+    useEffect(()=>{
+        loadActions();
+    },[])
 
     const addAction = (data) => {
         api
@@ -80,7 +83,7 @@ export const ActionsProvider = ({ children }) => {
     };
 
     return (
-       <ActionsContext.Provider value={{actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction}}>
+       <ActionsContext.Provider value={{actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction, loadActions}}>
            {children}
        </ActionsContext.Provider> 
     );

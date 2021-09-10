@@ -1,13 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { api } from "../../services/api";
-import { userID } from "../../services/api";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
 
-    const [myData, setMyData] = useState({});
     const [userData, setUserData] = useState({});
 
     const history = useHistory();
@@ -37,15 +35,6 @@ export const UserProvider = ({ children }) => {
         .catch((error) => console.error(error))
     };
 
-    useEffect(() => {
-        api
-        .get(`/users/${userID}`)
-        .then((response) => {
-            setMyData(response.data);
-        })
-        .catch((error) => console.error(error))
-    }, []);
-
     const fetchUserData = (userId) => {
         api
         .get(`/users/${userId}`)
@@ -56,7 +45,7 @@ export const UserProvider = ({ children }) => {
     };
 
     return (
-        <UserContext.Provider value={{myData, userData, createAccount, deleteAccount, editProfile, fetchUserData}}>
+        <UserContext.Provider value={{ userData, createAccount, deleteAccount, editProfile, fetchUserData}}>
             {children}
         </UserContext.Provider>
     );

@@ -1,49 +1,63 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { api } from "../../services/api";
+import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const history = useHistory();
 
-  const [isLogged, setIsLogged] = useState(
-    localStorage.getItem("authToken") ? true : false
-  );
+    const localToken = localStorage.getItem("authToken") || "";
+    const decodedToken = localToken === "" ? "" : jwtDecode(localToken);
+    const userID = decodedToken.sub;
 
-  useEffect(() => {
-    const token = localStorage.getItem("authToken") || "";
+    const history = useHistory();
+    const [myData, setMyData] = useState({});
 
-    if (!!token) {
-      return setIsLogged(true);
-    }
-  }, [isLogged]);
+    const [isLogged, setIsLogged] = useState(
+        localStorage.getItem("authToken") ? true : false
+    );
 
-  const signIn = (data) => {
-    api
-      .post("/signin", data)
-      .then((response) => {
-        localStorage.setItem("authToken", response.data.accessToken);
-        setIsLogged(true);
-        history.push("/dashboard");
-        window.location.reload();
-        toast.success("Sucesso ao fazer login");
-      })
-      .catch((error) => toast.error("E-mail ou senha inválidos"));
-  };
+    useEffect(() => {
+        const token = localStorage.getItem("authToken") || "";
+    
+        if (!!token) {
 
-  const signOut = () => {
-    localStorage.clear();
-    history.push("/login");
-    return window.location.reload();
-  };
+            api
+            .get(`/users/${userID}`)
+            .then((response) => {
+                setMyData(response.data);
+            })
+            .catch((error) => console.error(error))
 
-  return (
-    <AuthContext.Provider value={{ isLogged, signIn, signOut }}>
-      {children}
-    </AuthContext.Provider>
-  );
+            return setIsLogged(true);
+        }
+    }, [isLogged, userID]);
+
+    const signIn = (data) => {
+        api
+        .post("/signin", data)
+        .then((response) => {
+            localStorage.setItem("authToken", response.data.accessToken);
+            setIsLogged(true);
+            toast.success("Sucesso ao fazer login");
+            history.push("/dashboard");
+        })
+        .catch((error) => console.error(error))
+    };
+
+    const signOut = () => {
+        localStorage.clear();
+        history.push("/login");
+        return window.location.reload();
+    };
+
+    return (
+        <AuthContext.Provider value={{myData, isLogged, signIn, signOut}}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
 
 export const useAuth = () => useContext(AuthContext);
