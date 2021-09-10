@@ -55,7 +55,13 @@ export const Msg2 = styled.div`
 `;
 
 export const H3 = styled.h3`
-  color: var(--color-text);
+  color: var(--color-text-two);
+  position: absolute;
+  top: 240px;
+  left: 250px;
+  font-size: 24px;
+  font-family: var(--font-text-primary);
+  font-weight: bold;
 `;
 
 export const Form = styled.div`
@@ -63,16 +69,15 @@ export const Form = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 200%;
-  height: 80%;
+
   border: 2px solid var(--color-primary-two);
   border-radius: var(--border-radius);
   background-color: var(--color-base-default);
 
   position: absolute;
   width: 420px;
-  height: 710px;
-  left: 291px;
+  height: 900px;
+  left: 250px;
   top: 282px;
 
   button {
@@ -85,6 +90,23 @@ export const Form = styled.div`
   input {
     max-width: 150%;
   }
+`;
+
+export const Logo = styled.img`
+  position: absolute;
+  width: 275px;
+  height: 255px;
+  left: -5px;
+  top: -17px;
+  z-index: 1;
+`;
+
+export const Ballon = styled.img`
+  position: absolute;
+  width: 374px;
+  height: 630.84px;
+  left: 906px;
+  top: 406px;
 `;
 
 export const Ul = styled.ul`

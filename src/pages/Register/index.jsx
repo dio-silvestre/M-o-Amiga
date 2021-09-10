@@ -23,7 +23,11 @@ import {
   Container,
   Form,
   Ul,
+  Logo,
+  Ballon,
 } from "./styles";
+import RegisterBallons from "../../assets/RegisterBallons.svg";
+import RegisterWhiteLogo from "../../assets/RegisterWhiteLogo.svg";
 
 const Register = () => {
   const formSchema = yup.object().shape({
@@ -169,6 +173,10 @@ const Register = () => {
           </Form>
         </Container>
       </AnimationContainer>
+      <div className="images">
+        <Logo className="logo" src={RegisterWhiteLogo} alt="Logo" />
+        <Ballon className="ballon" src={RegisterBallons} alt="Figura garota" />
+      </div>
     </>
   );
 };
