@@ -1,12 +1,5 @@
 const LandingPage = () => {
-<<<<<<< HEAD
-  return <>LandingPage</>;
-=======
-    return (
-        <>
-        </>
-    );
->>>>>>> origin/develop
+  return <></>;
 };
 
 export default LandingPage;
