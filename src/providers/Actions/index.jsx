@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { api, userID, localToken } from "../../services/api";
+import { api, userID } from "../../services/api";
 
 const ActionsContext = createContext();
 
@@ -8,15 +8,13 @@ export const ActionsProvider = ({ children }) => {
     const [actions, setActions] = useState([]);
 
     useEffect(() => {
-        if (!!localToken) {
-            api
-            .get(`/actions`)
-            .then((response) =>{
-                setActions(response.data);
-                localStorage.setItem("actions", JSON.stringify(response.data));
-            })
-            .catch((error) => console.error(error));
-        }
+        api
+        .get(`/actions`)
+        .then((response) =>{
+            setActions(response.data);
+            localStorage.setItem("actions", JSON.stringify(response.data));
+        })
+        .catch((error) => console.error(error));
     }, [])
 
     const addAction = (data) => {
