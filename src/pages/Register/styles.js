@@ -110,30 +110,28 @@ export const Ballon = styled.img`
 `;
 
 export const Ul = styled.ul`
-width:100%;
+  width: 300px;
+  padding: 0;
 
   li {
     display: inline-block;
     color: var(--color-text-two);
-    padding-bottom: 10px;     
-    
-    input {
-    visibility: hidden;
-    /* display: flex;
-    flex-wrap: nowrap; */
-  }
-  label {
-    
+    padding-bottom: 10px;
+    width: 131px;
 
-    width:100%;
-    cursor: pointer;
-    background-color: var(--color-primary-two);
-    padding: 32px;
-    border-radius: 20px 20px 0px 0px;
-  }
-  input:checked + label {
-    background: var(--color-primary);
-    color: white;
+    input {
+      visibility: hidden;
+    }
+    label {
+      cursor: pointer;
+      background-color: var(--color-primary-two);
+      padding: 32px;
+      border-radius: 20px 20px 0px 0px;
+    }
+    input:checked + label {
+      background: var(--color-primary);
+      color: white;
+    }
   }
 `;
 
