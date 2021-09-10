@@ -1,5 +1,6 @@
 import LogoFullColor from "./../../assets/img/logo.svg";
-import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg"
+import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
+import ManBolering from "./../../assets/img/man-bolering.svg"
 import Button from "../../components/Button";
 import Calendar from "../../components/Calendar";
 import { useHistory } from "react-router";
@@ -13,8 +14,12 @@ import {
     ContentTwo,
     WomanWithBaloons, 
     CalendarSection,
+    DivCalendar,
     WomanBaloonComponent, 
     MiniLogoColorComponent, 
+    SecondSectionMobile,
+    DivBar,
+
 } from "./styles"
 
 const LandingPage = () => {
@@ -48,12 +53,27 @@ const LandingPage = () => {
                     <Button theme={"signUp"} onClick={() => history.push("/register")}>Quero ajudar!</Button>
                 </PresentationSection>
 
+                <SecondSectionMobile>
+                    <DivBar />
+                    <p>
+                        Agende, acompanhe, cadastre e busque por ações voluntárias !
+                    </p>
+                    <section>
+                        <img src={ManBolering} alt="Man bolering" />
+                        <p>
+                            Faça parte do nosso site para acompanhar as próximas ações voluntárias
+                        </p>
+                    </section>
+                </SecondSectionMobile>
+
                 <CalendarSection id="calendar">
                     <div>
                         <MiniLogoColorComponent />
                         <WomanBaloonComponent /> 
                     </div>
-                    <Calendar />
+                    <DivCalendar>
+                        <Calendar />
+                    </DivCalendar>
                 </CalendarSection>
 
                 <section>

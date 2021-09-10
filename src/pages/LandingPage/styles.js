@@ -73,7 +73,7 @@ export const NavBar = styled.div `
 
 export const PresentationSection = styled.section `
     height: 400px;
-    display: block;
+    display: none;
     margin: 2rem auto;
 `
 
@@ -121,22 +121,78 @@ export const WomanWithBaloons = styled.div `
 `
 
 export const CalendarSection = styled.section `
+    width: 100%;
     display: none;
+    border: 2px solid blue;
 
     @media (min-width: 1024px) {
         display: flex;
 
         div {
+            width: 40%;
             display: flex;
         }
     }
 `
 
+export const DivCalendar = styled.div `
+    width: 60%;
+
+    border: 2px solid red;
+`
+
 export const WomanBaloonComponent = styled.div `
+    width: 25%;
     background: url(${WomanBaloon}) no-repeat center;
+    background-size: 100%;
 `
 
 export const MiniLogoColorComponent = styled.div `
-    width: 220px;
+    width: 15%;
     background: url(${MiniLogoColor}) no-repeat center;
+    background-size: 100%;
+`
+
+export const SecondSectionMobile = styled.div `
+    margin: 0 auto;
+
+    p {
+        width: 200px;
+        font-size: 1rem;
+        font-family: var(--font-text);
+        font-weight: bold;
+
+        @media (min-width: 500px) {
+            font-size: 1.2rem;
+        }
+        @media (min-width: 768px) {
+            width: 50%;
+            font-size: 1.5rem;
+        }
+    }
+
+    section {
+        display: flex;
+        align-items: center;
+
+        p {
+            width: 60%;
+        }
+
+        img {
+            margin-top: -2rem;
+            width: 40%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        display: none;
+    }
+`
+
+export const DivBar = styled.div `
+    width: 60%;
+    height: 10px;
+    background-color: var(--color-primary-two);
+    margin: 2rem auto;
 `
