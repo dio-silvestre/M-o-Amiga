@@ -6,17 +6,21 @@ const ActionsContext = createContext();
 
 export const ActionsProvider = ({ children }) => {
 
-    const [actions, setActions] = useState(JSON.parse(localStorage.getItem("actions")) || []);
-    
-    useEffect(()=>{
+    const localToken = localStorage.getItem("authToken") || "";
+    const decodedToken = localToken === "" ? "" : jwtDecode(localToken);
+    const userID = decodedToken.sub;
+
+    const [actions, setActions] = useState([]);
+
+    useEffect(() => {
         api
-            .get(`/actions`)
-            .then((response) =>{
-                setActions(response.data);
-                localStorage.setItem("actions", JSON.stringify(response.data));
-            })
-            .catch((error) => console.error(error));
-    },[])
+        .get(`/actions`)
+        .then((response) =>{
+            setActions(response.data);
+            localStorage.setItem("actions", JSON.stringify(response.data));
+        })
+        .catch((error) => console.error(error));
+    }, [])
 
     const addAction = (data) => {
         api
