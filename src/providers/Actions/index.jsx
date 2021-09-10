@@ -13,15 +13,13 @@ export const ActionsProvider = ({ children }) => {
     const [actions, setActions] = useState([]);
 
     useEffect(() => {
-        if (!!localToken) {
-            api
-            .get(`/actions`)
-            .then((response) =>{
-                setActions(response.data);
-                localStorage.setItem("actions", JSON.stringify(response.data));
-            })
-            .catch((error) => console.error(error));
-        }
+        api
+        .get(`/actions`)
+        .then((response) =>{
+            setActions(response.data);
+            localStorage.setItem("actions", JSON.stringify(response.data));
+        })
+        .catch((error) => console.error(error));
     }, [])
 
     const addAction = (data) => {

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
-  font-family: var(--font-text);
+  font-family: var(--font-text-primary);
   color: var(--color-base-default);
   border: none;
   font-weight: 700;
@@ -10,6 +10,7 @@ export const StyledButton = styled.button`
   transition: all 300ms ease-in-out;
   outline: none;
   cursor: pointer;
+  margin-top: 2rem;
 
   ${({ theme }) =>
     theme === "login" &&

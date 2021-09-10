@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { api } from "../../services/api";
 import jwtDecode from "jwt-decode";
+import toast from "react-hot-toast";
 
 const AuthContext = createContext();
 
@@ -40,6 +41,7 @@ export const AuthProvider = ({ children }) => {
         .then((response) => {
             localStorage.setItem("authToken", response.data.accessToken);
             setIsLogged(true);
+            toast.success("Sucesso ao fazer login");
             history.push("/dashboard");
         })
         .catch((error) => console.error(error))
