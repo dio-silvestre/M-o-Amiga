@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import CalendarCard from "../CalendarCard"
 import {Container, ContainerDatas, Box, ContainerAnoMes, ContainerHeader, ContainerButtons} from "./styles"
 import {FiChevronLeft,FiChevronRight} from "react-icons/fi"
-import {useActions} from "../../providers/Actions"
+
+
 
 const Calendar = () => {
 
-    const {actions} = useActions();
     const createCalendar = (month) => {
+        
         let year = new Date().getFullYear();
         while(month > 12 || month <= 0){
 
@@ -40,14 +41,11 @@ const Calendar = () => {
         const dates = [];
 
         for(let i = 0; i < months.length; i++){
-            if(months[i].index === month){
+            if(months[i].index == month){
                 for(let j = 1; j <= months[i].days; j++){
-                    
                     let newDay = new Date(year, month-1, j);
-                    let date = `${j<10 ? "0" : ""}${j}/${months[i].index < 10 ? "0" : ""}${months[i].index}/${year}`
-                    dates.push({"date": date,"year": year, "day": j,"month": months[i].month, "dayWeek": newDay.getDay(),
-                    "events":actions.filter((action)=> action.date === date)
-                });
+                    let date = `${j}/${months[i].month}/${year}`
+                    dates.push({"date": date,"year": year, "day": j,"month": months[i].month, "dayWeek": newDay.getDay(),"events": []});
                 }
                 i = months.length;
             }
@@ -60,14 +58,14 @@ const Calendar = () => {
 
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth()+ 1)
     const [dates, setDates] = useState(createCalendar(currentMonth));
-    console.log(actions)
+
     return (
     
     <Container>
         <ContainerHeader>
             <ContainerAnoMes>
-                <h2>{dates[0]?.month}</h2>
-                <h1>{dates[0]?.year}</h1>
+                <h2>{dates[0].month}</h2>
+                <h1>{dates[0].year}</h1>
             </ContainerAnoMes>
             <ContainerButtons>
                 <button onClick = {() => {setDates(createCalendar(currentMonth-1)); setCurrentMonth(currentMonth-1)}}> <FiChevronLeft /> </button>
@@ -76,8 +74,8 @@ const Calendar = () => {
         </ContainerHeader>
         
         <ContainerDatas>
-            <Box start={dates[0]?.dayWeek}/>
-            {dates?.map((item, index) => <CalendarCard key={index} number={item.day} events={item.events} />)}
+            <Box start={dates[0].dayWeek}/>
+            {dates.map((item, index) => <CalendarCard key={index} number={item.day}/>)}
         </ContainerDatas>
     </Container>
     )
