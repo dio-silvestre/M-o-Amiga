@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import jwtDecode from "jwt-decode";
+import toast from "react-hot-toast";
 
 const ActionsContext = createContext();
 
@@ -11,6 +12,7 @@ export const ActionsProvider = ({ children }) => {
     const userID = decodedToken.sub;
 
     const [actions, setActions] = useState([]);
+    const [participate, setParticipate] = useState(true);
 
     useEffect(() => {
         api
@@ -20,7 +22,7 @@ export const ActionsProvider = ({ children }) => {
             localStorage.setItem("actions", JSON.stringify(response.data));
         })
         .catch((error) => console.error(error));
-    }, [])
+    }, [participate])
 
     const addAction = (data) => {
         api
@@ -30,7 +32,7 @@ export const ActionsProvider = ({ children }) => {
         })
         .then((response) =>{
             setActions([...actions, response.data]);
-            console.log("Ação criada com sucesso!");
+            toast.success("Ação criada com sucesso!");
         })
         .catch((error) => console.error(error));
     };
@@ -39,7 +41,7 @@ export const ActionsProvider = ({ children }) => {
         api
         .delete(`/actions/${actionId}`)
         .then((response) =>{
-            console.log("Ação deletada com sucesso!")
+            toast.error("Ação deletada com sucesso!");
         })
         .catch((error) => console.error(error));
     };
@@ -58,7 +60,8 @@ export const ActionsProvider = ({ children }) => {
                 voluntaries: [...participants, Number(userID)]
             })
             .then((response) =>{
-                console.log("Está participando da ação agora! Seja bem vindo!")
+                setParticipate(!participate);
+                toast.success("Está participando da ação agora! Seja bem vindo!");
             })
             .catch((error) => console.error(error));
         })
@@ -75,7 +78,8 @@ export const ActionsProvider = ({ children }) => {
                 voluntaries: [...participants.filter((id) => id !== Number(userID))]
             })
             .then((response) =>{
-                console.log("Você abandonou esta ação! Que pena...")
+                setParticipate(!participate);
+                toast.error("Você abandonou esta ação! Que pena...");
             })
             .catch((error) => console.error(error));
         })
@@ -83,7 +87,7 @@ export const ActionsProvider = ({ children }) => {
     };
 
     return (
-       <ActionsContext.Provider value={{actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction}}>
+       <ActionsContext.Provider value={{userID, actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction}}>
            {children}
        </ActionsContext.Provider> 
     );
