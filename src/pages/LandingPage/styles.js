@@ -5,7 +5,6 @@ import MiniLogoColor from "./../../assets/img/logo-mini-color.svg";
 
 export const Container = styled.div `
     width: 100vw;
-    /* height: 3560px; */
     padding-top: 2rem;
     background: linear-gradient(0deg, rgba(71, 148, 255, 0) 90.5%, #4794FF 98.38%);
     font-family: var(--font-text-primary);
@@ -49,13 +48,25 @@ export const NavBar = styled.div `
     color: var(--color-text);
     font-size: 18px;
 
-    a, span {
+    a {
         cursor: pointer;
         :visited {
             color: var(--color-text);
         }
         :hover {
             color: var(--color-primary);  
+        }
+    }
+
+    span {
+        background-color: var(--color-primary-two);
+        padding: 1rem;
+        border-radius: 8px;
+        color: var(--color-text-two);
+
+        :hover {
+            cursor: pointer;
+            background-color: var(--color-primary); 
         }
     }
 
@@ -108,7 +119,7 @@ export const ContentOne = styled.p `
     padding: 1rem;
     border-radius: 8px;
     font-size: 1rem;
-    box-shadow: -20px 20px 0px -1px rgba(71,148,255,1);
+    box-shadow: -20px 20px 0px -1px var(--color-primary-two);
     margin-left: 50px;
 
         @media (min-width: 500px) {
@@ -174,8 +185,6 @@ export const CalendarSection = styled.section `
 
 export const DivCalendar = styled.div `
     width: 60%;
-
-    border: 2px solid red;
 `
 
 export const WomanBaloonComponent = styled.div `
@@ -305,6 +314,7 @@ export const ThirdSectionDesktopContentOne = styled.div `
 `
 
 export const ThirdSectionDesktopContentTwo = styled.div `
+
     p {
         width: 430px;
         font-size: 32px;
@@ -327,7 +337,7 @@ export const LastSection = styled.section `
         background-color: var(--color-placeholder);
         padding: 1rem;
         border-radius: 0.5rem;
-        box-shadow: 28px 31px 0px -1px rgba(71,148,255,1);
+        box-shadow: 28px 31px 0px -1px var(--color-primary);
 
         @media (min-width: 500px) {
             font-size: 1.5rem;
