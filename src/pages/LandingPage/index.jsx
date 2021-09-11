@@ -31,7 +31,9 @@ import {
     WheelchairManComponent,
     DivBarOne,
     Footer, 
-    ThirdSectionDesktop
+    ThirdSectionDesktop, 
+    ThirdSectionDesktopContentOne,
+    ThirdSectionDesktopContentTwo
 } from "./styles"
 
 const LandingPage = () => {
@@ -96,6 +98,17 @@ const LandingPage = () => {
                     </DivCalendar>
                 </CalendarSection>
 
+                <ThirdSectionDesktop>
+                    <ThirdSectionDesktopContentOne>
+                        <p>Ainda não faz parte? Faça seu cadastro!</p>
+                        <Button theme={"signUp"} onClick={() => history.push("/register")}>Cadastrar</Button>
+                    </ThirdSectionDesktopContentOne>
+                    <ThirdSectionDesktopContentTwo>
+                        <img src={ManBolering} alt="Man bolering" />
+                        <p>Agende, acompanhe, cadastre e busque por ações voluntárias !</p>
+                    </ThirdSectionDesktopContentTwo>
+                </ThirdSectionDesktop>
+
                 <LastSection>
                     <DivBar />
                     <WomansHeartComponent src={WomansHeart} alt="Womans Heart" />
@@ -109,13 +122,6 @@ const LandingPage = () => {
                     </section>
                     <WheelchairManComponent src={WheelchairMan} alt="Wheelchair Man" />
                 </LastSection>
-
-                <ThirdSectionDesktop>
-                    <span>Ainda não faz parte? Faça seu cadastro!</span>
-                    <Button theme={"signUp"} onClick={() => history.push("/register")}>Cadastrar</Button>
-                    <Button theme={"login"} onClick={() => history.push("/login")}>Login</Button>
-                    <span>Agende, acompanhe, cadastre e busque por ações voluntárias !</span>
-                </ThirdSectionDesktop>
 
             </FullContainer>
             <Footer id="aboutUs">

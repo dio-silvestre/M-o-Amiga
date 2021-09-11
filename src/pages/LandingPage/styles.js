@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
 import WomanBaloon from "./../../assets/img/woman-with-balloon.svg";
-import MiniLogoColor from "./../../assets/img/logo-mini-color.svg"
+import MiniLogoColor from "./../../assets/img/logo-mini-color.svg";
 
 export const Container = styled.div `
     width: 100vw;
@@ -276,6 +276,45 @@ export const ThirdSectionMobile = styled.div `
     }
 `
 
+export const ThirdSectionDesktop = styled.section `
+    display: none;
+
+    @media (min-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+    }
+`
+
+export const ThirdSectionDesktopContentOne = styled.div `
+    margin: 2rem 7% 2rem auto;
+
+    p {
+        width: 430px;
+        text-align: center;
+        font-size: 32px;
+    }
+
+    button {
+        margin: 0 0 0 3rem;
+    }
+`
+
+export const ThirdSectionDesktopContentTwo = styled.div `
+    p {
+        width: 430px;
+        font-size: 32px;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 0 0 0 5%;
+        background-color: var(--color-text-two);
+    }
+`
+
 export const LastSection = styled.section `
     display: flex;
     flex-direction: column;
@@ -299,7 +338,7 @@ export const LastSection = styled.section `
         }
 
         @media (min-width: 1366px) {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
         }
     }
 
@@ -326,9 +365,8 @@ export const DivBarOne = styled.div `
 
     @media (min-width: 1024px) {
         width: 60%;
-        height: 10px;
         background-color: var(--color-primary-two);
-        margin: auto 0 0 0;
+        margin: auto 0 8px 0;
     }
 `
 
@@ -358,8 +396,4 @@ export const Footer = styled.footer `
     @media (min-width: 1024px) {
         height: 200px;
     }
-`
-
-export const ThirdSectionDesktop = styled.section `
-    display: none;
 `
