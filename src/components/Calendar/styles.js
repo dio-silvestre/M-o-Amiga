@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const ContainerHeader= styled.div `
+export const ContainerHeader = styled.div `
     width: 100%;
     display: flex;
     
@@ -34,7 +34,7 @@ export const ContainerAnoMes = styled.div `
     }
 `
 
-export const ContainerButtons = styled.div`
+export const ContainerButtons = styled.div `
     button{
         background-color: white;
         border: 0;
@@ -58,20 +58,20 @@ export const ContainerButtons = styled.div`
 `
 
 export const Container = styled.div `
-    width: 90vw;
-    height: 40vh;
+    width: 100%;
+    /* height: 40vh; */
     background-color: white;
     border-radius: 25px;
     padding: 16px;
 
     @media screen and (min-width: 800px){
-        width: 50vw;
-        height: 63vh;
+        width: 100%;
+        /* height: 63vh; */
         padding: 2vw;
     }
 `
 
-export const Box = styled.div`
+export const Box = styled.div `
     width: ${(props) => props.start > 0 ? `${props.start * 10.45}vw` : "0px" };
     height: ${(props) => props.start > 0 ? "0px" : "0px" };
     @media screen and (min-width: 800px){
