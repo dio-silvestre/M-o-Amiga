@@ -72,42 +72,81 @@ export const NavBar = styled.div `
 `
 
 export const PresentationSection = styled.section `
-    height: 400px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+
+    div {
+        display: flex;
+    }
+
+    button {
+        margin: 3rem auto;
+    }
+`
+
+export const WomanBaloonsComponent = styled.img `
+    width: 43%;
+    max-width: 200px;
+    margin: 0px 0 0 0px;
+    z-index: 1;
+`
+
+export const MinicalendarComponent = styled.img `
     display: none;
-    margin: 2rem auto;
-`
+    width: 40%;
 
-export const ContentOne = styled.div `
-    width: 198px;
-    background-color: var(--color-text-two);
-    padding: 0.5rem;
-    border-radius: 8px;
-    margin-left: 3rem;
-
-    p {
-        width: 90%;
-        text-align: center;
-        font-size: 12px;
+    @media (min-width: 1024px) {
         display: block;
-        margin: 0 auto;
     }
 `
 
-export const ContentTwo = styled.div `
-    width: 200px;
+export const ContentOne = styled.p `
+    width: 75%;
+    max-width: 700px;
+    background-color: var(--color-text-two);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: -20px 20px 0px -1px rgba(71,148,255,1);
+    margin-left: 50px;
+
+        @media (min-width: 500px) {
+            font-size: 1.2rem;
+        }
+
+        @media (min-width: 768px) {
+            font-size: 1.5rem;
+        }
+
+        @media (min-width: 1366px) {
+            font-size: 2rem;
+        }
+`
+
+export const ContentTwo = styled.p `
+    width: 70%;
+    max-width: 700px;
     background-color: var(--color-text-two);
     padding: 0.5rem;
     border-radius: 8px;
+    z-index: 2;
+    margin: -120px 0 0 auto;
 
-    margin: 4rem 0 0 6rem;
+        @media (min-width: 425px) {
+            margin: -100px 0 0 auto;
+            font-size: 1.2rem;
+        }
 
-    p {
-        width: 90%;
-        text-align: center;
-        font-size: 12px;
-        display: block;
-        margin: 0 auto;
-    }
+        @media (min-width: 550px) {
+            margin: -150px 0 0 auto;
+            font-size: 1.5rem;
+        }
+
+        @media (min-width: 1366px) {
+            margin: -150px 0 0 auto;
+            font-size: 2rem;
+        }
 `
 
 export const WomanWithBaloons = styled.div `
@@ -115,7 +154,7 @@ export const WomanWithBaloons = styled.div `
     height: 256px;
     background: url(${WomanBaloons}) no-repeat right top;
     background-size: 130%;
-    display: flex;
+    z-index: 1;
 `
 
 export const CalendarSection = styled.section `
@@ -152,8 +191,6 @@ export const MiniLogoColorComponent = styled.div `
 `
 
 export const SecondSectionMobile = styled.div `
-    /* width: 100%; */
-    /* margin: 0 auto; */
 
     p {
         width: 200px;

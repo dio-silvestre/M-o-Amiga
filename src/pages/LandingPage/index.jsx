@@ -1,9 +1,11 @@
 import LogoFullColor from "./../../assets/img/logo.svg";
 import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
 import ManBolering from "./../../assets/img/man-bolering.svg";
+import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
 import WomanBaloon from "./../../assets/img/woman-with-balloon.svg";
 import WomansHeart from "./../../assets/img/woman-with-heart.svg";
-import WheelchairMan from "./../../assets/img/wheelchair-man.svg"
+import WheelchairMan from "./../../assets/img/wheelchair-man.svg";
+import MiniCalendar from "./../../assets/img/undraw-mini-calendar.svg";
 import Button from "../../components/Button";
 import Calendar from "../../components/Calendar";
 import { useHistory } from "react-router";
@@ -13,9 +15,10 @@ import {
     Header,
     NavBar,
     PresentationSection,
+    WomanBaloonsComponent,
+    MinicalendarComponent,
     ContentOne,
     ContentTwo,
-    WomanWithBaloons, 
     CalendarSection,
     DivCalendar,
     WomanBaloonComponent, 
@@ -47,18 +50,17 @@ const LandingPage = () => {
             </Header>
             <FullContainer>
                 <PresentationSection>
-                    <ContentOne>
-                        <p>Transforme o mundo com uma pequena ação</p>
-                    </ContentOne>
-                    {/* <section> */}
-                        <WomanWithBaloons />
-                        <ContentTwo>
-                            <p>
-                            Plataforma que conecta Instituição organizadora de ação e voluntário disponível, 
-                            sincronizando seus calendários gerando e compartilhando experiências !
-                            </p>                
-                        </ContentTwo>
-                    {/* </section> */}
+                    <div>
+                        <section>
+                            <ContentOne>Transforme o mundo com uma pequena ação</ContentOne>
+                            <WomanBaloonsComponent src={WomanBaloons} alt="Woman Baloons" />
+                            <ContentTwo>
+                                Plataforma que conecta Instituição organizadora de ação e voluntário disponível, 
+                                sincronizando seus calendários gerando e compartilhando experiências !
+                            </ContentTwo>
+                        </section>
+                        <MinicalendarComponent src={MiniCalendar} alt="Mini Calendar" />
+                    </div>
                     <Button theme={"signUp"} onClick={() => history.push("/register")}>Quero ajudar!</Button>
                 </PresentationSection>
 
