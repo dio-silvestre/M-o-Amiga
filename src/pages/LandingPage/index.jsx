@@ -1,10 +1,9 @@
-
 const LandingPage = () => {
-    return (
-        <>
-        LandingPage
-        </>
-    );
+  return (
+    <>
+      <p>Landing page</p>
+    </>
+  );
 };
 
 export default LandingPage;
