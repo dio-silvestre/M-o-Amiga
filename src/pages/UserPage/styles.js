@@ -11,6 +11,10 @@ export const Container = styled.div`
   max-width: 1366px;
   display: flex;
   justify-content: space-between;
+
+  .loading {
+    width: 300px;
+  }
 `;
 
 export const ProfileContainer = styled.div`
