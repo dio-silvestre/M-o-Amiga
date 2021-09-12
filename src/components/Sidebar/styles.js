@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
   background: linear-gradient(#f5f6fa, var(--color-primary) 41%, #f5f6fa);
   width: 350px;
   height: 100vh;
-  
 
   .logo {
     width: 290px;
@@ -31,33 +30,31 @@ export const SidebarContainer = styled.div`
       flex-direction: row;
       align-items: center;
       width: 75%;
-      margin: 20px auto;  
+      margin: 20px auto;
 
-    @media (max-width: 1000px) {
-       
-      margin: 10px auto;
+      @media (max-width: 1000px) {
+        margin: 10px auto;
       }
-    } 
-    
-    @media (min-width: 1053px){
-        .logout{
+    }
+
+    @media (min-width: 1053px) {
+      .logout {
         margin-top: 180px;
-    }
-    }
-   
-    p {
-      font-family: var(--font-text-primary);
-      font-size: 20px;
+      }
+
+      p {
+        font-family: var(--font-text-primary);
+        font-size: 20px;
+      }
+
+      img {
+        height: 30px;
+        width: 30px;
+      }
     }
 
-    img {
-      height: 30px;
-      width: 30px;
+    @media (max-width: 767px) {
+      display: none;
     }
-  }
-
-  @media (max-width: 767px) {
-    display: none;
-  }
   }
 `;
