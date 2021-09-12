@@ -8,6 +8,7 @@ export const FullContainer = styled.div`
 `;
 
 export const Container = styled.div`
+  width: 100%;
   max-width: 1366px;
   display: flex;
   justify-content: space-between;
@@ -23,6 +24,7 @@ export const ProfileContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  align-items: center;
 
   img {
     display: none;
@@ -53,7 +55,6 @@ export const ProfileContainer = styled.div`
       font-size: 1rem;
       font-weight: bold;
       margin-left: 0.7rem;
-      display: flex;
 
       svg {
         margin-top: 1rem;
@@ -79,6 +80,7 @@ export const ProfileContainer = styled.div`
 
   @media (min-width: 1053px) {
     margin-left: 3rem;
+    align-items: flex-start;
 
     h2 {
       text-align: left;
@@ -86,15 +88,40 @@ export const ProfileContainer = styled.div`
 
     img {
       display: block;
-      width: 20rem;
+      width: 23rem;
       height: 16rem;
       margin-top: 1rem;
     }
 
+    .infoContainer {
+      margin-left: 3rem;
+
+      div {
+        font-size: 1.2rem;
+      }
+
+      span {
+        font-size: 1.2rem;
+      }
+    }
+
     .contactContainer {
+      width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
+    }
+
+    .contact {
+      div {
+        display: flex;
+        font-size: 1.2rem;
+      }
+
+      span {
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
     }
   }
 `;

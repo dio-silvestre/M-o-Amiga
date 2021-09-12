@@ -53,7 +53,7 @@ const UserPage = () => {
           <>
             {userData.user_type === "institution" ? (
               <ProfileContainer>
-                <div>
+                <div className="infoContainer">
                   <h2>{userData.name}</h2>
                   <div>
                     Quantidade de ações:{" "}
@@ -76,13 +76,14 @@ const UserPage = () => {
                   <div className="contact">
                     <h3>Contato</h3>
                     <div>
-                      <FcBusinessman /> Responsável: <span>João da Silva</span>
+                      <FcBusinessman /> <span>Responsável:</span>&nbsp;João da
+                      Silva
                     </div>
                     <div>
-                      <FcPhone /> Telefone: <span>(11) 99999-9999</span>
+                      <FcPhone /> <span>Telefone:</span>&nbsp;(11) 99999-9999
                     </div>
                     <div>
-                      <FcPrint /> E-mail: <span>email@email.com</span>
+                      <FcPrint /> <span>E-mail:</span>&nbsp;email@email.com
                     </div>
                     <div>
                       <FcHome /> Endereço:{" "}
@@ -99,7 +100,7 @@ const UserPage = () => {
               </ProfileContainer>
             ) : (
               <ProfileContainer>
-                <div>
+                <div className="infoContainer">
                   <h2>{userData.name}</h2>
                   <div>
                     Quantidade de ações participantes:{" "}
@@ -118,13 +119,13 @@ const UserPage = () => {
                   <div className="contact">
                     <h3>Contato</h3>
                     <div>
-                      <FcPhone /> Telefone: <span>(11) 99999-9999</span>
+                      <FcPhone /> <span>Telefone:</span>&nbsp;(11) 99999-9999
                     </div>
                     <div>
-                      <FcPrint /> E-mail: <span>{userData.email}</span>
+                      <FcPrint /> <span>E-mail:</span>&nbsp;{userData.email}
                     </div>
                     <div>
-                      <FcHome /> Endereço:{" "}
+                      <FcHome /> <span>Endereço:</span>{" "}
                       <div>
                         Rua 5, Lote 10, Loja 08
                         <br />
