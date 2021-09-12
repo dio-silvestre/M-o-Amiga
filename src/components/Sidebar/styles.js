@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SidebarContainer = styled.div`
+export const SidebarContainer = styled.div `
   display: flex;
   flex-direction: column;
   background: linear-gradient(#f5f6fa, var(--color-primary) 41%, #f5f6fa);
@@ -59,5 +59,5 @@ export const SidebarContainer = styled.div`
   @media (max-width: 767px) {
     display: none;
   }
-  }
-`;
+
+`

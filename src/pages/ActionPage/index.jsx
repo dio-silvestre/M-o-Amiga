@@ -6,6 +6,18 @@ import { useParams } from "react-router-dom";
 import { useUser } from "../../providers/User";
 import { useActions } from "../../providers/Actions";
 import Loading from "./../../assets/img/loading.gif";
+import Sidebar from "../../components/Sidebar";
+import {
+    Container,
+    FullContainer,
+    Page,
+    ActionData,
+    BoxInfos,
+    LinkPerfil,
+    Participate,
+    ButtonLeave,
+} from "./styles";
+import Button from "../../components/Button";
 
 
 
@@ -43,49 +55,66 @@ const ActionPage = () => {
     }, [fetch, actions]);
 
     return (
-        <>
-            {isLoading ? (
-                <img src={Loading} alt="Loading" />
-            ) : (
-                <> 
-                    <h1>{specificAction.name}</h1>
-                    <>
-                        <h3><span>Categoria:</span>{specificAction.category}</h3>
-                        <h3><span>Data:</span>{specificAction.date}</h3>
-                        <h3><span>Descrição:</span>{specificAction.description}</h3>
-                        <h3><span>Cidade:</span>{specificAction.city}/{specificAction.state}</h3>
-                        <h3><span>Quantidade de voluntários inscritos:</span>{specificAction.voluntaries.length}/{specificAction.number_voluntaries}</h3>
-                        <h3><span>Instituição responsável:</span><Link to={`/institution/${specificAction.userId}`}>{userData.name}</Link></h3>
+        <Container>
+            <FullContainer>
+                <Sidebar />
+                <Page>
+                    {isLoading ? (
+                        <img src={Loading} alt="Loading" />
+                    ) : (
+                        <ActionData>
+                        <h1>{specificAction.name}</h1>
+                            <BoxInfos>
+                                <h3><span>Categoria: </span>{specificAction.category}</h3>
+                                <h3><span>Data: </span>{specificAction.date}</h3>
+                                <h3><span>Descrição: </span>{specificAction.description}</h3>
+                                <h3><span>Cidade: </span>{specificAction.city}/{specificAction.state}</h3>
+                                <h3><span>Quantidade de voluntários inscritos: </span>{specificAction.voluntaries.length}/{specificAction.number_voluntaries}</h3>
+                                <h3><span>Instituição responsável: </span><Link to={`/institution/${specificAction.userId}`}><LinkPerfil>{userData.name}</LinkPerfil></Link></h3>
 
-                        {isCreator ? (
-                            <button onClick={() => {
-                                deleteAction(params.actionId);
-                                history.push("/dashboard");
-                            }}>Deletar ação</button>
-                        ) : (
-                            <>
-                            {!participate ? (
-                                <>
-                                    <h2>Deseja participar desta ação?</h2>
-                                    <button onClick={() => {
-                                        participateAction(params.actionId);
-                                        setIsLoading(true);
-                                        }}>Sim</button>
-                                </>
-                            ): (
-                                <>
-                                    <button onClick={() => {
-                                        leaveAction(params.actionId);
-                                        setIsLoading(true);
-                                        }}>Abandonar esta ação</button>
-                                </>
-                            )}
-                            </>
-                        )}
-                    </> 
-                </>
-            )}
-        </>
+                                {isCreator ? (
+                                    <Button 
+                                        theme={"leave"}
+                                        onClick={() => {
+                                            deleteAction(params.actionId);
+                                            history.push("/dashboard");
+                                        }}
+                                        >Deletar ação
+                                    </Button>
+                                ) : (
+                                    <>
+                                    {!participate ? (
+                                        <Participate>
+                                            <h2>Deseja participar desta ação?</h2>
+                                            <Button 
+                                                theme={"participate"}
+                                                onClick={() => {
+                                                    participateAction(params.actionId);
+                                                    setIsLoading(true);
+                                                    }}
+                                                >Sim
+                                            </Button>
+                                        </Participate>
+                                    ): (
+                                        <ButtonLeave>
+                                            <Button
+                                                theme={"leave"}
+                                                onClick={() => {
+                                                    leaveAction(params.actionId);
+                                                    setIsLoading(true);
+                                                    }}
+                                                >Abandonar esta ação
+                                            </Button>
+                                        </ButtonLeave>
+                                    )}
+                                    </>
+                                )}
+                            </BoxInfos> 
+                        </ActionData>
+                    )}
+                </Page>
+            </FullContainer>
+        </Container>
     );
 };
 
