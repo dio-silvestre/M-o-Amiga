@@ -157,25 +157,24 @@ export const LI1 = styled.div`
 `;
 
 export const LI2 = styled.div`
-   display: inline-block;
-    color: var(--color-text-two);
-    padding-bottom: 10px;
-    width: 50%;
-    margin-bottom: 10px;
-    background-color: var(--color-primary-two);
+  display: inline-block;
+  color: var(--color-text-two);
+  padding-bottom: 10px;
+  width: 50%;
+  margin-bottom: 10px;
+  background-color: var(--color-primary-two);
 
-    input {
-      visibility: hidden;
-    }
-    label {
-      cursor: pointer;
-      /* border-radius: 20px 20px 0px 0px; */
-    }
+  input {
+    visibility: hidden;
+  }
+  label {
+    cursor: pointer;
+    /* border-radius: 20px 20px 0px 0px; */
+  }
 
-    input:checked + label {
-      background: var(--color-primary);
-      color: white;
-    }
+  input:checked + label {
+    background: var(--color-primary);
+    color: white;
   }
 `;
 
