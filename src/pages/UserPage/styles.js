@@ -10,6 +10,7 @@ export const FullContainer = styled.div`
 export const Container = styled.div`
   max-width: 1366px;
   display: flex;
+  justify-content: space-between;
 `;
 
 export const ProfileContainer = styled.div`
@@ -18,6 +19,10 @@ export const ProfileContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+
+  img {
+    display: none;
+  }
 
   div {
     font-family: var(--font-text-primary);
@@ -38,15 +43,17 @@ export const ProfileContainer = styled.div`
       margin: 1rem 0 2rem 0;
     }
 
-    p {
+    div {
       text-align: left;
       color: var(--color-text);
       font-size: 1rem;
       font-weight: bold;
-      margin-left: 1rem;
+      margin-left: 0.7rem;
+      display: flex;
 
       svg {
         margin-top: 1rem;
+        margin-right: 0.5rem;
       }
 
       span {
@@ -58,6 +65,32 @@ export const ProfileContainer = styled.div`
         text-align: left;
         font-weight: 400;
       }
+    }
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1053px) {
+    margin-left: 3rem;
+
+    h2 {
+      text-align: left;
+    }
+
+    img {
+      display: block;
+      width: 20rem;
+      height: 16rem;
+      margin-top: 1rem;
+    }
+
+    .contactContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
 `;

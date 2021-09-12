@@ -7,6 +7,10 @@ export const SidebarContainer = styled.div`
   width: 350px;
   height: 100vh;
 
+  @media (min-width: 1053px) {
+    display: block;
+  }
+
   .logo {
     width: 290px;
     height: 20vh;
