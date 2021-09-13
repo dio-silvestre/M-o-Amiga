@@ -1,5 +1,6 @@
 import LogoFullColor from "./../../assets/img/logo.svg";
 import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
+import LogoMiniColor from "./../../assets/img/logo-mini-color.svg";
 import ManBolering from "./../../assets/img/man-bolering.svg";
 import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
 import WomanBaloon from "./../../assets/img/woman-with-balloon.svg";
@@ -22,6 +23,7 @@ import {
   ContentOne,
   ContentTwo,
   CalendarSection,
+  DivImages,
   DivCalendar,
   WomanBaloonComponent,
   MiniLogoColorComponent,
@@ -101,10 +103,10 @@ const LandingPage = () => {
         </ThirdSectionMobile>
 
         <CalendarSection id="calendar">
-          <div>
-            <MiniLogoColorComponent />
-            <WomanBaloonComponent />
-          </div>
+          <DivImages>
+            <MiniLogoColorComponent src={LogoMiniColor} alt="Logo Mini" />
+            <WomanBaloonComponent src={WomanBaloon} alt="" />
+          </DivImages>
           <DivCalendar>
             <Calendar />
           </DivCalendar>
