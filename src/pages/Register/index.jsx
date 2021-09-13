@@ -30,6 +30,7 @@ const Register = () => {
   const { createAccount } = useUser();
 
   const [userType, setUserType] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const formSchema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
@@ -60,7 +61,7 @@ const Register = () => {
       user_type: userType,
     };
 
-    //console.log(newUser);
+    console.log(newUser);
 
     createAccount(newUser);
   };
@@ -134,7 +135,7 @@ const Register = () => {
 
               <Input
                 register={register}
-                name="areas_interest"
+                name="areas"
                 icon={FiMapPin}
                 label="Áreas de interesse"
                 placeholder="Selecione abaixo"
@@ -156,7 +157,7 @@ const Register = () => {
                 name="password_confirm"
                 icon={FiLock}
                 label=" Confirme sua senha"
-                placeholder="*********"
+                placeholder=" Confirme sua senha"
                 type="password"
                 colorSchema
                 error={errors.password_confirm?.message}
@@ -170,6 +171,8 @@ const Register = () => {
                   Entrar
                 </Button>
               )}
+
+              <div>{errorMsg}</div>
 
               <div>
                 <p>

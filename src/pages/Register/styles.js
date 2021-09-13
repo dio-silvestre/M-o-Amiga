@@ -19,14 +19,18 @@ export const Container = styled.div`
 
   .text2 {
     font-size: 24px;
-    width: 80vw;
+    width: 60vw;
     margin: 0auto;
     font-family: var(--font-text-primary);
+    font-weight: 500;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 540px) {
     .text2 {
       position: absolute;
+      right: 60px;
+      top: 232px;
+      width: 80vw;
     }
   }
 `;
@@ -42,21 +46,19 @@ export const Switch = styled.div`
     border: none;
     border-radius: 8px;
     border: 1px solid white;
-    // background-color: var(--color-primary-two);
     background-color: var(--color-primary);
     color: white;
     font-family: var(--font-text-primary);
     font-size: 16px;
     cursor: pointer;
-  }
-  button:first-child {
-    // background-color: var(--color-primary);
-    background-color: var(--color-primary-two);
-  }
 
-  button:hover {
-    filter: contrast(0.9);
-    font-weight: 900;
+    &:first-child {
+      background-color: var(--color-primary-two);
+    }
+
+    &:focus {
+      background-color: var(--color-secondary-two);
+    }
   }
 
   @media (max-width: 767px) {
@@ -66,7 +68,6 @@ export const Switch = styled.div`
 
 export const Header = styled.header`
   width: 100%;
-  //background-color: var(--color-primary);
   background: linear-gradient(
     var(--color-primary-two) 21%,
     var(--color-primary-two) 10%
