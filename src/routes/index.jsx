@@ -4,6 +4,7 @@ import Dashboard from "../pages/Dashboard";
 import ActionPage from "../pages/ActionPage";
 import LandingPage from "../pages/LandingPage";
 import { Switch, Route } from "react-router-dom";
+import ActionRegister from "../pages/ActionRegister";
 
 
 const Routes = () => {
@@ -14,6 +15,7 @@ const Routes = () => {
             <Route path="/register" component={Register} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/action/:actionId" component={ActionPage} />
+            <Route path="/actionregister" component={ActionRegister} />
         </Switch>
     );
 };

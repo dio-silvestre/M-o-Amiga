@@ -4,7 +4,7 @@ export const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: linear-gradient(#f5f6fa, var(--color-primary) 41%, #f5f6fa);
-  width: 350px;
+  width: 25vw;
   height: 100vh;
   
 
