@@ -2,7 +2,6 @@ import {
     Container,
     ContainerData,
     ContainerEvent,
-    MobileEvents,
 } from "./styles";
 
 const CalendarCard = ({number,events}) => {
@@ -16,9 +15,6 @@ const CalendarCard = ({number,events}) => {
         }</div>)}
         {events.length > 4 && <p>Ver mais...</p> }
         </ContainerEvent>
-        <MobileEvents>
-            {events.length > 0 && <p>Clique e veja as ações</p>}
-        </MobileEvents>
     </Container>
     );
 };

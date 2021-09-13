@@ -52,31 +52,12 @@ export const ContainerData = styled.div `
         color: var(--color-primary);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 1023px) {
         background-color: ${(props) => props.haveEvent ? "var(--color-primary)": ""};
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 1024px) {
         width: 1rem;
         height: 1rem;
-    }
-`
-
-export const MobileEvents = styled.div `
-    display: none;
-
-    @media (min-width: 600px) {
-        display: block;
-    }
-
-    @media (min-width: 1024px) {
-        display: none;
-    }
-
-    p {
-        padding: 2px 5px;
-        font-size: 10px;
-        text-align: center;
-        color: var(--color-primary);
     }
 `

@@ -7,6 +7,7 @@ import WomanBaloon from "./../../assets/img/woman-with-balloon.svg";
 import WomansHeart from "./../../assets/img/woman-with-heart.svg";
 import WheelchairMan from "./../../assets/img/wheelchair-man.svg";
 import MiniCalendar from "./../../assets/img/undraw-mini-calendar.svg";
+import { BiLogIn } from "react-icons/bi";
 import Button from "../../components/Button";
 import Calendar from "../../components/Calendar";
 import { useHistory } from "react-router";
@@ -16,6 +17,7 @@ import {
   Container,
   FullContainer,
   Header,
+  IconLogin,
   NavBar,
   PresentationSection,
   WomanBaloonsComponent,
@@ -57,19 +59,20 @@ const LandingPage = () => {
         <NavBar>
           <a href="#aboutUs">SOBRE NÓS</a>
           <a href="#calendar">CALENDÁRIO</a>
-          <span onClick={() => history.push("/login")}>LOGIN</span>
+          <span onClick={() => history.push("/login")}>Entrar</span>
         </NavBar>
+        <IconLogin onClick={() => history.push("/login")}><BiLogIn /></IconLogin>
       </Header>
       <FullContainer>
         <PresentationSection>
           <div>
             <section>
-              <ContentOne>Transforme o mundo com uma pequena ação</ContentOne>
+              <ContentOne>Transforme o mundo com uma pequena ação!</ContentOne>
               <WomanBaloonsComponent src={WomanBaloons} alt="Woman Baloons" />
               <ContentTwo>
-                Plataforma que conecta Instituição organizadora de ação e
+                Plataforma que conecta instituição organizadora de ação voluntária e
                 voluntário disponível, sincronizando seus calendários gerando e
-                compartilhando experiências !
+                compartilhando experiências.
               </ContentTwo>
             </section>
             <MinicalendarComponent src={MiniCalendar} alt="Mini Calendar" />
@@ -81,12 +84,12 @@ const LandingPage = () => {
 
         <SecondSectionMobile>
           <DivBar />
-          <p>Agende, acompanhe, cadastre e busque por ações voluntárias !</p>
+          <p>Agende, acompanhe, cadastre e busque por ações voluntárias!</p>
           <section>
             <img src={ManBolering} alt="Man bolering" />
             <p>
               Faça parte do nosso site para acompanhar as próximas ações
-              voluntárias
+              voluntárias.
             </p>
           </section>
           <DivBar />
@@ -103,6 +106,7 @@ const LandingPage = () => {
         </ThirdSectionMobile>
 
         <CalendarSection id="calendar">
+        <DivBar />
           <DivImages>
             <MiniLogoColorComponent src={LogoMiniColor} alt="Logo Mini" />
             <WomanBaloonComponent src={WomanBaloon} alt="" />
@@ -121,7 +125,7 @@ const LandingPage = () => {
           </ThirdSectionDesktopContentOne>
           <ThirdSectionDesktopContentTwo>
             <img src={ManBolering} alt="Man bolering" />
-            <p>Agende, acompanhe, cadastre e busque por ações voluntárias !</p>
+            <p>Agende, acompanhe, cadastre e busque por ações voluntárias!</p>
           </ThirdSectionDesktopContentTwo>
         </ThirdSectionDesktop>
 

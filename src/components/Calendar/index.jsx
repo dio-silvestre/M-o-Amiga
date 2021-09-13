@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import CalendarCard from "../CalendarCard";
-import {Container, ContainerDatas, Box, ContainerAnoMes, ContainerHeader, ContainerButtons} from "./styles";
+import {
+    Container,
+    ContainerDatas,
+    Box,
+    ContainerAnoMes,
+    ContainerHeader,
+    ContainerButtons,
+    MobileEvents,
+} from "./styles";
 import {FiChevronLeft,FiChevronRight} from "react-icons/fi";
 import { useActions } from "../../providers/Actions";
 
@@ -84,6 +92,10 @@ const Calendar = () => {
                 <Box start={dates[0].dayWeek}/>
                 {dates.map((item, index) => <CalendarCard key={index} number={item.day} events={item.events}/>)}
             </ContainerDatas>
+            <MobileEvents>
+                <div></div>
+                <p>Clique para ver os eventos cadastrados neste dia.</p>
+            </MobileEvents>
         </Container>
     );
 };

@@ -54,12 +54,39 @@ export const Container = styled.div `
 
 export const Box = styled.div `
     width: ${(props) => props.start > 0 ? `${props.start * 100 / 7}%` : "0px" };
-    @media screen and (min-width: 768px){
-    }
 `
 
 export const ContainerDatas = styled.div `
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+`
+
+export const MobileEvents = styled.div `
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+
+    div {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        margin-right: 0.5rem;
+
+        @media screen and (min-width: 500px){
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    @media screen and (min-width: 500px){
+        font-size: 1rem;
+    }
+
+    @media screen and (min-width: 1024px){
+        display: none;
+    }
 `
