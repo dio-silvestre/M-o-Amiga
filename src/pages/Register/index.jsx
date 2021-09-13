@@ -31,7 +31,7 @@ import { useAuth } from "../../providers/Auth";
 const Register = () => {
   const { createAccount } = useUser();
 
-  const [userType, setUserType] = useState("");
+  const [userType, setUserType] = useState("institution");
 
   const { isLogged } = useAuth();
 
@@ -148,7 +148,7 @@ const Register = () => {
                 name="areas"
                 icon={FiThumbsUp}
                 label="Áreas de interesse"
-                placeholder="Selecione abaixo"
+                placeholder="Quais seus interesses?"
                 colorSchema
                 error={errors.areas?.message}
               />
@@ -172,15 +172,9 @@ const Register = () => {
                 colorSchema
                 error={errors.password_confirm?.message}
               />
-              {userType === "" ? (
-                <Button type="submit" theme="login" disabled="true">
-                  Entrar
-                </Button>
-              ) : (
-                <Button type="submit" theme="login">
-                  Entrar
-                </Button>
-              )}
+              <Button type="submit" theme="login">
+                Registrar
+              </Button>
 
               <div>
                 <p>

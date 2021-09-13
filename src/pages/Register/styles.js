@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div `
   height: 100%;
   display: flex;
   align-items: center;
@@ -35,50 +35,44 @@ export const Container = styled.div`
   }
 `;
 
-export const Switch = styled.div`
+export const Switch = styled.div `
   display: flex;
   width: 114%;
   height: 60px;
   margin-top: -35px;
+
+  button {
+    width: 57%;
+    border: none;
+    border-radius: 8px;
+    border: 1px solid white;
+    color: white;
+    font-family: var(--font-text-primary);
+    font-size: 16px;
+    cursor: pointer;
+  }
 
   @media (max-width: 767px) {
     width: 112%;
   }
 `;
 
-export const ButtonInstitution = styled.button`
-  width: 57%;
-  border: none;
-  border-radius: 8px;
-  border: 1px solid white;
-  color: white;
-  font-family: var(--font-text-primary);
-  font-size: 16px;
-  cursor: pointer;
+export const ButtonInstitution = styled.button `
 
   background-color: ${(props) =>
-    props.userType === "voluntary" || props.userType === ""
+    props.userType === "voluntary"
       ? "var(--color-primary-two)"
       : "var(--color-secondary)"};
 `;
 
-export const ButtonVoluntary = styled.button`
-  width: 57%;
-  border: none;
-  border-radius: 8px;
-  border: 1px solid white;
-  color: white;
-  font-family: var(--font-text-primary);
-  font-size: 16px;
-  cursor: pointer;
-
+export const ButtonVoluntary = styled.button `
   background-color: ${(props) =>
-    props.userType === "institution" || props.userType === ""
+    props.userType === "institution"
       ? "var(--color-primary)"
       : "var(--color-secondary)"};
 `;
 
-export const Header = styled.header`
+export const Header = styled.header `
   width: 100%;
   background: linear-gradient(
     var(--color-primary-two) 21%,
@@ -155,7 +149,7 @@ export const Header = styled.header`
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -197,7 +191,7 @@ export const Content = styled.div`
   }
 `;
 
-const appearFromLeft = keyframes`
+const appearFromLeft = keyframes `
 from {
     opacity: 0;
     transform: translateX(-50px)
@@ -209,7 +203,7 @@ to {
 }
 `;
 
-export const AnimationContainer = styled.div`
+export const AnimationContainer = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
