@@ -78,7 +78,7 @@ export const ProfileContainer = styled.div `
     flex-direction: column;
   }
 
-  @media (min-width: 1053px) {
+  @media (min-width: 1024px) {
     margin-left: 3rem;
     align-items: flex-start;
 

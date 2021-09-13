@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
-import WomanBaloon from "./../../assets/img/woman-with-balloon.svg";
-import MiniLogoColor from "./../../assets/img/logo-mini-color.svg";
 
 export const Container = styled.div `
     width: 100vw;
@@ -20,8 +18,12 @@ export const Header = styled.header `
     justify-content: center;
 
     img {
-        width: 45%;
+        width: 60%;
         max-width: 640px;
+
+        @media (min-width: 768px) {
+            width: 45%;
+        }
     }
 
     @media (min-width: 768px) {
@@ -30,6 +32,18 @@ export const Header = styled.header `
 
     @media (min-width: 1366px) {
         height: 156px;
+    }
+`
+
+export const IconLogin = styled.div `
+    font-size: 2rem;
+    color: var(--color-primary-two);
+    position: absolute;
+    right: 1rem;
+    top: 5rem;
+
+    @media (min-width: 768px) {
+        display: none;
     }
 `
 
@@ -47,6 +61,7 @@ export const NavBar = styled.div `
     display: none;
     color: var(--color-text);
     font-size: 18px;
+    margin-top: 5%;
 
     a {
         cursor: pointer;
@@ -73,7 +88,7 @@ export const NavBar = styled.div `
     @media (min-width: 768px) {
         display: flex;
         justify-content: space-around;
-        align-items: flex-end;
+        align-items: center;
     }
 
     @media (min-width: 1366px) {
@@ -83,7 +98,7 @@ export const NavBar = styled.div `
 `
 
 export const PresentationSection = styled.section `
-    margin: 3rem auto;
+    margin: 3rem auto 2rem;
     display: flex;
     flex-direction: column;
 
@@ -92,7 +107,7 @@ export const PresentationSection = styled.section `
     }
 
     button {
-        margin: 3rem auto;
+        margin: 2rem auto;
     }
 `
 
@@ -170,33 +185,40 @@ export const WomanWithBaloons = styled.div `
 
 export const CalendarSection = styled.section `
     width: 100%;
-    display: none;
-    border: 2px solid blue;
+    display: block;
+    margin: 1rem auto;
+    justify-content: center;
 
     @media (min-width: 1024px) {
-        display: none;
+        display: flex;
+    }
+`
 
-        div {
-            width: 40%;
-            display: flex;
-        }
+export const DivImages = styled.div `
+    width: 30%;
+    display: none;
+
+    @media (min-width: 1024px) {
+        display: flex;
     }
 `
 
 export const DivCalendar = styled.div `
-    width: 60%;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+        width: 70%;
+    }
 `
 
-export const WomanBaloonComponent = styled.div `
-    width: 25%;
-    background: url(${WomanBaloon}) no-repeat center;
-    background-size: 100%;
+export const MiniLogoColorComponent = styled.img `
+    width: 50%;
+    margin-right: -35%;
+    margin-bottom: -40%;
 `
 
-export const MiniLogoColorComponent = styled.div `
-    width: 15%;
-    background: url(${MiniLogoColor}) no-repeat center;
-    background-size: 100%;
+export const WomanBaloonComponent = styled.img `
+    width: 85%;
 `
 
 export const SecondSectionMobile = styled.div `
@@ -277,7 +299,6 @@ export const ThirdSectionMobile = styled.div `
     img {
         width: 70%;
         margin-left: -30%;
-        margin-top: -20%;
     }
 
     @media (min-width: 1024px) {
@@ -287,6 +308,7 @@ export const ThirdSectionMobile = styled.div `
 
 export const ThirdSectionDesktop = styled.section `
     display: none;
+    margin: 2rem 0;
 
     @media (min-width: 1024px) {
         display: flex;
@@ -354,7 +376,7 @@ export const LastSection = styled.section `
 
     img {
         width: 50%;
-        max-width: 500px;
+        max-width: 350px;
     }
 
     section {
@@ -381,11 +403,11 @@ export const DivBarOne = styled.div `
 `
 
 export const WomansHeartComponent = styled.img `
-    margin: 0 0 0 auto;
+    margin-left: auto;
 `
 
 export const WheelchairManComponent = styled.img `
-    margin: 0 0 0 -10%;
+    margin-left: -10%;
 `
 
 export const Footer = styled.footer `
