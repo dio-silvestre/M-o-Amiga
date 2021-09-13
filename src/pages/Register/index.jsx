@@ -32,8 +32,13 @@ import {
 } from "./styles";
 import RegisterBallons from "../../assets/RegisterBallons.svg";
 import RegisterWhiteLogo from "../../assets/RegisterWhiteLogo.svg";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../providers/Auth";
 
 const Register = () => {
+
+  const { isLogged } = useAuth();
+
   const formSchema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
     name: yup.string().required("Nome obrigatório"),
@@ -53,6 +58,10 @@ const Register = () => {
   });
 
   const onSubmitFunction = (data) => console.log(data);
+
+  if (isLogged) {
+    return <Redirect to="/dashboard" />;
+  };
 
   return (
     <>

@@ -9,6 +9,8 @@ import MiniCalendar from "./../../assets/img/undraw-mini-calendar.svg";
 import Button from "../../components/Button";
 import Calendar from "../../components/Calendar";
 import { useHistory } from "react-router";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../providers/Auth";
 import {
   Container,
   FullContainer,
@@ -37,7 +39,14 @@ import {
 } from "./styles";
 
 const LandingPage = () => {
+
   const history = useHistory();
+
+  const { isLogged } = useAuth();
+
+  if (isLogged) {
+    return <Redirect to="/dashboard" />;
+  };
 
   return (
     <Container>
