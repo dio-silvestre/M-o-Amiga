@@ -5,6 +5,8 @@ import ActionPage from "../pages/ActionPage";
 import LandingPage from "../pages/LandingPage";
 import UserPage from "../pages/UserPage";
 import { Switch, Route } from "react-router-dom";
+import ActionRegister from "../pages/ActionRegister";
+import Calendar from "../components/Calendar";
 
 const Routes = () => {
   return (
@@ -15,6 +17,8 @@ const Routes = () => {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/action/:actionId" component={ActionPage} />
       <Route path="/users/:userId" component={UserPage} />
+      <Route path = "/actionregister" component ={ActionRegister} />
+      <Route path = "/calendar" component={Calendar}/>
     </Switch>
   );
 };
