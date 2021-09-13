@@ -41,7 +41,7 @@ export const InputContainer = styled.div`
     font-family: var(--font-text-secondary);
     font-weight: 600;
     font-size: 1.1rem;
-    width: 80%;
+    width: 100%;
     background-color: ${(props) =>
       props.colorSchema
         ? "var(--color-text-two)"

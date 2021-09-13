@@ -9,11 +9,11 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useActions } from "../../providers/Actions";
 import Loading from "./../../assets/img/loading.gif";
+import MenuMobile from "../../components/MenuMobile";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
 
 const UserPage = () => {
-
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const { userData, fetchUserData } = useUser();
@@ -49,11 +49,12 @@ const UserPage = () => {
 
   if (!isLogged) {
     return <Redirect to="/login" />;
-  };
+  }
 
   return (
     <FullContainer>
       <Container>
+        <MenuMobile />
         <Sidebar />
         {isLoading ? (
           <img src={Loading} alt="Loading" className="loading" />
