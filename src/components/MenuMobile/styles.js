@@ -34,14 +34,14 @@ export const StyledMenu = styled.nav`
     width: 100%;
     max-width: 290px;
     height: 20vh;
-    margin: 20px auto;
+    margin: 0px auto;
   }
 
   .totem {
     width: 100%;
     max-width: 300px;
     height: 200px;
-    margin: 20px auto;
+    margin: 0 auto 20px;
   }
 
   section {
@@ -55,9 +55,7 @@ export const StyledMenu = styled.nav`
     }
 
     div {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+      display: block;
       width: 75%;
       margin: 12px auto;
 
@@ -67,6 +65,10 @@ export const StyledMenu = styled.nav`
         svg {
           font-size: 1.4rem;
         }
+      }
+
+      li {
+        margin: 10px 0;
       }
     }
 
