@@ -1,29 +1,18 @@
 import styled from "styled-components"
 
 export const Container = styled.div `
-        width: 13%;
-    @media screen and (min-width: 800px){
-        width: 6.5vw;
-        height: 8.5vh;
-        
+    width: calc((100% / 7));
+    @media screen and (min-width: 768px){
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        height: calc(100% / 6);
     }
 `
 
 export const ContainerEvent = styled.div `
-    @media screen and (min-width:700px){
-    display: flex;
-    flex-direction: column;
-    color: black;
-    width: 70%;
-    div{
-        font-size: 13px;
-        text-align: center;
-        padding-right: 5px;
+    @media screen and (min-width:768px){
+        font-size: 10px;
+        margin-left: 8px;
     }
-}
 `
 
 export const ContainerData =styled.div``

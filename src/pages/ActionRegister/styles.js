@@ -37,5 +37,5 @@ export const ContainerInfoRegister = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 75vw;
+    width: calc(100vw - 350px);
 `
