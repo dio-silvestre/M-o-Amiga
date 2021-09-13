@@ -15,13 +15,13 @@ export const SidebarContainer = styled.div`
   .logo {
     width: 290px;
     height: 20vh;
-    margin: 20px auto;
+    margin: 0px auto;
   }
 
   .totem {
     width: 300px;
     height: 200px;
-    margin: 20px auto;
+    margin: 0 auto 20px;
   }
 
   section {
@@ -35,15 +35,18 @@ export const SidebarContainer = styled.div`
     }
 
     div {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 75%;
-      margin: 20px auto;
+      display: block;
+      width: 80%;
+      margin: 15px auto;
       cursor: pointer;
 
       svg {
         font-size: 1.5rem;
+      }
+
+      li {
+        margin: 10px 0;
+        font-size: 1.15rem;
       }
 
       @media (max-width: 1000px) {

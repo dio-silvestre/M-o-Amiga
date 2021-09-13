@@ -11,8 +11,11 @@ import {
   FiPlusCircle,
   FiCheckCircle,
   FiLogOut,
+  FiChevronDown,
+  FiChevronUp,
 } from "react-icons/fi";
 import { Link, useParams } from "react-router-dom";
+import Collapsible from "react-collapsible";
 
 const MenuMobile = () => {
   const { myData, signOut } = useAuth();
@@ -57,17 +60,43 @@ const MenuMobile = () => {
             <></>
           )}
           {myData.user_type === "institution" ? (
-            <div>
-              <p>
-                <FiCheckCircle /> Ações cadastradas
-              </p>
-            </div>
+            <Collapsible
+              trigger={
+                <p>
+                  <FiCheckCircle /> Ações cadastradas <FiChevronDown />
+                </p>
+              }
+              triggerWhenOpen={
+                <p>
+                  <FiCheckCircle /> Ações cadastradas <FiChevronUp />
+                </p>
+              }
+            >
+              <ul>
+                <li>Ação 1</li>
+                <li>Ação 2</li>
+                <li>Ação 3</li>
+              </ul>
+            </Collapsible>
           ) : (
-            <div>
-              <p>
-                <FiCheckCircle /> Ações participantes
-              </p>
-            </div>
+            <Collapsible
+              trigger={
+                <p>
+                  <FiCheckCircle /> Ações participantes <FiChevronDown />
+                </p>
+              }
+              triggerWhenOpen={
+                <p>
+                  <FiCheckCircle /> Ações participantes <FiChevronUp />
+                </p>
+              }
+            >
+              <ul>
+                <li>Ação 1</li>
+                <li>Ação 2</li>
+                <li>Ação 3</li>
+              </ul>
+            </Collapsible>
           )}
           <div onClick={signOut} className="logout">
             <p>
