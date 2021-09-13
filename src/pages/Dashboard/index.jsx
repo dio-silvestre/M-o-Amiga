@@ -1,8 +1,13 @@
 import { useAuth } from "../../providers/Auth";
+import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
 
-    const { myData, signOut } = useAuth();
+    const { myData, signOut, isLogged } = useAuth();
+
+    if (!isLogged) {
+        return <Redirect to="/login" />;
+      };
 
     return (
         <>

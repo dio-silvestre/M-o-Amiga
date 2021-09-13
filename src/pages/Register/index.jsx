@@ -6,42 +6,43 @@ import {
   FiUser,
   FiMap,
   FiMapPin,
-  FiHeart,
-  FiKey,
   FiThumbsUp,
 } from "react-icons/fi";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Link } from "react-router-dom";
 import {
-  Msg1,
-  Msg2,
-  H3,
-  Blue,
-  AnimationContainer,
   Container,
-  Form,
-  Ul,
-  Logo,
-  Ballon,
-  Square1,
-  Square2,
-  LI1,
-  LI2,
+  Header,
+  Content,
+  AnimationContainer,
+  Switch,
+  ButtonInstitution,
+  ButtonVoluntary,
 } from "./styles";
 import RegisterBallons from "../../assets/RegisterBallons.svg";
-import RegisterWhiteLogo from "../../assets/RegisterWhiteLogo.svg";
+import RegisterLogo from "../../assets/logo.svg";
+import { useState } from "react";
+import { useUser } from "../../providers/User";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../providers/Auth";
 
 const Register = () => {
+  const { createAccount } = useUser();
+
+  const [userType, setUserType] = useState("institution");
+
+  const { isLogged } = useAuth();
+
   const formSchema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
     name: yup.string().required("Nome obrigatório"),
     city: yup.string().required("Cidade obrigatória"),
     state: yup.string().required("Estado obrigatório"),
-    areas_interest: yup.string().required("Endereço obrigatório"),
+    areas: yup.string().required("Campo obrigatório"),
     password: yup.string().required("Senha obrigatória"),
-    password2: yup.string().required("Senhas não correspondentes"),
+    password_confirm: yup.string().required("Senhas não correspondentes"),
   });
 
   const {
@@ -52,52 +53,59 @@ const Register = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmitFunction = (data) => console.log(data);
+  const onSubmitFunction = ({ name, email, city, state, areas, password }) => {
+    const newUser = {
+      name,
+      email,
+      city,
+      state,
+      areas,
+      password,
+      user_type: userType,
+    };
+    createAccount(newUser);
+  };
+
+  if (isLogged) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
-    <>
-      <Square1 />
-      <Square2 />
-      <Blue>
-        <Msg1>
-          <FiThumbsUp color="black" fill="black" size={70} />
-          <h2>Recrute!</h2>
-          <h3>Aqui você pode recrutar voluntários para sua ação social</h3>
-        </Msg1>
-        <Msg2>
-          <FiHeart color="black" fill="black" size={70} />
-          <h2>Procurando fazer o bem?</h2>
-          <h3>
-            Aqui você pode pesquisar por eventos sociais para fazer parte!
-          </h3>
-        </Msg2>
-      </Blue>
-      <H3>Crie sua conta</H3>
-      <AnimationContainer>
-        <Container>
-          <Form>
-            <form className="form" onSubmit={handleSubmit(onSubmitFunction)}>
-              <Ul>
-                <LI1>
-                  <input
-                    type="radio"
-                    value="instituition"
-                    name="radio"
-                    id="instituition"
-                  />
-                  <label for="instituition">Instituição</label>
-                </LI1>
-                <LI2>
-                  <input
-                    type="radio"
-                    value="voluntary"
-                    name="radio"
-                    id="voluntary"
-                  />
-                  <label for="voluntary">Voluntário</label>
-                </LI2>
-              </Ul>
+    <Container>
+      <Header>
+        <div>
+          <img src={RegisterLogo} alt="Mão Amiga Logo" />
+          <div className="textBox1">
+            <h1>Recrute! </h1>
+            <p>Aqui você pode encontrar voluntários para sua ação social</p>
+          </div>
+          <div>
+            <h1>Procurando fazer o bem ?</h1>
+            <p>Aqui você pode pesquisar por ações sociais para fazer parte!</p>
+          </div>
+        </div>
+      </Header>
 
+      <div className="text"></div>
+      <div className="text2">Cadastre-se</div>
+      <Content>
+        <div className="form-mobile">
+          <AnimationContainer>
+            <Switch>
+              <ButtonInstitution
+                userType={userType}
+                onClick={() => setUserType("institution")}
+              >
+                Instituição
+              </ButtonInstitution>
+              <ButtonVoluntary
+                userType={userType}
+                onClick={() => setUserType("voluntary")}
+              >
+                Voluntário
+              </ButtonVoluntary>
+            </Switch>
+            <form onSubmit={handleSubmit(onSubmitFunction)}>
               <Input
                 register={register}
                 name="name"
@@ -106,8 +114,7 @@ const Register = () => {
                 placeholder="Digite seu nome"
                 colorSchema
                 error={errors.name?.message}
-              ></Input>
-
+              />
               <Input
                 register={register}
                 name="email"
@@ -116,75 +123,79 @@ const Register = () => {
                 placeholder="Digite seu e-mail"
                 colorSchema
                 error={errors.email?.message}
-              ></Input>
-
+              />
               <Input
                 register={register}
                 name="city"
-                icon={FiMapPin}
+                icon={FiMap}
                 label="Cidade"
-                placeholder="Informe sua cidade"
+                placeholder="Digite sua cidade"
                 colorSchema
                 error={errors.city?.message}
-              ></Input>
-
+              />
               <Input
                 register={register}
                 name="state"
-                icon={FiMap}
+                icon={FiMapPin}
                 label="Estado"
-                placeholder="Informe seu estado"
+                placeholder="Digite seu estado"
                 colorSchema
                 error={errors.state?.message}
-              ></Input>
+              />
 
               <Input
                 register={register}
-                name="areas_interest"
-                icon={FiHeart}
+                name="areas"
+                icon={FiThumbsUp}
                 label="Áreas de interesse"
-                placeholder="Informe suas áreas de interesse"
+                placeholder="Quais seus interesses?"
                 colorSchema
-                error={errors.areas_interest?.message}
-              ></Input>
-
+                error={errors.areas?.message}
+              />
               <Input
                 register={register}
                 name="password"
-                icon={FiKey}
+                icon={FiLock}
                 label="Senha"
-                placeholder="Informe sua senha"
+                placeholder="Digite sua senha"
+                type="password"
                 colorSchema
                 error={errors.password?.message}
-              ></Input>
-
+              />
               <Input
                 register={register}
-                name="password2"
+                name="password_confirm"
                 icon={FiLock}
-                label="Confirmação de Senha"
-                placeholder="Confirme a senha"
+                label=" Confirme sua senha"
+                placeholder=" Confirme sua senha"
+                type="password"
                 colorSchema
-                error={errors.password2?.message}
-              ></Input>
-
-              <Button type="submit" theme="signUp">
-                Finalizar Cadastro
+                error={errors.password_confirm?.message}
+              />
+              <Button type="submit" theme="login">
+                Registrar
               </Button>
 
-              <p>
-                Já possui uma conta? <Link to="/login">LOGIN</Link>
-              </p>
+              <div>
+                <p>
+                  Já possui uma conta?
+                  <Link to="/login">
+                    <div></div>Faça o Login
+                  </Link>
+                </p>
+              </div>
             </form>
-          </Form>
-        </Container>
-      </AnimationContainer>
-
-      <div className="images">
-        <Logo className="logo" src={RegisterWhiteLogo} alt="Logo"></Logo>
-        <Ballon className="ballon" src={RegisterBallons} alt="Figura garota" />
-      </div>
-    </>
+          </AnimationContainer>
+        </div>
+        <div className="images">
+          <img
+            className="ellipse"
+            src={RegisterBallons}
+            alt="Figura com elipse"
+          />
+        </div>
+      </Content>
+    </Container>
   );
 };
 

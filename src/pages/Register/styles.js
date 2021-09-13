@@ -1,184 +1,197 @@
 import styled, { keyframes } from "styled-components";
 
-export const Container = styled.div`
-  height: 100vh;
+export const Container = styled.div `
+  height: 100%;
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  font-family: var(--font-text);
+
+  .text {
+    width: 89vw;
+    margin: 0 auto;
+    display: block;
+
+    font-size: 20px;
+
+    margin-bottom: -90px;
+  }
+
+  .text2 {
+    font-size: 24px;
+    width: 60vw;
+    margin: 0auto;
+    font-family: var(--font-text-primary);
+    font-weight: 500;
+  }
+
+  @media (max-width: 540px) {
+    .text2 {
+      position: absolute;
+      right: 60px;
+      top: 232px;
+      width: 80vw;
+    }
+  }
 `;
 
-export const Blue = styled.div`
-  width: 100vw;
-  height: 449px;
-  background-color: var(--color-primary);
+export const Switch = styled.div `
   display: flex;
-  align-items: stretch;
-  justify-content: center;
+  width: 114%;
+  height: 60px;
+  margin-top: -35px;
+
+  button {
+    width: 57%;
+    border: none;
+    border-radius: 8px;
+    border: 1px solid white;
+    color: white;
+    font-family: var(--font-text-primary);
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 767px) {
+    width: 112%;
+  }
 `;
 
-export const Msg1 = styled.div`
-  font-family: var(--font-text);
-  color: white;
-  line-height: 32px;
-  font-weight: bold;
-  h2 {
-    font-size: 26px;
-  }
-  h3 {
-    font-size: 20px;
-  }
+export const ButtonInstitution = styled.button `
 
-  position: absolute;
-  width: 333.29px;
-  height: 89.68px;
-  left: 601px;
-  top: 69px;
-`;
-export const Msg2 = styled.div`
-  font-family: var(--font-text);
-  color: white;
-  line-height: 32px;
-  font-weight: bold;
-  h2 {
-    font-size: 26px;
-  }
-  h3 {
-    font-size: 20px;
-  }
-
-  position: absolute;
-  width: 333.29px;
-  height: 119.13px;
-  left: 1000.39px;
-  top: 260.4px;
+  background-color: ${(props) =>
+    props.userType === "voluntary"
+      ? "var(--color-primary-two)"
+      : "var(--color-secondary)"};
 `;
 
-export const H3 = styled.h3`
-  color: var(--color-text-two);
-  position: absolute;
-  top: 240px;
-  left: 250px;
-  font-size: 24px;
+export const ButtonVoluntary = styled.button `
+  background-color: ${(props) =>
+    props.userType === "institution"
+      ? "var(--color-primary)"
+      : "var(--color-secondary)"};
+`;
+
+export const Header = styled.header `
+  width: 100%;
+  background: linear-gradient(
+    var(--color-primary-two) 21%,
+    var(--color-primary-two) 10%
+  );
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-text-primary);
-  font-weight: bold;
+  align-items: center;
+
+  img {
+    width: 275px;
+    height: 255px;
+    margin-bottom: 10px;
+  }
+
+  div {
+    margin-bottom: 2rem;
+
+    h1 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--color-title);
+      margin-left: 8px;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--color-placeholder);
+      margin-left: 8px;
+    }
+
+    .textBox1 {
+      height: 115px;
+
+      h1 {
+        text-align: left;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    div {
+      width: 100%;
+      max-width: 1366px;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 3rem;
+
+      img {
+        width: 500px;
+        align-self: flex-start;
+        margin-left: 1rem;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 1rem;
+
+        p {
+          text-align: center;
+          font-size: 1.1rem;
+          align-self: flex-end;
+        }
+      }
+    }
+  }
 `;
 
-export const Form = styled.div`
+export const Content = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--color-primary-two);
-  border-radius: var(--border-radius);
-  background-color: var(--color-base-default);
+  width: 100%;
+  max-width: 1366px;
+  margin-top: 2rem;
 
-  width: 370px;
-  /* height: 900px; */
-  //com erro height: 1200px;
-  position: absolute;
-  left: 250px;
-  top: 282px;
+  @media (min-width: 768px) {
+    .form-mobile {
+      max-width: 380px;
+    }
+  }
 
-  input {
-    margin: 0;
+  @media (max-width: 768px) {
+    .form-mobile {
+      width: 95%;
+      position: absolute;
+      top: 18rem;
+      z-index: 2;
+      background-color: var(--color-text-two);
+    }
+
+    .images {
+      position: absolute;
+      top: 6rem;
+      right: 1rem;
+
+      .ellipse {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: 918px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
   }
 `;
 
-export const Logo = styled.img`
-  position: absolute;
-  width: 270px;
-  height: 255px;
-  left: -5px;
-  top: -17px;
-  z-index: 1;
-  opacity: 0.9;
-`;
-
-export const Ballon = styled.img`
-  position: absolute;
-  width: 374px;
-  height: 630.84px;
-  left: 906px;
-  top: 406px;
-`;
-
-export const Square1 = styled.div`
-  background-color: var(--color-base-default);
-  width: 70px;
-  height: 70px;
-  position: absolute;
-
-  left: 597px;
-  top: 60px;
-  transform: rotate(45deg);
-`;
-export const Square2 = styled.div`
-  background-color: var(--color-base-default);
-  width: 70px;
-  height: 70px;
-  position: absolute;
-
-  left: 990px;
-  top: 260.4px;
-  transform: rotate(45deg);
-`;
-
-export const Ul = styled.div`
-  width: 105%;
-  padding: 0;
-  font-size: 30px;
-  display: block;
-  position: relative;
-  left: -9px;
-  top: -76px;
-  /* border-radius: 20px 20px 0px 0px; */
-`;
-
-export const LI1 = styled.div`
-  display: inline-block;
-  color: var(--color-text-two);
-  padding-bottom: 10px;
-  width: 50%;
-  margin-bottom: 10px;
-  background-color: var(--color-primary-two);
-
-  input {
-    visibility: hidden;
-  }
-  label {
-    cursor: pointer;
-  }
-
-  input:checked + label {
-    background: var(--color-primary);
-    color: white;
-  }
-`;
-
-export const LI2 = styled.div`
-  display: inline-block;
-  color: var(--color-text-two);
-  padding-bottom: 10px;
-  width: 50%;
-  margin-bottom: 10px;
-  background-color: var(--color-primary-two);
-
-  input {
-    visibility: hidden;
-  }
-  label {
-    cursor: pointer;
-    /* border-radius: 20px 20px 0px 0px; */
-  }
-
-  input:checked + label {
-    background: var(--color-primary);
-    color: white;
-  }
-`;
-
-const appearFromLeft = keyframes`
+const appearFromLeft = keyframes `
 from {
     opacity: 0;
     transform: translateX(-50px)
@@ -190,20 +203,23 @@ to {
 }
 `;
 
-export const AnimationContainer = styled.div`
+export const AnimationContainer = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  border: 2px solid var(--color-primary-two);
+  border-radius: var(--border-radius);
   padding: 1rem;
   animation: ${appearFromLeft} 1s;
+  background-color: #ffffff;
+  margin-bottom: 1rem;
 
   form {
-    margin: 60px 0;
     width: 270px;
     text-align: center;
     line-height: 2rem;
+    background-color: #ffffff;
 
     @media (min-width: 768px) {
       width: 350px;
@@ -211,7 +227,7 @@ export const AnimationContainer = styled.div`
 
     h1 {
       margin-bottom: 32px;
-      font-family: var(--font-text);
+      font-family: var(--font-text-primary);
       font-weight: 700;
       font-size: 2rem;
       text-align: left;
@@ -219,11 +235,12 @@ export const AnimationContainer = styled.div`
 
     > div {
       margin-top: 16px;
-      font-family: var(--font-text);
+      font-family: var(--font-text-primary);
     }
 
     p {
       margin-top: 8px;
+      color: var(--color-primary-two);
       > a {
         font-weight: 700;
         color: var(--color-primary-two);
