@@ -41,29 +41,41 @@ export const Switch = styled.div`
   height: 60px;
   margin-top: -35px;
 
-  button {
-    width: 57%;
-    border: none;
-    border-radius: 8px;
-    border: 1px solid white;
-    background-color: var(--color-primary);
-    color: white;
-    font-family: var(--font-text-primary);
-    font-size: 16px;
-    cursor: pointer;
-
-    &:first-child {
-      background-color: var(--color-primary-two);
-    }
-
-    &:focus {
-      background-color: var(--color-secondary-two);
-    }
-  }
-
   @media (max-width: 767px) {
     width: 112%;
   }
+`;
+
+export const ButtonInstitution = styled.button`
+  width: 57%;
+  border: none;
+  border-radius: 8px;
+  border: 1px solid white;
+  color: white;
+  font-family: var(--font-text-primary);
+  font-size: 16px;
+  cursor: pointer;
+
+  background-color: ${(props) =>
+    props.userType === "voluntary" || props.userType === ""
+      ? "var(--color-primary-two)"
+      : "var(--color-secondary)"};
+`;
+
+export const ButtonVoluntary = styled.button`
+  width: 57%;
+  border: none;
+  border-radius: 8px;
+  border: 1px solid white;
+  color: white;
+  font-family: var(--font-text-primary);
+  font-size: 16px;
+  cursor: pointer;
+
+  background-color: ${(props) =>
+    props.userType === "institution" || props.userType === ""
+      ? "var(--color-primary)"
+      : "var(--color-secondary)"};
 `;
 
 export const Header = styled.header`
@@ -132,10 +144,6 @@ export const Header = styled.header`
         align-items: center;
         justify-content: flex-end;
         margin-right: 1rem;
-
-        h1 {
-          //   align-self: flex-end;
-        }
 
         p {
           text-align: center;
@@ -214,8 +222,6 @@ export const AnimationContainer = styled.div`
   margin-bottom: 1rem;
 
   form {
-    margin: 0px 0; // alterado aqui
-
     width: 270px;
     text-align: center;
     line-height: 2rem;

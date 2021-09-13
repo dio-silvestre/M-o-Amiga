@@ -1,6 +1,13 @@
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import { FiMail, FiLock, FiUser, FiMap, FiMapPin } from "react-icons/fi";
+import {
+  FiMail,
+  FiLock,
+  FiUser,
+  FiMap,
+  FiMapPin,
+  FiThumbsUp,
+} from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,6 +18,8 @@ import {
   Content,
   AnimationContainer,
   Switch,
+  ButtonInstitution,
+  ButtonVoluntary,
 } from "./styles";
 import RegisterBallons from "../../assets/RegisterBallons.svg";
 import RegisterLogo from "../../assets/logo.svg";
@@ -83,12 +92,18 @@ const Register = () => {
         <div className="form-mobile">
           <AnimationContainer>
             <Switch>
-              <button onClick={() => setUserType("institution")}>
+              <ButtonInstitution
+                userType={userType}
+                onClick={() => setUserType("institution")}
+              >
                 Instituição
-              </button>
-              <button onClick={() => setUserType("voluntary")}>
+              </ButtonInstitution>
+              <ButtonVoluntary
+                userType={userType}
+                onClick={() => setUserType("voluntary")}
+              >
                 Voluntário
-              </button>
+              </ButtonVoluntary>
             </Switch>
             <form onSubmit={handleSubmit(onSubmitFunction)}>
               <Input
@@ -131,7 +146,7 @@ const Register = () => {
               <Input
                 register={register}
                 name="areas"
-                icon={FiMapPin}
+                icon={FiThumbsUp}
                 label="Áreas de interesse"
                 placeholder="Selecione abaixo"
                 colorSchema
@@ -170,7 +185,9 @@ const Register = () => {
               <div>
                 <p>
                   Já possui uma conta?
-                  <Link to="/login">Faça o Login</Link>
+                  <Link to="/login">
+                    <div></div>Faça o Login
+                  </Link>
                 </p>
               </div>
             </form>
