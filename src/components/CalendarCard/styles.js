@@ -11,3 +11,19 @@ export const Container = styled.div `
         justify-content: flex-start;
     }
 `
+
+export const ContainerEvent = styled.div `
+    @media screen and (min-width:700px){
+    display: flex;
+    flex-direction: column;
+    color: black;
+    width: 70%;
+    div{
+        font-size: 13px;
+        text-align: center;
+        padding-right: 5px;
+    }
+}
+`
+
+export const ContainerData =styled.div``
