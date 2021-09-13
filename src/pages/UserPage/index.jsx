@@ -64,7 +64,7 @@ const UserPage = () => {
                     <span>{numberOfActionsVoluntariesInAction}</span>
                   </div>
                   <div>
-                    Áreas de atuação: <span>Doação de alimentos</span>
+                    Áreas de atuação: <span>{userData.areas}</span>
                   </div>
                 </div>
 
@@ -107,7 +107,7 @@ const UserPage = () => {
                     <span>{numberOfParticipationsVoluntary}</span>
                   </div>
                   <div>
-                    Áreas de atuação: <span>{userData.areas_interest}</span>
+                    Áreas de atuação: <span>{userData.areas}</span>
                   </div>
                 </div>
 
