@@ -28,6 +28,7 @@ export const SidebarContainer = styled.div `
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 35%;
 
     div {
       display: flex;
@@ -43,7 +44,7 @@ export const SidebarContainer = styled.div `
 
     @media (min-width: 1053px) {
       .logout {
-        margin-top: 180px;
+        margin-top: auto;
       }
 
       p {

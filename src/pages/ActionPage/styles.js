@@ -16,12 +16,18 @@ export const FullContainer = styled.div `
 `
 
 export const Page = styled.div `
-    width: calc(100vw - 350px);
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-family: var(--font-text-primary);
     color: var(--color-text-two);
+
+    @media (min-width: 1053px) {
+        width: calc(100% - 350px);
+        align-items: flex-start;
+    }
 
     img {
         margin: auto;
@@ -30,9 +36,14 @@ export const Page = styled.div `
 `
 
 export const ActionData = styled.main `
+    width: 100%;
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    @media (min-width: 1053px) {
+        width: 60%;
+    }
 
     h1 {
         color: var(--color-primary-two);
@@ -42,7 +53,7 @@ export const ActionData = styled.main `
 `
 
 export const BoxInfos = styled.div `
-    width: 60%;
+    min-width: 310px;
     padding: 1rem 2rem;
     background-color: var(--color-primary-two);
     border-radius: 24px;

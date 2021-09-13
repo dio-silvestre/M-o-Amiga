@@ -70,7 +70,7 @@ const ActionPage = () => {
                                 <h3><span>Descrição: </span>{specificAction.description}</h3>
                                 <h3><span>Cidade: </span>{specificAction.city}/{specificAction.state}</h3>
                                 <h3><span>Quantidade de voluntários inscritos: </span>{specificAction.voluntaries.length}/{specificAction.number_voluntaries}</h3>
-                                <h3><span>Instituição responsável: </span><Link to={`/institution/${specificAction.userId}`}><LinkPerfil>{userData.name}</LinkPerfil></Link></h3>
+                                <h3><span>Instituição responsável: </span><Link to={`/users/${specificAction.userId}`}><LinkPerfil>{userData.name}</LinkPerfil></Link></h3>
 
                                 {isCreator ? (
                                     <Button 
