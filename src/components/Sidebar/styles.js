@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
   background: linear-gradient(#f5f6fa, var(--color-primary) 41%, #f5f6fa);
   width: 350px;
   height: 100vh;
+
+  @media (min-width: 1053px) {
+    display: block;
+  }
 
   .logo {
     width: 290px;

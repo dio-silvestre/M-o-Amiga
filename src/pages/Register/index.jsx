@@ -22,10 +22,7 @@ import {
   Switch,
 } from "./styles";
 import RegisterBallons from "../../assets/RegisterBallons.svg";
-import RegisterWhiteLogo from "../../assets/RegisterWhiteLogo.svg";
 import RegisterLogo from "../../assets/logo.svg";
-import LoginGirl from "../../assets/LoginGirl.svg";
-import LoginGroup from "../../assets/LoginGroup.svg";
 import { useState } from "react";
 import { useUser } from "../../providers/User";
 
