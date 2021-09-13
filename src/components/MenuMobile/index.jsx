@@ -57,21 +57,17 @@ const MenuMobile = () => {
             <></>
           )}
           {myData.user_type === "institution" ? (
-            <Link to="">
-              <div>
-                <p>
-                  <FiCheckCircle /> Ações cadastradas
-                </p>
-              </div>
-            </Link>
+            <div>
+              <p>
+                <FiCheckCircle /> Ações cadastradas
+              </p>
+            </div>
           ) : (
-            <Link to="">
-              <div>
-                <p>
-                  <FiCheckCircle /> Ações participantes
-                </p>
-              </div>
-            </Link>
+            <div>
+              <p>
+                <FiCheckCircle /> Ações participantes
+              </p>
+            </div>
           )}
           <div onClick={signOut} className="logout">
             <p>
