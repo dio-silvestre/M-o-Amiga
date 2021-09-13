@@ -16,7 +16,6 @@ export const SidebarContainer = styled.div`
     width: 290px;
     height: 20vh;
     margin: 20px auto;
-    margin-bottom: 40px;
   }
 
   .totem {

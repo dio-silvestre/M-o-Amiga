@@ -1,4 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const appearFromLeft = keyframes`
+    from {
+        opacity: 0;
+        transform: translateX(-85px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+`;
 
 export const StyledMenu = styled.nav`
   top: 0;
@@ -16,13 +28,13 @@ export const StyledMenu = styled.nav`
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-85%)")};
   font-family: var(--font-text-primary);
   color: var(--color-title);
+  animation: ${appearFromLeft} 1s;
 
   .logo {
     width: 100%;
     max-width: 290px;
     height: 20vh;
     margin: 20px auto;
-    margin-bottom: 40px;
   }
 
   .totem {
