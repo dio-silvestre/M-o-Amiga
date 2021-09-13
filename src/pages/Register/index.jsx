@@ -30,7 +30,6 @@ const Register = () => {
   const { createAccount } = useUser();
 
   const [userType, setUserType] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
 
   const formSchema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
@@ -60,9 +59,6 @@ const Register = () => {
       password,
       user_type: userType,
     };
-
-    console.log(newUser);
-
     createAccount(newUser);
   };
 
@@ -171,8 +167,6 @@ const Register = () => {
                   Entrar
                 </Button>
               )}
-
-              <div>{errorMsg}</div>
 
               <div>
                 <p>

@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { api } from "../../services/api";
+import toast from "react-hot-toast";
 
 const UserContext = createContext();
 
@@ -13,10 +14,11 @@ export const UserProvider = ({ children }) => {
     const createAccount = (data) => {
         api
         .post("/signup", data)
-        .then((response) => {
+        .then((response) => { 
+            toast.success("Conta criada com sucesso!");
             history.push("/login");
         })
-        .catch((error) => console.error(error))
+        .catch((error) => toast.error("Erro ao criar conta , tente com outro email")))
     };
 
     const deleteAccount = (userId) => {
