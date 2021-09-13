@@ -1,15 +1,6 @@
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import {
-  FiMail,
-  FiLock,
-  FiUser,
-  FiMap,
-  FiMapPin,
-  FiHeart,
-  FiKey,
-  FiThumbsUp,
-} from "react-icons/fi";
+import { FiMail, FiLock, FiUser, FiMap, FiMapPin } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -25,11 +16,15 @@ import RegisterBallons from "../../assets/RegisterBallons.svg";
 import RegisterLogo from "../../assets/logo.svg";
 import { useState } from "react";
 import { useUser } from "../../providers/User";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../providers/Auth";
 
 const Register = () => {
   const { createAccount } = useUser();
 
   const [userType, setUserType] = useState("");
+
+  const { isLogged } = useAuth();
 
   const formSchema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
@@ -61,6 +56,10 @@ const Register = () => {
     };
     createAccount(newUser);
   };
+
+  if (isLogged) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Container>

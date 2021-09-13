@@ -10,9 +10,11 @@ import { AnimationContainer, Container, Content, Header } from "./styles";
 import LoginLogo from "../../assets/LoginLogo.svg";
 import LoginGirl from "../../assets/LoginGirl.svg";
 import LoginGroup from "../../assets/LoginGroup.svg";
+import { Redirect } from "react-router-dom";
 
 const Login = () => {
-  const { signIn } = useAuth();
+  
+  const { signIn, isLogged } = useAuth();
 
   const formSchema = yup.object().shape({
     email: yup
@@ -38,6 +40,10 @@ const Login = () => {
   const onSubmitFunction = (data) => {
     signIn(data);
     reset();
+  };
+
+  if (isLogged) {
+    return <Redirect to="/dashboard" />;
   };
 
   return (
