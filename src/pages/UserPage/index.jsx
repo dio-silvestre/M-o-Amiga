@@ -9,12 +9,16 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useActions } from "../../providers/Actions";
 import Loading from "./../../assets/img/loading.gif";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../providers/Auth";
 
 const UserPage = () => {
+
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const { userData, fetchUserData } = useUser();
   const { actions } = useActions();
+  const { isLogged } = useAuth();
 
   const numberOfParticipationsVoluntary = actions.filter((action) =>
     action.voluntaries.includes(Number(params.userId))
@@ -43,6 +47,10 @@ const UserPage = () => {
     }
   }, [userData]);
 
+  if (!isLogged) {
+    return <Redirect to="/login" />;
+  };
+
   return (
     <FullContainer>
       <Container>
@@ -64,7 +72,7 @@ const UserPage = () => {
                     <span>{numberOfActionsVoluntariesInAction}</span>
                   </div>
                   <div>
-                    Áreas de atuação: <span>Doação de alimentos</span>
+                    Áreas de atuação: <span>{userData.areas}</span>
                   </div>
                 </div>
 
@@ -107,7 +115,7 @@ const UserPage = () => {
                     <span>{numberOfParticipationsVoluntary}</span>
                   </div>
                   <div>
-                    Áreas de atuação: <span>{userData.areas_interest}</span>
+                    Áreas de atuação: <span>{userData.areas}</span>
                   </div>
                 </div>
 

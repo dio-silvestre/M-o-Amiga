@@ -18,13 +18,14 @@ import {
     ButtonLeave,
 } from "./styles";
 import Button from "../../components/Button";
-
-
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../providers/Auth";
 
 const ActionPage = () => {
 
     const { alreadyParticipate, actions, participateAction, leaveAction, userID, deleteAction } = useActions();
     const { userData, fetchUserData } = useUser();
+    const { isLogged } = useAuth();
 
     const [isLoading, setIsLoading] = useState(true);
     const [participate, setParticipate] = useState(false);
@@ -53,6 +54,10 @@ const ActionPage = () => {
             setIsLoading(false);
         };
     }, [fetch, actions]);
+
+    if (!isLogged) {
+        return <Redirect to="/login" />;
+      };
 
     return (
         <Container>
