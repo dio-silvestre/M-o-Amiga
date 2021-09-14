@@ -39,13 +39,14 @@ export const MenuSup = styled.div`
 `
 export const Info = styled.div`
     height: 80px;
-    width: 50vw;
+    width: 100vw;
     text-align:center;
     font-size: 20px;
     color: var(--color-primary-two);
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     @media screen and (min-width: 768px){
         width: 100%;

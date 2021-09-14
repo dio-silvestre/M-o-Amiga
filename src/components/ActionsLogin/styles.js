@@ -2,9 +2,9 @@ import styled from "styled-components"
 
 export const Container = styled.form `
     background-color: var(--color-primary-two);
-    height: 660px;
-    border-radius: var(--border-radius);
+    height: 680px;
     font-family: var(--font-text-primary);
+    border-radius: var(--border-radius);
 `
 
 export const ContainerInfo = styled.div`
@@ -16,6 +16,9 @@ export const Container45 = styled.div`
     width: 48%;
     div{
         color: white;
+    }
+    span{
+        color: var(--color-base-default)
     }
 `
 
@@ -31,9 +34,8 @@ export const ContainerForm = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 570px;
+    height: 595px;
     padding: 25px;
-    border-radius: var(--border-radius);
     select{
         height: 55px;
         width: 100%;

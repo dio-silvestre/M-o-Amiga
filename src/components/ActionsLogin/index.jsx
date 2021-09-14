@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import {Container, ContainerInfo, Container45, ContainerButton, ContainerForm} from "./styles"
-import Input from "../Input"
+import Input from "../Input";
 import Button from "../Button";
 
 import {useActions} from "../../providers/Actions"
@@ -73,7 +73,7 @@ const ActionsLogin = () => {
                 label="Quantidade de voluntários"
                 placeholder=""
                 colorSchema = {false}
-                error={errors.numberOfVolunteers?.message}
+                error={errors.numberOfVoluntaries?.message}
               ></Input>
               <ContainerInfo>
                 <Container45>
@@ -118,6 +118,7 @@ const ActionsLogin = () => {
                   <option value="SE">Sergipe</option>
                   <option value="TO">Tocantins</option>
                 </select>
+                <span>{errors.state?.message}</span>
                 </Container45>
               </ContainerInfo>
               <ContainerInfo>
