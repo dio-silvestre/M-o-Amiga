@@ -17,7 +17,7 @@ const ActionsLogin = () => {
         name: yup.string().required("Nome obrigatório"),
         description: yup.string().required("Descrição obrigatória"),
         category: yup.string().required("Categoria obrigatória"),
-        numberOfVoluntaries: yup.string().required("Voluntários obrigatório").matches(/^[0-9]*$/, "OI"),
+        numberOfVoluntaries: yup.string().required("Voluntários obrigatório").matches(/^[0-9]*$/, "Apenas números"),
         city: yup.string().required("Cidade obrigatória"),
         state: yup.string().required("Estado obrigatório"),
         hour: yup.string().required("Hora obrigatória").matches(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/ , "Hora: HH/MM"),
@@ -36,7 +36,6 @@ const ActionsLogin = () => {
       });
     
       const onSubmitFunction = (data) => {
-        console.log(data)
         addAction(data)
       };
 

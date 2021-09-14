@@ -3,7 +3,6 @@ import { api } from "../../services/api";
 import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
 import {useAuth} from "../Auth";
-import {useHistory} from "react-router-dom";
 
 const ActionsContext = createContext();
 
@@ -13,8 +12,6 @@ export const ActionsProvider = ({ children }) => {
     const decodedToken = localToken === "" ? "" : jwtDecode(localToken);
     const userID = decodedToken.sub;
     const {myData} = useAuth();
-
-    const history = useHistory();
 
     const [actions, setActions] = useState(JSON.parse(localStorage.getItem("actions")) || []);
     const [participate, setParticipate] = useState(true);
@@ -43,7 +40,6 @@ export const ActionsProvider = ({ children }) => {
         .then((response) =>{
             setActions([...actions, response.data]);
             toast.success("Ação criada com sucesso!");
-            history.push("/calendar")
         })
         .catch((error) => console.error(error));
     };
