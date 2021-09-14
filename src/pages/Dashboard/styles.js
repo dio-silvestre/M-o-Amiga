@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slidein = keyframes`
+ from {
+   height: 0px;
+  }
+
+  to {
+    height: 100px;
+  }
+
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -13,27 +24,6 @@ export const Container = styled.div`
     justify-content: flex-start;
   }
 `;
-export const MenuSup = styled.div`
-  height: 10vh;
-  width: 100vw;
-  background-color: green;
-`;
-export const MenuInf = styled.div`
-  height: 10vh;
-  width: 100vw;
-  background-color: green;
-`;
-
-export const Info = styled.div`
-  height: 80px;
-  width: 60vw;
-  text-align: center;
-  font-size: 20px;
-  color: var(--color-primary-two);
-  @media screen and (min-width: 768) {
-    width: 100%;
-  }
-`;
 
 export const MainContainer = styled.div`
   display: flex;
@@ -44,16 +34,87 @@ export const MainContainer = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-  height: 25vh;
+  height: 250px;
   display: flex;
-  justify-content: space-around;
-  width: 90%;
+  justify-content: center;
+  width: 100%;
 
-  div {
+  .messageContainer {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin: 20px auto;
+    width: 30%;
+    text-align: left;
+
+    h1 {
+      font-weight: 700;
+      font-size: 3rem;
+      color: var(--color-title);
+      margin-left: 100px;
+      font-family: var(--font-text-primary);
+      color: var(--color-primary-two);
+      //  color:var(--color-text-two)
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 2rem;
+      color: var(--color-title);
+      margin-left: 8px;
+      font-family: var(--font-text-primary);
+      color: var(--color-primary-two);
+      //color:var(--color-text-two)
+    }
+  }
+
+  .inputContainer {
+    display: flex;
+    width: 60%;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+
+    span {
+      margin-right: 20px;
+    }
+
+    .inputContainer:focus {
+      border: none;
+    }
+
+    input {
+      width: 350px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid white;
+      padding-left: 20px;
+    }
+
+    input:focus {
+      border: none;
+      // background-color: var(--color-text-two);
+    }
+
+    .searchContainer {
+      height: 100px;
+      width: 360px;
+      z-index: 2;
+      background-color: white;
+      overflow: auto;
+      animation: ${slidein} 2s;
+      border: none;
+      text-align: left;
+      padding-left: 15px;
+      box-shadow: 5px 8px 8px var(--color-secondary);
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    height: 200px;
 
     h1 {
       font-weight: 700;
@@ -62,26 +123,19 @@ export const HeaderContainer = styled.div`
       margin-left: 100px;
       font-family: var(--font-text-primary);
       color: var(--color-primary-two);
+      //  color:var(--color-text-two)
     }
 
     h2 {
       margin-bottom: 20px;
       font-weight: 600;
-      font-size: 1.5rem;
+      font-size: 1rem;
       color: var(--color-title);
       margin-left: 8px;
       font-family: var(--font-text-primary);
       color: var(--color-primary-two);
+      //color:var(--color-text-two)
     }
-  }
-
-  .searchBar {
-    width: 900px;
-    height: 30px;
-    border-radius: 8px;
-    margin: 20px auto;
-    border: 2px solid white;
-    padding-left: 20px;
   }
 `;
 
@@ -90,4 +144,11 @@ export const CalendarContainer = styled.div`
   margin: 0 auto;
   border-radius: 10px;
   background-color: white;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    height: 600px;
+    width: 80vw;
+    margin: 0 auto;
+  }
 `;
