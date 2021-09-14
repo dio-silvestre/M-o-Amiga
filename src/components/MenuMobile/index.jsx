@@ -23,7 +23,7 @@ const MenuMobile = () => {
   const params = useParams();
 
   return (
-    <div>
+    <>
       <StyledMenu open={open}>
         <img src={Logo} alt="logo-ma-amiga" className="logo" />
 
@@ -106,7 +106,7 @@ const MenuMobile = () => {
         </section>
       </StyledMenu>
       <Hamburger open={open} setOpen={setOpen} />
-    </div>
+    </>
   );
 };
 

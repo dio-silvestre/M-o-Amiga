@@ -56,7 +56,7 @@ export const StyledMenu = styled.nav`
 
     div {
       display: block;
-      width: 75%;
+      width: 85%;
       margin: 12px auto;
 
       p {
