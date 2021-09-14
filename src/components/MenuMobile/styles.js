@@ -77,6 +77,14 @@ export const StyledMenu = styled.nav`
     }
   }
 
+  .Collapsible__contentInner {
+    max-height: 7.5rem;
+  }
+
+  .Collapsible__contentOuter {
+    max-height: 7.5rem;
+  }
+
   @media (min-width: 1024px) {
     display: none;
   }
