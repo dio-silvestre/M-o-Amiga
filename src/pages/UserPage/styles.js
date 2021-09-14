@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const FullContainer = styled.div `
+export const FullContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background: linear-gradient(#f5f6fa, var(--color-primary) 41%, #f5f6fa);
+  background: var(--main-background);
 `;
 
-export const Container = styled.div `
+export const Container = styled.div`
   width: 100%;
   max-width: 1366px;
   display: flex;
@@ -18,7 +18,7 @@ export const Container = styled.div `
   }
 `;
 
-export const ProfileContainer = styled.div `
+export const ProfileContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
