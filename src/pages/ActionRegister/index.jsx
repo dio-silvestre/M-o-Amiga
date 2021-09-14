@@ -1,32 +1,34 @@
-import ActionsLogin from "../../components/ActionsLogin"
-import {Container, MenuInf, MenuSup, Info, ContainerInfoRegister} from "./styles"
+import ActionsForm from "../../components/ActionForm"
+import {Container, Info, ContainerInfoRegister, ContainerAction, ContentMobile, ContentDescktop, FullContainer} from "./styles"
 import SideBar from "../../components/Sidebar"
+import Logo from "../../assets/logo.svg"
+import MenuMobile from "../../components/MenuMobile"
 
 const ActionRegister = () => {
     return(
-        <Container>
-            {window.innerWidth < 768 ? 
-            <>
-                <MenuSup></MenuSup>
-                <SideBar />
-                <Info>
-                Aqui , você pode cadastrar sua ação voluntária !
-                </Info>
-                <ActionsLogin></ActionsLogin>
-                <MenuInf />
-            </>
-            :
-            <>
-                <SideBar />
-                <ContainerInfoRegister>
+        <FullContainer>
+            <Container>
+                <ContentMobile>
+                    <MenuMobile />
                     <Info>
                     Aqui , você pode cadastrar sua ação voluntária !
                     </Info>
-                    <ActionsLogin></ActionsLogin>
-                </ContainerInfoRegister>
-            </>
-            }
-        </Container>
+                    <ActionsForm />
+                </ContentMobile>
+                <ContentDescktop>
+                    <SideBar />
+                    <ContainerInfoRegister>
+                        <Info>
+                            <p>Aqui , você pode cadastrar sua ação voluntária !</p>
+                            <img src={Logo}></img>
+                        </Info>
+                        <ContainerAction>
+                            <ActionsForm></ActionsForm>   
+                        </ContainerAction>
+                    </ContainerInfoRegister>
+                </ContentDescktop>
+            </Container>
+        </FullContainer>
     )
 }
 
