@@ -41,25 +41,35 @@ export const ActionData = styled.main `
     flex-direction: column;
     height: 100%;
 
-    @media (min-width: 1053px) {
-        width: 60%;
-    }
-
     h1 {
+        width: 85%;
+        margin: 3rem auto;
+        display: block;
         color: var(--color-primary-two);
-        font-size: 2rem;
-        margin: 3rem 2rem;
+        font-size: 1.5rem;
+        text-align: center;
+
+        @media (min-width: 1024px) {
+            font-size: 2.5rem;
+            text-align: start;
+            margin: 3rem 2rem;
+        }
     }
 `
 
 export const BoxInfos = styled.div `
-    min-width: 310px;
+    min-width: 300px;
     padding: 1rem 2rem;
     background-color: var(--color-primary-two);
     border-radius: 24px;
-    margin: auto 2rem;
     display: flex;
     flex-direction: column;
+    margin: 0 0.5rem;
+
+    @media (min-width: 1024px) {
+        margin: auto 2rem;
+        width: 60%;
+    }
 
     span {
         font-weight: bold;

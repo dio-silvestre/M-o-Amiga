@@ -7,6 +7,7 @@ import { useUser } from "../../providers/User";
 import { useActions } from "../../providers/Actions";
 import Loading from "./../../assets/img/loading.gif";
 import Sidebar from "../../components/Sidebar";
+import MenuMobile from "../../components/MenuMobile";
 import {
     Container,
     FullContainer,
@@ -25,7 +26,7 @@ const ActionPage = () => {
 
     const { alreadyParticipate, actions, participateAction, leaveAction, userID, deleteAction } = useActions();
     const { userData, fetchUserData } = useUser();
-    const { isLogged } = useAuth();
+    const { isLogged, myData } = useAuth();
 
     const [isLoading, setIsLoading] = useState(true);
     const [participate, setParticipate] = useState(false);
@@ -41,15 +42,15 @@ const ActionPage = () => {
         .get(`/actions/${params.actionId}`)
         .then((response) =>{
             setSpecificAction(response.data);
-            fetchUserData(params.actionId);
+            fetchUserData(response.data.userId);
+            setIscreator(response.data.userId === Number(userID));
             setFetched(true);
         })
         .catch((error) => console.error(error));
-    }, [params.actionId, actions, fetchUserData]);
+    }, [params.actionId, actions]);
 
     useEffect(() => {
         if(actions.length > 0 && fetch) {
-            setIscreator(specificAction.id === Number(userID));
             setParticipate(alreadyParticipate(Number(params.actionId)));
             setIsLoading(false);
         };
@@ -57,11 +58,12 @@ const ActionPage = () => {
 
     if (!isLogged) {
         return <Redirect to="/login" />;
-      };
+    };
 
     return (
         <Container>
             <FullContainer>
+                <MenuMobile />
                 <Sidebar />
                 <Page>
                     {isLoading ? (
@@ -88,30 +90,36 @@ const ActionPage = () => {
                                     </Button>
                                 ) : (
                                     <>
-                                    {!participate ? (
-                                        <Participate>
-                                            <h2>Deseja participar desta ação?</h2>
-                                            <Button 
-                                                theme={"participate"}
-                                                onClick={() => {
-                                                    participateAction(params.actionId);
-                                                    setIsLoading(true);
-                                                    }}
-                                                >Sim
-                                            </Button>
-                                        </Participate>
-                                    ): (
-                                        <ButtonLeave>
-                                            <Button
-                                                theme={"leave"}
-                                                onClick={() => {
-                                                    leaveAction(params.actionId);
-                                                    setIsLoading(true);
-                                                    }}
-                                                >Abandonar esta ação
-                                            </Button>
-                                        </ButtonLeave>
-                                    )}
+                                        {myData.user_type === "institution" ? (
+                                            <></>
+                                        ) : (
+                                            <>
+                                                {!participate ? (
+                                                    <Participate>
+                                                        <h2>Deseja participar desta ação?</h2>
+                                                        <Button 
+                                                            theme={"participate"}
+                                                            onClick={() => {
+                                                                participateAction(params.actionId);
+                                                                setIsLoading(true);
+                                                                }}
+                                                            >Sim
+                                                        </Button>
+                                                    </Participate>
+                                                ): (
+                                                    <ButtonLeave>
+                                                        <Button
+                                                            theme={"leave"}
+                                                            onClick={() => {
+                                                                leaveAction(params.actionId);
+                                                                setIsLoading(true);
+                                                                }}
+                                                            >Abandonar esta ação
+                                                        </Button>
+                                                    </ButtonLeave>
+                                                )}
+                                            </>
+                                        )}
                                     </>
                                 )}
                             </BoxInfos> 
