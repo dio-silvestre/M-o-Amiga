@@ -1,10 +1,25 @@
 import styled from "styled-components"
 
+
+export const ContentMobile = styled.div`
+    @media(min-width: 1024px){
+        display: none;
+    }
+`
+
+export const ContentDescktop = styled.div`
+    display: none;
+    @media(min-width: 1024px){
+        display: flex;
+    }
+`
+
 export const Container = styled.div`
     display:flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--color-primary);
+    width: 100%;
+    max-width: 1366px;
     @media screen and (min-width: 768px){
         display: flex;
         flex-direction: row;
@@ -14,28 +29,56 @@ export const Container = styled.div`
 export const MenuSup = styled.div`
     height: 10vh;
     width: 100vw;
-    background-color: green;
+    background: var(--color-base-default);
+    display: flex;
+    flex-direction: row;
+    img{
+        height: 10vh;
+        width: 40vw;
+    }
 `
-export const MenuInf = styled.div`
-    height: 10vh;
-    width: 100vw;
-    background-color: green;
-`
-
 export const Info = styled.div`
     height: 80px;
-    width: 60vw;
+    width: 50vw;
     text-align:center;
     font-size: 20px;
     color: var(--color-primary-two);
-    @media screen and (min-width: 768){
-    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    @media screen and (min-width: 768px){
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 20vh;
+        font-weight: 700;
+        font-size: 30px;
+
+        img{
+            width: 290px;
+            height: 14vh;
+        }
     }
 `
 
 export const ContainerInfoRegister = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: calc(100vw - 350px);
+    height: 100vh;
+    width: calc(100% - 350px);
+    padding-left: 32px;
 `
+
+export const ContainerAction = styled.div`
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+
+export const FullContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(#f5f6fa, var(--color-primary) 41%, #f5f6fa);
+`;
