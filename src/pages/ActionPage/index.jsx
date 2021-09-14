@@ -80,14 +80,16 @@ const ActionPage = () => {
                                 <h3><span>Instituição responsável: </span><Link to={`/users/${specificAction.userId}`}><LinkPerfil>{userData.name}</LinkPerfil></Link></h3>
 
                                 {isCreator ? (
-                                    <Button 
-                                        theme={"leave"}
-                                        onClick={() => {
-                                            deleteAction(params.actionId);
-                                            history.push("/dashboard");
-                                        }}
-                                        >Deletar ação
-                                    </Button>
+                                    <ButtonLeave>
+                                        <Button 
+                                            theme={"leave"}
+                                            onClick={() => {
+                                                deleteAction(params.actionId);
+                                                history.push("/dashboard");
+                                            }}
+                                            >Deletar ação
+                                        </Button>
+                                    </ButtonLeave>
                                 ) : (
                                     <>
                                         {myData.user_type === "institution" ? (

@@ -51,6 +51,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-base-default: #f4f4f9;
         --font-text-primary: "Nunito", sans-serif;
         --font-text-secondary: "Raleway", sans-serif;
-        --border-radius: 8px;
+        --border-radius: 8px; 
+        --main-background : linear-gradient( to right top, #A2BEEB, #8ECFEE, #8EDDE5, #A4E7D5, #C7EEC7 );
     }
 `;

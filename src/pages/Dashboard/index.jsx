@@ -7,6 +7,7 @@ import MenuMobile from "../../components/MenuMobile";
 import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useHistory } from "react-router";
+import ModalListActions from "../../components/ModalListActions";
 
 import {
   Container,
@@ -48,6 +49,7 @@ const Dashboard = () => {
     <Container>
       <MenuMobile />
       <SideBar />
+      <ModalListActions />
       {isLoading ? (
         <img src={Loading} alt="Loading" className="loading" />
       ) : (

@@ -17,7 +17,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: var(--color-primary);
+  background: var(--main-background);
+
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
