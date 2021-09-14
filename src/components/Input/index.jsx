@@ -15,7 +15,12 @@ const Input = ({
 
       <InputContainer isErrored={!!error} colorSchema={colorSchema}>
         {Icon && <Icon size={20} />}
-        <input {...register(name)} {...rest} colorSchema={colorSchema} />
+        <input
+          {...register(name)}
+          {...rest}
+          colorSchema={colorSchema}
+          data-testid="input-field"
+        />
       </InputContainer>
 
       <div>{!!error && <span>{error}</span>}</div>
