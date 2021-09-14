@@ -8,9 +8,10 @@ import {
   CalendarContainer,
 } from "./styles";
 import SideBar from "../../components/Sidebar";
-import Hamburger from "../../components/Hamburger";
 
 import Calendar from "../../components/Calendar";
+import HeaderMobile from "../../components/HeaderMobile";
+import MenuMobile from "../../components/MenuMobile";
 
 const Dashboard = () => {
   useEffect(() => {
@@ -33,6 +34,8 @@ const Dashboard = () => {
 
   return (
     <Container>
+      <HeaderMobile />
+      <MenuMobile />
       <SideBar />
       <MainContainer>
         <HeaderContainer>
