@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
+import {useAuth} from "../Auth";
 
 const ActionsContext = createContext();
 
@@ -10,6 +11,7 @@ export const ActionsProvider = ({ children }) => {
     const localToken = localStorage.getItem("authToken") || "";
     const decodedToken = localToken === "" ? "" : jwtDecode(localToken);
     const userID = decodedToken.sub;
+    const {myData} = useAuth();
 
     const [actions, setActions] = useState(JSON.parse(localStorage.getItem("actions")) || []);
     const [participate, setParticipate] = useState(true);
@@ -33,7 +35,8 @@ export const ActionsProvider = ({ children }) => {
     const addAction = (data) => {
         api
         .post("/actions", {
-            ...data, 
+            ...data,
+            userId: myData.id,  
             voluntaries: []
         })
         .then((response) =>{
