@@ -65,14 +65,14 @@ export const SidebarContainer = styled.div`
       }
 
       .Collapsible__contentInner {
-        max-height: 10rem;
+        max-height: 10.35rem;
 
         ::-webkit-scrollbar {
           width: 10px;
         }
       }
       .Collapsible__contentOuter {
-        max-height: 10rem;
+        max-height: 10.35rem;
 
         ::-webkit-scrollbar {
           width: 10px;
