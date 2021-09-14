@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,18 +13,18 @@ export const Container = styled.div`
     justify-content: flex-start;
   }
 `;
-export const MenuSup = styled.div`
+export const MenuSup = styled.div `
   height: 10vh;
   width: 100vw;
   background-color: green;
 `;
-export const MenuInf = styled.div`
+export const MenuInf = styled.div `
   height: 10vh;
   width: 100vw;
   background-color: green;
 `;
 
-export const Info = styled.div`
+export const Info = styled.div `
   height: 80px;
   width: 60vw;
   text-align: center;
@@ -35,7 +35,7 @@ export const Info = styled.div`
   }
 `;
 
-export const MainContainer = styled.div`
+export const MainContainer = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +43,7 @@ export const MainContainer = styled.div`
   width: calc(100vw - 350px);
 `;
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div `
   height: 25vh;
   display: flex;
   justify-content: space-around;
@@ -85,7 +85,7 @@ export const HeaderContainer = styled.div`
   }
 `;
 
-export const CalendarContainer = styled.div`
+export const CalendarContainer = styled.div `
   font-size: 20px;
   margin: 0 auto;
   border-radius: 10px;

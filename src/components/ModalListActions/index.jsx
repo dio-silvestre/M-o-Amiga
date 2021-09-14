@@ -1,8 +1,13 @@
-import { useAuth } from "../../providers/Auth";
 import Modal from "react-modal";
-import { Redirect } from "react-router-dom";
-import { useActions } from "../../providers/Actions";
 import { useHistory } from "react-router";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../providers/Auth";
+import { useActions } from "../../providers/Actions";
+import { 
+    ButtonClose,
+    ContainerActions,
+    Action
+} from "./styles";
 
 export const ModalListActions = () => {
 
@@ -13,14 +18,11 @@ export const ModalListActions = () => {
 
     const customStyles = {
         content: {
-          background: "var(--color-base-default)",
-          width: "60%",
-          height: "60%",
+          background: "var(--color-primary-two)",
           margin: "auto",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "center"
         },
     };
 
@@ -35,20 +37,24 @@ export const ModalListActions = () => {
             onRequestClose={() => toggleModal([])}
             style={customStyles}
         >
-            <button
-                style={{ position: "absolute", right: "0.5rem", top: "0.2rem" }}
+            <ButtonClose
                 onClick={() => toggleModal([])}
             >X
-            </button>
-            <>
+            </ButtonClose>
+            <ContainerActions>
                 {listActionsModal.map((action, index) => (
-                    <div key={index} onClick={() => history.push(`/action/${action.id}`)}>
-                        <>{action.date}</>
-                        <>{action.name}</>
-                        <>{action.city}/{action.state}</>
-                    </div>
+                    <Action 
+                        key={index}
+                        oddOrEven={index}
+                        qtyActions={listActionsModal.length}
+                        onClick={() => history.push(`/action/${action.id}`)}>
+                        <span>{action.date}</span>
+                        <span>{action.hour}</span>
+                        <span>{action.name}</span>
+                        <span>{action.city}/{action.state}</span>
+                    </Action>
                 ))}
-            </>
+            </ContainerActions>
         </Modal>
     );
 };
