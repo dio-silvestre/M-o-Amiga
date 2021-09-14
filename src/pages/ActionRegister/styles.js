@@ -30,18 +30,8 @@ export const Container = styled.div`
         justify-content: flex-start;
     }
 `
-export const MenuSup = styled.div`
-    height: 10vh;
-    width: 100vw;
-    background: var(--color-base-default);
-    display: flex;
-    flex-direction: row;
-    img{
-        height: 10vh;
-        width: 40vw;
-    }
-`
 export const Info = styled.div`
+    margin-top: 10vh;
     height: 80px;
     width: 100vw;
     text-align:center;
@@ -54,6 +44,7 @@ export const Info = styled.div`
 
     @media screen and (min-width: 1024px){
         width: 100%;
+        margin-top: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
