@@ -11,10 +11,9 @@ const ActionRegister = () => {
         <Container>
             
             <ContentMobile>
-                <MenuSup>
-                    <img src={Logo2} />
-                    <MenuMobile />
-                </MenuSup>
+                
+                <MenuMobile />
+    
                 <SideBar />
                     <Info>
                     Aqui , você pode cadastrar sua ação voluntária !

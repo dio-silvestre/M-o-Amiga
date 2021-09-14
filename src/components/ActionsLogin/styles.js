@@ -5,6 +5,7 @@ export const Container = styled.form `
     height: 680px;
     font-family: var(--font-text-primary);
     border-radius: var(--border-radius);
+    max-width: 650px;
 `
 
 export const ContainerInfo = styled.div`
@@ -18,7 +19,7 @@ export const Container45 = styled.div`
         color: white;
     }
     span{
-        color: var(--color-base-default)
+        color: var(--color-error)
     }
 `
 
@@ -36,6 +37,7 @@ export const ContainerForm = styled.div`
     justify-content: space-between;
     height: 595px;
     padding: 25px;
+
     select{
         height: 55px;
         width: 100%;
@@ -44,9 +46,8 @@ export const ContainerForm = styled.div`
         background-color: var(--color-base-default);
         font-family: var(--font-text-primary);
     }
-
-
-    @media screen and (min-width: 768px){
+    
+    @media screen and (min-width: 1024px){
         width: 35vw;
     }
 `

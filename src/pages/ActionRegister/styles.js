@@ -2,6 +2,9 @@ import styled from "styled-components"
 
 
 export const ContentMobile = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     @media(min-width: 1024px){
         display: none;
     }
@@ -20,7 +23,8 @@ export const Container = styled.div`
     align-items: center;
     width: 100%;
     max-width: 1366px;
-    @media screen and (min-width: 768px){
+
+@media screen and (min-width: 1024px){
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -48,12 +52,12 @@ export const Info = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 1024px){
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 20vh;
+        height: 18vh;
         font-weight: 700;
         font-size: 30px;
 
