@@ -2,15 +2,21 @@ import { useAuth } from "../../providers/Auth";
 import Modal from "react-modal";
 import { Redirect } from "react-router-dom";
 import { useActions } from "../../providers/Actions";
+import { useHistory } from "react-router";
 
 export const ModalListActions = () => {
 
     const { isLogged } = useAuth();
     const { modalIsOpen, toggleModal, listActionsModal } = useActions();
 
+    const history = useHistory();
+
     const customStyles = {
         content: {
           background: "var(--color-base-default)",
+          width: "60%",
+          height: "60%",
+          margin: "auto",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -18,8 +24,8 @@ export const ModalListActions = () => {
         },
     };
 
-    if (!isLogged) {
-    return <Redirect to="/login" />;
+    if (!isLogged && modalIsOpen) {
+        return <Redirect to="/login" />;
     };
 
     return (
@@ -35,7 +41,13 @@ export const ModalListActions = () => {
             >X
             </button>
             <>
-                {listActionsModal.map((action, index) => <p key={index}>{action.name}</p>)}
+                {listActionsModal.map((action, index) => (
+                    <div key={index} onClick={() => history.push(`/action/${action.id}`)}>
+                        <>{action.date}</>
+                        <>{action.name}</>
+                        <>{action.city}/{action.state}</>
+                    </div>
+                ))}
             </>
         </Modal>
     );
