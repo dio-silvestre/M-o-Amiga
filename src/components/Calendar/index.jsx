@@ -75,6 +75,8 @@ const Calendar = () => {
         setDates(createCalendar(currentMonth));
     },[actions]);
 
+    console.log(actions)
+
     return (
         <Container>
             <ContainerHeader>

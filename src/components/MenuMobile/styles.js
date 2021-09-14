@@ -56,7 +56,7 @@ export const StyledMenu = styled.nav`
 
     div {
       display: block;
-      width: 75%;
+      width: 85%;
       margin: 12px auto;
 
       p {
@@ -75,6 +75,14 @@ export const StyledMenu = styled.nav`
     .logout {
       margin-top: auto;
     }
+  }
+
+  .Collapsible__contentInner {
+    max-height: 7.85rem;
+  }
+
+  .Collapsible__contentOuter {
+    max-height: 7.85rem;
   }
 
   @media (min-width: 1024px) {
