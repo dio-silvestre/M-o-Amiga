@@ -1,4 +1,15 @@
+import { ReactNode } from "react";
 import { Container, InputContainer } from "./styles";
+
+interface IInputProps {
+  label: string;
+  icon: string;
+  name: string;
+  register: (name: string) => void;
+  error: string;
+  theme: string;
+  children: ReactNode;
+}
 
 const Input = ({
   label,
@@ -6,19 +17,23 @@ const Input = ({
   register,
   name,
   error = "",
-  colorSchema = false,
+  theme,
   ...rest
-}) => {
+}: IInputProps) => {
   return (
-    <Container colorSchema={colorSchema}>
+    <Container theme={theme}>
       <div>{label}</div>
 
-      <InputContainer className="InputRegisterAction" isErrored={!!error} colorSchema={colorSchema}>
+      <InputContainer
+        className="InputRegisterAction"
+        isErrored={!!error}
+        theme={theme}
+      >
         {Icon && <Icon size={20} />}
         <input
           {...register(name)}
           {...rest}
-          colorSchema={colorSchema}
+          theme={theme}
           data-testid="input-field"
         />
       </InputContainer>

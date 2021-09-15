@@ -1,10 +1,12 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+interface IContainerProps {
+  theme: string;
+}
+
+export const Container = styled.div<IContainerProps>`
   color: ${(props) =>
-    props.colorSchema
-      ? "var(--color-primary-two)"
-      : "var(--color-base-default)"};
+    props.theme ? "var(--color-primary-two)" : "var(--color-base-default)"};
   text-align: left;
   font-family: var(--font-text-primary);
   font-size: 1.1rem;
@@ -18,9 +20,14 @@ export const Container = styled.div`
   }
 `;
 
-export const InputContainer = styled.div`
+interface IInputContainerProps {
+  theme: string;
+  isErrored: boolean;
+}
+
+export const InputContainer = styled.div<IInputContainerProps>`
   background-color: ${(props) =>
-    props.colorSchema ? "var(--color-text-two)" : "var(--color-base-default)"};
+    props.theme ? "var(--color-text-two)" : "var(--color-base-default)"};
   border-radius: 8px;
   color: var(--color-placeholder);
   padding: 1rem;
@@ -43,9 +50,7 @@ export const InputContainer = styled.div`
     font-size: 1.1rem;
     width: 100%;
     background-color: ${(props) =>
-      props.colorSchema
-        ? "var(--color-text-two)"
-        : "var(--color-base-default)"};
+      props.theme ? "var(--color-text-two)" : "var(--color-base-default)"};
     align-items: center;
     flex: 1;
     border: 0;
