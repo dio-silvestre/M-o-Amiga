@@ -8,12 +8,19 @@ export const ContainerActions = styled.div `
     align-items: center;
     font-family: var(--font-text-primary);
     overflow: auto;
+    color: var(--color-text-two);
+
+    h2 {
+        display: block;
+        margin: auto;
+        text-align: center;
+        font-size: 2rem;
+    }
 `
 
 export const Action = styled.div `
     width: 90%;
     cursor: pointer;
-    color: var(--color-text-two);
     border-radius: 0.5rem;
     margin: 5px 0;
     display: flex;
@@ -35,7 +42,6 @@ export const Action = styled.div `
     &:nth-child(odd) {
         background-color: var(--color-primary);
         border: 2px solid var(--color-primary);
-        color: var(--color-text);
     }
 
     :hover {
@@ -53,7 +59,7 @@ export const Action = styled.div `
         }
 
         @media (min-width: 1366px) {
-            font-size: 1.5rem;
+            /* font-size: 1.5rem; */
         }
     }
 `

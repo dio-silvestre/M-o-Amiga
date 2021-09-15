@@ -47,7 +47,7 @@ const Calendar = () => {
     const dates = [];
 
     for (let i = 0; i < months.length; i++) {
-      if (months[i].index == month) {
+      if (months[i].index === month) {
         for (let j = 1; j <= months[i].days; j++) {
           let newDay = new Date(year, month - 1, j);
           let date = `${j < 10 ? "0" : ""}${j}/${
