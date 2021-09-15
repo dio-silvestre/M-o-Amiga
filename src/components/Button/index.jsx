@@ -2,7 +2,7 @@ import { StyledButton } from "./styles";
 
 const Button = ({ children, theme, ...rest }) => {
   return (
-    <StyledButton theme={theme} type="button" {...rest}>
+    <StyledButton data-testid="form-btn" theme={theme} type="button" {...rest}>
       {children}
     </StyledButton>
   );

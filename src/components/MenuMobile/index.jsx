@@ -23,7 +23,7 @@ const MenuMobile = () => {
   const params = useParams();
 
   return (
-    <div>
+    <>
       <StyledMenu open={open}>
         <img src={Logo} alt="logo-ma-amiga" className="logo" />
 
@@ -71,11 +71,21 @@ const MenuMobile = () => {
                   <FiCheckCircle /> Ações cadastradas <FiChevronUp />
                 </p>
               }
+              overflowWhenOpen="auto"
             >
               <ul>
                 <li>Ação 1</li>
                 <li>Ação 2</li>
                 <li>Ação 3</li>
+                <li>Ação 4</li>
+                <li>Ação 5</li>
+                <li>Ação 6</li>
+                <li>Ação 7</li>
+                <li>Ação 8</li>
+                <li>Ação 9</li>
+                <li>Ação 10</li>
+                <li>Ação 11</li>
+                <li>Ação 12</li>
               </ul>
             </Collapsible>
           ) : (
@@ -90,11 +100,21 @@ const MenuMobile = () => {
                   <FiCheckCircle /> Ações participantes <FiChevronUp />
                 </p>
               }
+              overflowWhenOpen="auto"
             >
               <ul>
                 <li>Ação 1</li>
                 <li>Ação 2</li>
                 <li>Ação 3</li>
+                <li>Ação 4</li>
+                <li>Ação 5</li>
+                <li>Ação 6</li>
+                <li>Ação 7</li>
+                <li>Ação 8</li>
+                <li>Ação 9</li>
+                <li>Ação 10</li>
+                <li>Ação 11</li>
+                <li>Ação 12</li>
               </ul>
             </Collapsible>
           )}
@@ -106,7 +126,7 @@ const MenuMobile = () => {
         </section>
       </StyledMenu>
       <Hamburger open={open} setOpen={setOpen} />
-    </div>
+    </>
   );
 };
 

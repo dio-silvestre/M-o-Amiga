@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     article, aside, canvas, details, embed, 
     figure, figcaption, footer, header, hgroup, 
     menu, nav, output, ruby, section, summary,
-    time, mark, audio, video {
+    time, mark, audio, video,input {
         margin: 0;
         padding: 0;
         border: 0;
@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
         vertical-align: baseline;
         box-sizing: border-box;
         text-decoration: none;
+        border: none;
     }
 
     article, aside, details, figcaption, figure, 
@@ -50,6 +51,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-base-default: #f4f4f9;
         --font-text-primary: "Nunito", sans-serif;
         --font-text-secondary: "Raleway", sans-serif;
-        --border-radius: 8px;
+        --border-radius: 8px; 
+        --main-background : linear-gradient( to right top, #A2BEEB, #8ECFEE, #8EDDE5, #A4E7D5, #C7EEC7 );
     }
 `;
