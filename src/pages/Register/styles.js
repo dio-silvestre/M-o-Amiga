@@ -22,7 +22,7 @@ export const Container = styled.div `
     width: 60vw;
     margin: 0auto;
     font-family: var(--font-text-primary);
-    font-weight: 500;
+    font-weight: 700;
   }
 
   @media (max-width: 540px) {
