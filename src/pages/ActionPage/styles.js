@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div `
   width: 100vw;
   height: 100vh;
   display: flex;
   background: var(--main-background);
 `;
 
-export const FullContainer = styled.div`
+export const FullContainer = styled.div `
   width: 100%;
   height: 100%;
   display: flex;
@@ -15,7 +15,7 @@ export const FullContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const Page = styled.div`
+export const Page = styled.div `
   width: 100%;
   height: 100%;
   display: flex;
@@ -24,7 +24,7 @@ export const Page = styled.div`
   font-family: var(--font-text-primary);
   color: var(--color-text-two);
 
-  @media (min-width: 1053px) {
+  @media (min-width: 1024px) {
     width: calc(100% - 350px);
     align-items: flex-start;
   }
@@ -35,7 +35,7 @@ export const Page = styled.div`
   }
 `;
 
-export const ActionData = styled.main`
+export const ActionData = styled.main `
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -57,7 +57,7 @@ export const ActionData = styled.main`
   }
 `;
 
-export const BoxInfos = styled.div`
+export const BoxInfos = styled.div `
   min-width: 300px;
   padding: 1rem 2rem;
   background-color: var(--color-primary-two);
@@ -82,7 +82,7 @@ export const BoxInfos = styled.div`
   }
 `;
 
-export const LinkPerfil = styled.span`
+export const LinkPerfil = styled.span `
   color: var(--color-text-two);
   text-decoration: underline;
 
@@ -91,7 +91,7 @@ export const LinkPerfil = styled.span`
   }
 `;
 
-export const Participate = styled.div`
+export const Participate = styled.div `
   display: flex;
   align-items: center;
 
@@ -105,7 +105,7 @@ export const Participate = styled.div`
   }
 `;
 
-export const ButtonLeave = styled.div`
+export const ButtonLeave = styled.div `
   margin: auto;
   button {
     width: 250px;
