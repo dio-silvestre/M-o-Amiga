@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 import { api } from "../../services/api";
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
+import Button from "../../components/Button";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../../providers/Auth";
 import { useUser } from "../../providers/User";
-import { useActions } from "../../providers/Actions";
-import Loading from "./../../assets/img/loading.gif";
 import Sidebar from "../../components/Sidebar";
+import Loading from "./../../assets/img/loading.gif";
 import MenuMobile from "../../components/MenuMobile";
+import { useActions } from "../../providers/Actions";
+import HeaderMobile from "../../components/HeaderMobile";
 import {
   Container,
   FullContainer,
@@ -18,10 +22,6 @@ import {
   Participate,
   ButtonLeave,
 } from "./styles";
-import Button from "../../components/Button";
-import { Redirect } from "react-router-dom";
-import { useAuth } from "../../providers/Auth";
-import HeaderMobile from "../../components/HeaderMobile";
 
 const ActionPage = () => {
   const {
@@ -65,7 +65,7 @@ const ActionPage = () => {
 
   if (!isLogged) {
     return <Redirect to="/login" />;
-  }
+  };
 
   return (
     <Container>
@@ -99,7 +99,7 @@ const ActionPage = () => {
                 <h3>
                   <span>Quantidade de voluntários inscritos: </span>
                   {specificAction.voluntaries.length}/
-                  {specificAction.number_voluntaries}
+                  {specificAction.numberOfVoluntaries}
                 </h3>
                 <h3>
                   <span>Instituição responsável: </span>

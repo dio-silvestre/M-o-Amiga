@@ -1,12 +1,15 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { api } from "../../services/api";
+import {useAuth} from "../Auth";
 import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
-import {useAuth} from "../Auth";
+import { api } from "../../services/api";
+import { useHistory } from "react-router";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ActionsContext = createContext();
 
 export const ActionsProvider = ({ children }) => {
+
+    const history = useHistory();
 
     const localToken = localStorage.getItem("authToken") || "";
     const decodedToken = localToken === "" ? "" : jwtDecode(localToken);
@@ -14,7 +17,7 @@ export const ActionsProvider = ({ children }) => {
     const {myData} = useAuth();
 
     const [actions, setActions] = useState(JSON.parse(localStorage.getItem("actions")) || []);
-    const [participate, setParticipate] = useState(true);
+    const [load, setLoad] = useState(true);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [listActionsModal, setListActionsModal] = useState([]);
 
@@ -26,11 +29,11 @@ export const ActionsProvider = ({ children }) => {
             localStorage.setItem("actions", JSON.stringify(response.data));
         })
         .catch((error) => console.error(error));
-    }
+    };
 
     useEffect(() => {
         loadActions();
-     }, [participate]);
+     }, [load]);
 
     const addAction = (data) => {
         api
@@ -38,18 +41,28 @@ export const ActionsProvider = ({ children }) => {
             ...data,
             userId: myData.id,  
             voluntaries: []
-        })
+        }, {
+            headers: {
+              Authorization: `Bearer ${localToken}`,
+            },
+          })
         .then((response) =>{
             setActions([...actions, response.data]);
             toast.success("Ação criada com sucesso!");
+            history.push("/dashboard");
         })
         .catch((error) => console.error(error));
     };
 
     const deleteAction = (actionId) => {
         api
-        .delete(`/actions/${actionId}`)
-        .then((response) =>{
+        .delete(`/actions/${actionId}`, {
+            headers: {
+              Authorization: `Bearer ${localToken}`,
+            },
+          })
+        .then((_) =>{
+            setLoad(!load);
             toast.error("Ação deletada com sucesso!");
         })
         .catch((error) => console.error(error));
@@ -67,9 +80,13 @@ export const ActionsProvider = ({ children }) => {
             api
             .patch(`/actions/${actionId}`, {
                 voluntaries: [...participants, Number(userID)]
-            })
+            }, {
+                headers: {
+                  Authorization: `Bearer ${localToken}`,
+                },
+              })
             .then((response) =>{
-                setParticipate(!participate);
+                setLoad(!load);
                 toast.success("Está participando da ação agora! Seja bem vindo!");
             })
             .catch((error) => console.error(error));
@@ -85,9 +102,13 @@ export const ActionsProvider = ({ children }) => {
             api
             .patch(`/actions/${actionId}`, {
                 voluntaries: [...participants.filter((id) => id !== Number(userID))]
-            })
+            }, {
+                headers: {
+                  Authorization: `Bearer ${localToken}`,
+                },
+              })
             .then((response) =>{
-                setParticipate(!participate);
+                setLoad(!load);
                 toast.error("Você abandonou esta ação! Que pena...");
             })
             .catch((error) => console.error(error));

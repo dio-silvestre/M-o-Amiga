@@ -30,24 +30,24 @@ const Calendar = () => {
     }
 
     const months = [
-      { month: "January", index: 1, days: 31 },
-      { month: "February", index: 2, days: 28 },
-      { month: "March", index: 3, days: 31 },
-      { month: "April", index: 4, days: 30 },
-      { month: "May", index: 5, days: 31 },
-      { month: "June", index: 6, days: 30 },
-      { month: "July", index: 7, days: 31 },
-      { month: "August", index: 8, days: 31 },
-      { month: "September", index: 9, days: 30 },
-      { month: "Octuber", index: 10, days: 31 },
-      { month: "November", index: 11, days: 30 },
-      { month: "Dezember", index: 12, days: 31 },
+      { month: "Janeiro", index: 1, days: 31 },
+      { month: "Fevereiro", index: 2, days: 28 },
+      { month: "Março", index: 3, days: 31 },
+      { month: "Abril", index: 4, days: 30 },
+      { month: "Maio", index: 5, days: 31 },
+      { month: "Junho", index: 6, days: 30 },
+      { month: "Julho", index: 7, days: 31 },
+      { month: "Agosto", index: 8, days: 31 },
+      { month: "Setembro", index: 9, days: 30 },
+      { month: "Outubro", index: 10, days: 31 },
+      { month: "Novembro", index: 11, days: 30 },
+      { month: "Dezembro", index: 12, days: 31 },
     ];
 
     const dates = [];
 
     for (let i = 0; i < months.length; i++) {
-      if (months[i].index == month) {
+      if (months[i].index === month) {
         for (let j = 1; j <= months[i].days; j++) {
           let newDay = new Date(year, month - 1, j);
           let date = `${j < 10 ? "0" : ""}${j}/${
