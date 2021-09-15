@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
+import {useAuth} from "../Auth";
 
 const ActionsContext = createContext();
 
@@ -10,9 +11,12 @@ export const ActionsProvider = ({ children }) => {
     const localToken = localStorage.getItem("authToken") || "";
     const decodedToken = localToken === "" ? "" : jwtDecode(localToken);
     const userID = decodedToken.sub;
+    const {myData} = useAuth();
 
     const [actions, setActions] = useState(JSON.parse(localStorage.getItem("actions")) || []);
     const [participate, setParticipate] = useState(true);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [listActionsModal, setListActionsModal] = useState([]);
 
     const loadActions = () => {
         api
@@ -31,7 +35,8 @@ export const ActionsProvider = ({ children }) => {
     const addAction = (data) => {
         api
         .post("/actions", {
-            ...data, 
+            ...data,
+            userId: myData.id,  
             voluntaries: []
         })
         .then((response) =>{
@@ -90,8 +95,25 @@ export const ActionsProvider = ({ children }) => {
         .catch((error) => console.error(error));
     };
 
+    const toggleModal = (listActions) => {
+        setListActionsModal(listActions);
+        setModalIsOpen(!modalIsOpen);
+    };
+
     return (
-       <ActionsContext.Provider value={{userID, actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction, loadActions}}>
+       <ActionsContext.Provider 
+        value={{userID,
+                actions,
+                addAction,
+                deleteAction,
+                alreadyParticipate,
+                participateAction,
+                leaveAction,
+                loadActions,
+                modalIsOpen,
+                toggleModal,
+                listActionsModal
+                }}>
            {children}
        </ActionsContext.Provider> 
     );

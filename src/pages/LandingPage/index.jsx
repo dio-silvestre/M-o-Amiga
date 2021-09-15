@@ -41,6 +41,7 @@ import {
   ThirdSectionDesktopContentOne,
   ThirdSectionDesktopContentTwo,
 } from "./styles";
+import ModalListActions from "../../components/ModalListActions";
 
 const LandingPage = () => {
 
@@ -54,6 +55,7 @@ const LandingPage = () => {
 
   return (
     <Container>
+      <ModalListActions />
       <Header>
         <img src={LogoFullColor} alt="Logo Mão Amiga"></img>
         <NavBar>

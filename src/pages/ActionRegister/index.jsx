@@ -1,34 +1,42 @@
-import ActionsLogin from "../../components/ActionsLogin";
+import ActionsForm from "../../components/ActionForm";
 import {
   Container,
-  MenuInf,
-  MenuSup,
   Info,
   ContainerInfoRegister,
+  ContainerAction,
+  ContentMobile,
+  ContentDescktop,
+  FullContainer,
 } from "./styles";
 import SideBar from "../../components/Sidebar";
+import Logo from "../../assets/logo.svg";
+import MenuMobile from "../../components/MenuMobile";
+import HeaderMobile from "../../components/HeaderMobile";
 
 const ActionRegister = () => {
   return (
-    <Container>
-      {window.innerWidth < 768 ? (
-        <>
-          <MenuSup></MenuSup>
-          <SideBar />
+    <FullContainer>
+      <Container>
+        <ContentMobile>
+          <HeaderMobile />
+          <MenuMobile />
           <Info>Aqui , você pode cadastrar sua ação voluntária !</Info>
-          <ActionsLogin></ActionsLogin>
-          <MenuInf />
-        </>
-      ) : (
-        <>
+          <ActionsForm />
+        </ContentMobile>
+        <ContentDescktop>
           <SideBar />
           <ContainerInfoRegister>
-            <Info>Aqui , você pode cadastrar sua ação voluntária !</Info>
-            <ActionsLogin></ActionsLogin>
+            <Info>
+              <p>Aqui , você pode cadastrar sua ação voluntária !</p>
+              <img src={Logo}></img>
+            </Info>
+            <ContainerAction>
+              <ActionsForm></ActionsForm>
+            </ContainerAction>
           </ContainerInfoRegister>
-        </>
-      )}
-    </Container>
+        </ContentDescktop>
+      </Container>
+    </FullContainer>
   );
 };
 
