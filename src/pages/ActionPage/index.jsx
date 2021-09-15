@@ -69,8 +69,8 @@ const ActionPage = () => {
 
   return (
     <Container>
+      <HeaderMobile />
       <FullContainer>
-        <HeaderMobile />
         <MenuMobile />
         <Sidebar />
         <Page>
@@ -109,15 +109,17 @@ const ActionPage = () => {
                 </h3>
 
                 {isCreator ? (
-                  <Button
-                    theme={"leave"}
-                    onClick={() => {
-                      deleteAction(params.actionId);
-                      history.push("/dashboard");
-                    }}
-                  >
-                    Deletar ação
-                  </Button>
+                  <ButtonLeave>
+                    <Button
+                      theme={"leave"}
+                      onClick={() => {
+                        deleteAction(params.actionId);
+                        history.push("/dashboard");
+                      }}
+                    >
+                      Deletar ação
+                    </Button>
+                  </ButtonLeave>
                 ) : (
                   <>
                     {myData.user_type === "institution" ? (

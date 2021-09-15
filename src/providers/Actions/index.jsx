@@ -15,6 +15,8 @@ export const ActionsProvider = ({ children }) => {
 
     const [actions, setActions] = useState(JSON.parse(localStorage.getItem("actions")) || []);
     const [participate, setParticipate] = useState(true);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [listActionsModal, setListActionsModal] = useState([]);
 
     const loadActions = () => {
         api
@@ -93,8 +95,25 @@ export const ActionsProvider = ({ children }) => {
         .catch((error) => console.error(error));
     };
 
+    const toggleModal = (listActions) => {
+        setListActionsModal(listActions);
+        setModalIsOpen(!modalIsOpen);
+    };
+
     return (
-       <ActionsContext.Provider value={{userID, actions, addAction, deleteAction, alreadyParticipate, participateAction, leaveAction, loadActions}}>
+       <ActionsContext.Provider 
+        value={{userID,
+                actions,
+                addAction,
+                deleteAction,
+                alreadyParticipate,
+                participateAction,
+                leaveAction,
+                loadActions,
+                modalIsOpen,
+                toggleModal,
+                listActionsModal
+                }}>
            {children}
        </ActionsContext.Provider> 
     );

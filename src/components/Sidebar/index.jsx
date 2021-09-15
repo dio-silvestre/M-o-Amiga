@@ -12,12 +12,11 @@ import {
   FiChevronDown,
   FiChevronUp,
 } from "react-icons/fi";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Collapsible from "react-collapsible";
 
 const Sidebar = () => {
   const { myData, signOut } = useAuth();
-  const params = useParams();
 
   return (
     <SidebarContainer>
@@ -37,7 +36,7 @@ const Sidebar = () => {
             </p>
           </div>
         </Link>
-        <Link to={`/users/${params.userId}`}>
+        <Link to={`/users/${myData.id}`}>
           <div>
             <p>
               <FiUser /> Perfil

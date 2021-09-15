@@ -65,7 +65,7 @@ const UserPage = () => {
             {userData.user_type === "institution" ? (
               <ProfileContainer>
                 <div className="infoContainer">
-                  <h2>{userData.name}</h2>
+                  <h2 className="institution-title">{userData.name}</h2>
                   <div>
                     Quantidade de ações:{" "}
                     <span>{numberOfActionsInstitution}</span>

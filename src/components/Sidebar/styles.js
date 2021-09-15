@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SidebarContainer = styled.div`
   display: none;
   flex-direction: column;
-  background: linear-gradient(#f5f6fa, var(--color-primary) 41%, #f5f6fa);
+
   width: 350px;
   height: 100vh;
   color: var(--color-title);
