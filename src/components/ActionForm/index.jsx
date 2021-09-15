@@ -43,41 +43,41 @@ const ActionsForm = () => {
         addAction(data)
       };
 
-    return(
-        <Container onSubmit={handleSubmit(onSubmitFunction)}>
-            <ContainerForm >
-            <Input
-                register={register}
-                name="name"
-                label="Nome da ação"
-                placeholder=""
-                colorSchema = {false}
-                error={errors.name?.message}
-              ></Input>
-              <Input
-                register={register}
-                name="description"
-                label="Descrição"
-                placeholder=""
-                colorSchema = {false}
-                error={errors.description?.message}
-              ></Input>
-              <Input
-                register={register}
-                name="category"
-                label="Categoria"
-                placeholder=""
-                colorSchema = {false}
-                error={errors.category?.message}
-              ></Input>
-              <Input
-                register={register}
-                name="numberOfVoluntaries"
-                label="Quantidade de voluntários"
-                placeholder=""
-                colorSchema = {false}
-                error={errors.numberOfVoluntaries?.message}
-              ></Input>
+  return (
+    <Container onSubmit={handleSubmit(onSubmitFunction)}>
+      <ContainerForm>
+        <Input
+          register={register}
+          name="name"
+          label="Nome da ação"
+          placeholder=""
+          colorSchema={false}
+          error={errors.name?.message}
+        ></Input>
+        <Input
+          register={register}
+          name="description"
+          label="Descrição"
+          placeholder=""
+          colorSchema={false}
+          error={errors.description?.message}
+        ></Input>
+        <Input
+          register={register}
+          name="category"
+          label="Categoria"
+          placeholder=""
+          colorSchema={false}
+          error={errors.category?.message}
+        ></Input>
+        <Input
+          register={register}
+          name="numberOfVoluntaries"
+          label="Quantidade de voluntários"
+          placeholder=""
+          colorSchema={false}
+          error={errors.numberOfVoluntaries?.message}
+        ></Input>
               <ContainerInfo>
                 <Container45>
                 <Input

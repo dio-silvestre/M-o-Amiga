@@ -14,13 +14,12 @@ import {
   FiChevronDown,
   FiChevronUp,
 } from "react-icons/fi";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Collapsible from "react-collapsible";
 
 const MenuMobile = () => {
   const { myData, signOut } = useAuth();
   const [open, setOpen] = useState(false);
-  const params = useParams();
 
   return (
     <>
@@ -41,7 +40,7 @@ const MenuMobile = () => {
               </p>
             </div>
           </Link>
-          <Link to={`/users/${params.userId}`}>
+          <Link to={`/users/${myData.id}`}>
             <div>
               <p>
                 <FiUser /> Perfil
