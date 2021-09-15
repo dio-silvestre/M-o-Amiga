@@ -11,6 +11,8 @@ import { useActions } from "../../providers/Actions";
 import Loading from "./../../assets/img/loading.gif";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
+import MenuMobile from "../../components/MenuMobile";
+import HeaderMobile from "../../components/HeaderMobile";
 
 const UserPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +55,8 @@ const UserPage = () => {
   return (
     <FullContainer>
       <Container>
+        <HeaderMobile />
+        <MenuMobile />
         <Sidebar />
         {isLoading ? (
           <img src={Loading} alt="Loading" className="loading" />
@@ -61,7 +65,7 @@ const UserPage = () => {
             {userData.user_type === "institution" ? (
               <ProfileContainer>
                 <div className="infoContainer">
-                  <h2>{userData.name}</h2>
+                  <h2 className="institution-title">{userData.name}</h2>
                   <div>
                     Quantidade de ações:{" "}
                     <span>{numberOfActionsInstitution}</span>

@@ -15,6 +15,7 @@ import {
   HeaderContainer,
   CalendarContainer,
 } from "./styles";
+import HeaderMobile from "../../components/HeaderMobile";
 import Loading from "./../../assets/img/loading.gif";
 
 const Dashboard = () => {
@@ -46,55 +47,58 @@ const Dashboard = () => {
   }
 
   return (
-    <Container>
-      <MenuMobile />
-      <SideBar />
-      <ModalListActions />
-      {isLoading ? (
-        <img src={Loading} alt="Loading" className="loading" />
-      ) : (
-        <MainContainer>
-          <HeaderContainer>
-            <div className="messageContainer">
-              <h2> Seja bem vindo (a) , </h2>
-              {myData.user_type === "institution" ? (
-                <h1> Instituição !</h1>
-              ) : (
-                <h1> Voluntário!</h1>
-              )}
-            </div>
-            <div className="inputContainer">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Pesquisar por ação ..."
-                  value={userInput}
-                  onChange={(e) => showActions(e.target.value)}
-                  icon={<FiSearch size={16} color="red" />}
-                />
+    <>
+      <HeaderMobile />
+      <Container>
+        <MenuMobile />
+        <SideBar />
+        <ModalListActions />
+        {isLoading ? (
+          <img src={Loading} alt="Loading" className="loading" />
+        ) : (
+          <MainContainer>
+            <HeaderContainer>
+              <div className="messageContainer">
+                <h2> Seja bem vindo (a) , </h2>
+                {myData.user_type === "institution" ? (
+                  <h1> Instituição !</h1>
+                ) : (
+                  <h1> Voluntário!</h1>
+                )}
               </div>
-
-              {userInput !== "" && (
-                <div className="searchContainer">
-                  {filteredProducts.map((ele) => (
-                    <p
-                      onClick={() => {
-                        history.push(`/action/${ele.id}`);
-                      }}
-                    >
-                      {ele.name}
-                    </p>
-                  ))}
+              <div className="inputContainer">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Pesquisar por ação ..."
+                    value={userInput}
+                    onChange={(e) => showActions(e.target.value)}
+                    icon={<FiSearch size={16} color="red" />}
+                  />
                 </div>
-              )}
-            </div>
-          </HeaderContainer>
-          <CalendarContainer>
-            <Calendar />
-          </CalendarContainer>
-        </MainContainer>
-      )}
-    </Container>
+
+                {userInput !== "" && (
+                  <div className="searchContainer">
+                    {filteredProducts.map((ele) => (
+                      <p
+                        onClick={() => {
+                          history.push(`/action/${ele.id}`);
+                        }}
+                      >
+                        {ele.name}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </HeaderContainer>
+            <CalendarContainer>
+              <Calendar />
+            </CalendarContainer>
+          </MainContainer>
+        )}
+      </Container>
+    </>
   );
 };
 

@@ -43,7 +43,7 @@ export const ActionData = styled.main`
 
   h1 {
     width: 85%;
-    margin: 3rem auto;
+    margin: 7rem auto 3rem;
     display: block;
     color: var(--color-primary-two);
     font-size: 1.5rem;

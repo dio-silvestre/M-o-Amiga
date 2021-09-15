@@ -42,6 +42,13 @@ export const ProfileContainer = styled.div`
       margin: 1rem 0 2rem 0;
     }
 
+    .institution-title {
+      font-size: 4rem;
+      color: var(--color-primary-two);
+      font-weight: 700;
+      margin: 5rem 0 2rem 0;
+    }
+
     h3 {
       font-size: 3rem;
       color: var(--color-primary-two);
