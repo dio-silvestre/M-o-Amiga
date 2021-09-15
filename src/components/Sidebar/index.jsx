@@ -12,11 +12,22 @@ import {
   FiChevronDown,
   FiChevronUp,
 } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Collapsible from "react-collapsible";
+import { useActions } from "../../providers/Actions";
 
 const Sidebar = () => {
   const { myData, signOut } = useAuth();
+  const { actions } = useActions();
+  const history = useHistory();
+
+  const actionsCreate = actions.filter((action) => (
+    action.userId === myData.id
+  ));
+
+  const actionsParticipate = actions.filter((action) => (
+    action.voluntaries.includes(myData.id)
+  ));
 
   return (
     <SidebarContainer>
@@ -69,18 +80,16 @@ const Sidebar = () => {
             overflowWhenOpen="auto"
           >
             <ul>
-              <li>Ação 1</li>
-              <li>Ação 2</li>
-              <li>Ação 3</li>
-              <li>Ação 4</li>
-              <li>Ação 5</li>
-              <li>Ação 6</li>
-              <li>Ação 7</li>
-              <li>Ação 8</li>
-              <li>Ação 9</li>
-              <li>Ação 10</li>
-              <li>Ação 11</li>
-              <li>Ação 12</li>
+            {actionsCreate.length === 0 && 
+              <li>Você ainda não organizou de nenhuma ação.</li>}
+              {actionsCreate.map((action, index) => (
+                <li 
+                  onClick={() => history.push(`/action/${action.id}`)}
+                  key={index}>
+                    {action.name.slice(0, 17)}
+                    {action.name.length > 17 && <>...</>}
+                </li>
+              ))}
             </ul>
           </Collapsible>
         ) : (
@@ -98,18 +107,16 @@ const Sidebar = () => {
             overflowWhenOpen="auto"
           >
             <ul>
-              <li>Ação 1</li>
-              <li>Ação 2</li>
-              <li>Ação 3</li>
-              <li>Ação 4</li>
-              <li>Ação 5</li>
-              <li>Ação 6</li>
-              <li>Ação 7</li>
-              <li>Ação 8</li>
-              <li>Ação 9</li>
-              <li>Ação 10</li>
-              <li>Ação 11</li>
-              <li>Ação 12</li>
+              {actionsParticipate.length === 0 && 
+              <li>Você ainda não participa de nenhuma ação.</li>}
+              {actionsParticipate.map((action, index) => (
+                <li 
+                  onClick={() => history.push(`/action/${action.id}`)}
+                  key={index}>
+                    {action.name.slice(0, 20)}
+                    {action.name.length > 20 && <>...</>}
+                </li>
+              ))}
             </ul>
           </Collapsible>
         )}
