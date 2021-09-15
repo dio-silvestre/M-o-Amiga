@@ -13,13 +13,13 @@ export const Container = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   box-sizing: border-box;
   background: var(--main-background);
-  font-family: var(font--text-primary);
+  font-family: var(--font-text-primary);
   h1,
   h2 {
     color: var(--color-title);
     width: 90vw;
     text-align: center;
-    font-family: var(font--text-primary);
+    font-family: var(--font-text-primary);
     font-size: 2rem;
   }
   span {
