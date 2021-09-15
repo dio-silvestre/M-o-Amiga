@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 
-export const StyledButton = styled.button`
+interface IStyledButtonProps {
+  theme: string;
+}
+
+export const StyledButton = styled.button<IStyledButtonProps>`
   font-family: var(--font-text-primary);
   color: var(--color-base-default);
   border: none;
