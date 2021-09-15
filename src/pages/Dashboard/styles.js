@@ -132,12 +132,7 @@ export const HeaderContainer = styled.div `
       box-shadow: 5px 8px 8px var(--color-secondary);
       border-radius: 0 0 5px 5px;
       position: absolute;
-      max-width: 176px;
-      /* color: var(--color-title);
-
-      :nth-child(even) {
-        background-color: var(--color-text);
-      } */
+      width: 176px;
 
       @media (min-width: 425px) {
         max-width: 233px;
@@ -153,7 +148,6 @@ export const HeaderContainer = styled.div `
         font-size: 14px;
         margin: 5px;
         cursor: pointer;
-        /* color: ${(props) => props.evenOrOdd % 2 === 0 ? "var(--color-text)" : "var(--color-title)"}; */
 
         :hover {
           color: var(--color-primary-two);

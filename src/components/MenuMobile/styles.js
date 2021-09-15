@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const appearFromLeft = keyframes`
+const appearFromLeft = keyframes `
     from {
         opacity: 0;
         transform: translateX(-85px);
@@ -12,7 +12,7 @@ const appearFromLeft = keyframes`
     }
 `;
 
-export const StyledMenu = styled.nav`
+export const StyledMenu = styled.nav `
   top: 0;
   left: 0;
   height: 100vh;
@@ -78,11 +78,11 @@ export const StyledMenu = styled.nav`
   }
 
   .Collapsible__contentInner {
-    max-height: 7.85rem;
+    max-height: 6rem;
   }
 
   .Collapsible__contentOuter {
-    max-height: 7.85rem;
+    max-height: 6rem;
   }
 
   @media (min-width: 1024px) {

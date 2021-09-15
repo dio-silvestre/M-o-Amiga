@@ -74,13 +74,11 @@ const Dashboard = () => {
                       <div className="searchContainer">
                         {filteredProducts.map((ele, index) => (
                           <p
-                            evenOrOdd={index}
                             key={index}
                             onClick={() => {
                               history.push(`/action/${ele.id}`);
                             }}
                           >
-                            {console.log(index)}
                             {ele.name.slice(0, 30)}
                             {ele.name.length > 30 && <>...</>}
                           </p>
