@@ -1,28 +1,32 @@
-import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-
-import {Container, ContainerInfo, Container45, ContainerButton, ContainerForm} from "./styles"
 import Input from "../Input";
 import Button from "../Button";
+import { useForm } from "react-hook-form";
+import {useActions} from "../../providers/Actions";
+import { yupResolver } from "@hookform/resolvers/yup";
+import {
+  Container,
+  ContainerInfo,
+  Container45,
+  ContainerButton,
+  ContainerForm,
+  DivErrorSelect,
+} from "./styles";
 
-import {useActions} from "../../providers/Actions"
-import {useAuth} from "../../providers/Auth"
-const ActionsLogin = () => {
+const ActionsForm = () => {
     
-    const {actions, addAction} = useActions(); 
-    const {myData} = useAuth();
+    const { addAction } = useActions(); 
     
     const formSchema = yup.object().shape({
         name: yup.string().required("Nome obrigatório"),
         description: yup.string().required("Descrição obrigatória"),
         category: yup.string().required("Categoria obrigatória"),
-        numberOfVoluntaries: yup.string().required("Voluntários obrigatório").matches(/^[0-9]*$/, "Apenas números"),
+        numberOfVoluntaries: yup.string().required("Número de voluntários obrigatório").matches(/^[0-9]*$/, "Apenas números"),
         city: yup.string().required("Cidade obrigatória"),
         state: yup.string().required("Estado obrigatório"),
         hour: yup.string().required("Hora obrigatória").matches(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/ , "Hora: HH/MM"),
         date: yup.string().required("Data obrigatória").matches(
-          /^(0?[1-9]|[12][0-9]|3[01])[\/\\](0?[1-9]|1[012])[\/\\]\d{4}$/
+          /^(0?[1-9]|[12][0-9]|3[01])[/\\](0?[1-9]|1[012])[/\\]\d{4}$/
           , "Data: DD/MM/YYYY"
         ),
       });
@@ -87,6 +91,7 @@ const ActionsLogin = () => {
                 </Container45>
                 <Container45>
                 <div>Estado</div>
+                <DivErrorSelect isErrored={!!errors.state?.message}>
                 <select name="estados-brasil" {...register("state")} >
                   <option></option>
                   <option  value="AC">Acre</option>
@@ -117,6 +122,7 @@ const ActionsLogin = () => {
                   <option value="SE">Sergipe</option>
                   <option value="TO">Tocantins</option>
                 </select>
+                </DivErrorSelect>
                 <span>{errors.state?.message}</span>
                 </Container45>
               </ContainerInfo>
@@ -142,14 +148,14 @@ const ActionsLogin = () => {
                 ></Input>
                 </Container45>
               </ContainerInfo>
-              </ContainerForm>
               <ContainerButton>
                 <Button type="submit" theme="participate">
                   Cadastrar Ação
                 </Button>
               </ContainerButton>
+              </ContainerForm>
         </Container>
-    )
-}
+    );
+};
 
-export default ActionsLogin
+export default ActionsForm;

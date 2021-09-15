@@ -13,7 +13,7 @@ const Input = ({
     <Container colorSchema={colorSchema}>
       <div>{label}</div>
 
-      <InputContainer isErrored={!!error} colorSchema={colorSchema}>
+      <InputContainer className="InputRegisterAction" isErrored={!!error} colorSchema={colorSchema}>
         {Icon && <Icon size={20} />}
         <input {...register(name)} {...rest} colorSchema={colorSchema} />
       </InputContainer>

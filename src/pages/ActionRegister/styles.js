@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContentMobile = styled.div`
+export const ContentMobile = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,19 +9,20 @@ export const ContentMobile = styled.div`
   }
 `;
 
-export const ContentDescktop = styled.div`
+export const ContentDescktop = styled.div `
   display: none;
   @media (min-width: 1024px) {
     display: flex;
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   max-width: 1366px;
+  font-family: var(--font-text-primary);
 
   @media screen and (min-width: 1024px) {
     display: flex;
@@ -29,14 +30,14 @@ export const Container = styled.div`
     justify-content: flex-start;
   }
 `;
-export const Info = styled.div`
+export const Info = styled.div `
   margin-top: 10vh;
   height: 80px;
   width: 100vw;
   text-align: center;
   font-size: 20px;
   color: var(--color-primary-two);
-
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,21 +59,20 @@ export const Info = styled.div`
   }
 `;
 
-export const ContainerInfoRegister = styled.div`
-  height: 100vh;
+export const ContainerInfoRegister = styled.div `
   width: calc(100% - 350px);
   padding-left: 32px;
 `;
 
-export const ContainerAction = styled.div`
-  height: 80vh;
+export const ContainerAction = styled.div `
   width: 100%;
   display: flex;
   justify-content: center;
 `;
 
-export const FullContainer = styled.div`
+export const FullContainer = styled.div `
   width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   background: var(--main-background);

@@ -19,10 +19,13 @@ export const ModalListActions = () => {
     const customStyles = {
         content: {
           background: "var(--color-primary-two)",
+          width: "65%",
+          heigth: "60%",
           margin: "auto",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center"
+          justifyContent: "center",
+          borderRadius: "12px"
         },
     };
 
@@ -42,18 +45,24 @@ export const ModalListActions = () => {
             >X
             </ButtonClose>
             <ContainerActions>
-                {listActionsModal.map((action, index) => (
-                    <Action 
-                        key={index}
-                        oddOrEven={index}
-                        qtyActions={listActionsModal.length}
-                        onClick={() => history.push(`/action/${action.id}`)}>
-                        <span>{action.date}</span>
-                        <span>{action.hour}</span>
-                        <span>{action.name}</span>
-                        <span>{action.city}/{action.state}</span>
-                    </Action>
-                ))}
+                {listActionsModal.length === 0 ? (
+                    <h2>Não há ações cadastradas neste dia...</h2>
+                ) : (
+                    <>
+                    {listActionsModal.map((action, index) => (
+                        <Action 
+                            key={index}
+                            oddOrEven={index}
+                            qtyActions={listActionsModal.length}
+                            onClick={() => history.push(`/action/${action.id}`)}>
+                            <span>{action.date}</span>
+                            <span>{action.hour}</span>
+                            <span>{action.name}</span>
+                            <span>{action.city}/{action.state}</span>
+                        </Action>
+                    ))}
+                    </>
+                )}
             </ContainerActions>
         </Modal>
     );
