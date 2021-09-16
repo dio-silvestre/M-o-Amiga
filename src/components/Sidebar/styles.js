@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SidebarContainer = styled.div `
+export const SidebarContainer = styled.div`
   display: none;
   flex-direction: column;
 
@@ -72,6 +72,10 @@ export const SidebarContainer = styled.div `
 
       .Collapsible__contentInner {
         max-height: 5rem;
+        ul {
+          list-style: circle;
+          margin-left: 8px;
+        }
 
         ::-webkit-scrollbar {
           width: 10px;

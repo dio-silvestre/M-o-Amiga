@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-export const Container = styled.div `
+export const Container = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
@@ -16,68 +16,59 @@ export const Container = styled.div `
 
     margin-bottom: -90px;
   }
-
-  .text2 {
-    font-size: 24px;
-    width: 60vw;
-    margin: 0auto;
-    font-family: var(--font-text-primary);
-    font-weight: 500;
-  }
-
-  @media (max-width: 540px) {
-    .text2 {
-      position: absolute;
-      right: 60px;
-      top: 232px;
-      width: 80vw;
-    }
-  }
 `;
 
-export const Switch = styled.div `
+export const Switch = styled.div`
   display: flex;
-  width: 114%;
+  width: 100%;
   height: 60px;
-  margin-top: -35px;
 
   button {
-    width: 57%;
-    border: none;
-    border-radius: 8px;
-    border: 1px solid white;
-    color: white;
+    width: 100%;
     font-family: var(--font-text-primary);
     font-size: 16px;
     cursor: pointer;
-  }
-
-  @media (max-width: 767px) {
-    width: 112%;
+    font-weight: 600;
   }
 `;
 
-export const ButtonInstitution = styled.button `
-
+export const ButtonInstitution = styled.button`
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
   background-color: ${(props) =>
     props.userType === "voluntary"
+      ? "var(--color-base-default)"
+      : "var(--color-primary-two)"};
+  color: ${(props) =>
+    props.userType === "voluntary"
       ? "var(--color-primary-two)"
-      : "var(--color-secondary)"};
+      : "var(--color-base-default)"};
+  border: ${(props) =>
+    props.userType === "voluntary"
+      ? "2px solid var(--color-base-default)"
+      : "2px solid var(--color-success)"};
 `;
 
-export const ButtonVoluntary = styled.button `
+export const ButtonVoluntary = styled.button`
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   background-color: ${(props) =>
     props.userType === "institution"
-      ? "var(--color-primary)"
-      : "var(--color-secondary)"};
+      ? "var(--color-base-default)"
+      : "var(--color-primary-two)"};
+  color: ${(props) =>
+    props.userType === "institution"
+      ? "var(--color-primary-two)"
+      : "var(--color-base-default)"};
+  border: ${(props) =>
+    props.userType === "institution"
+      ? "2px solid var(--color-base-default)"
+      : "2px solid var(--color-success)"};
 `;
 
-export const Header = styled.header `
+export const Header = styled.header`
   width: 100%;
-  background: linear-gradient(
-    var(--color-primary-two) 21%,
-    var(--color-primary-two) 10%
-  );
+  background: var(--color-text-two);
   display: flex;
   flex-direction: column;
   font-family: var(--font-text-primary);
@@ -85,12 +76,11 @@ export const Header = styled.header `
 
   img {
     width: 275px;
-    height: 255px;
-    margin-bottom: 10px;
+    margin-bottom: 3rem;
   }
 
   div {
-    margin-bottom: 2rem;
+    text-align: center;
 
     h1 {
       margin-bottom: 20px;
@@ -102,15 +92,29 @@ export const Header = styled.header `
 
     p {
       font-size: 0.9rem;
-      color: var(--color-placeholder);
+      color: var(--color-text);
       margin-left: 8px;
+      font-weight: 600;
     }
 
     .textBox1 {
-      height: 115px;
+      align-self: flex-start;
+      margin-top: 1.5rem;
+    }
 
-      h1 {
-        text-align: left;
+    .textBox2 {
+      align-self: flex-end;
+      margin-bottom: 0;
+    }
+
+    .textBox1,
+    .textBox2 {
+      height: 115px;
+      display: none;
+      text-align: center;
+
+      @media (min-width: 768px) {
+        display: block;
       }
     }
   }
@@ -124,7 +128,6 @@ export const Header = styled.header `
       max-width: 1366px;
       display: flex;
       flex-direction: row;
-      margin-bottom: 3rem;
 
       img {
         width: 500px;
@@ -149,14 +152,14 @@ export const Header = styled.header `
   }
 `;
 
-export const Content = styled.div `
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   max-width: 1366px;
-  margin-top: 2rem;
+  margin-top: -30px;
 
   @media (min-width: 768px) {
     .form-mobile {
@@ -168,7 +171,7 @@ export const Content = styled.div `
     .form-mobile {
       width: 95%;
       position: absolute;
-      top: 18rem;
+      top: 8rem;
       z-index: 2;
       background-color: var(--color-text-two);
     }
@@ -191,10 +194,10 @@ export const Content = styled.div `
   }
 `;
 
-const appearFromLeft = keyframes `
+const appearFromRight = keyframes`
 from {
     opacity: 0;
-    transform: translateX(-50px)
+    transform: translateX(70px)
 }
 
 to {
@@ -203,7 +206,23 @@ to {
 }
 `;
 
-export const AnimationContainer = styled.div `
+export const AnimationContainer2 = styled.div`
+  animation: ${appearFromRight} 1s;
+`;
+
+const appearFromLeft = keyframes`
+from {
+    opacity: 0;
+    transform: translateX(-70px)
+}
+
+to {
+    opacity: 1;
+    transform: translateX(0px)
+}
+`;
+
+export const AnimationContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -226,15 +245,22 @@ export const AnimationContainer = styled.div `
     }
 
     h1 {
-      margin-bottom: 32px;
+      margin: 32px 0;
       font-family: var(--font-text-primary);
       font-weight: 700;
       font-size: 2rem;
       text-align: left;
     }
 
+    h4 {
+      font-family: var(--font-text-primary);
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: var(--color-primary-two);
+      text-align: left;
+    }
+
     > div {
-      margin-top: 16px;
       font-family: var(--font-text-primary);
     }
 
