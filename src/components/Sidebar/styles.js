@@ -48,7 +48,7 @@ export const SidebarContainer = styled.div`
         margin: 10px 0;
         font-size: 1.15rem;
         font-family: var(--font-text-primary);
-        font-weight: 600;
+        font-weight: 400;
 
         :hover {
           color: var(--color-text);
@@ -68,6 +68,7 @@ export const SidebarContainer = styled.div`
       p {
         font-family: var(--font-text-primary);
         font-size: 20px;
+        font-weight: 600;
       }
 
       .Collapsible__contentInner {
