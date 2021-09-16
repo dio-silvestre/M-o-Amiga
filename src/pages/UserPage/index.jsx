@@ -12,7 +12,7 @@ import { Redirect } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
 import MenuMobile from "../../components/MenuMobile";
 import HeaderMobile from "../../components/HeaderMobile";
-import EditPerfil from "../../components/EditPerfil"
+import EditProfile from "../../components/EditProfile"
 
 const UserPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -86,7 +86,7 @@ const UserPage = () => {
                     src={InstitutionImage}
                     alt="Imagem de perfil da instituição"
                   />
-                  <EditPerfil />
+                  <EditProfile />
                 </div>
               </ProfileContainer>
             ) : (
@@ -109,7 +109,7 @@ const UserPage = () => {
                   />
                   <div >
                     
-                    <EditPerfil />
+                    <EditProfile />
                     
                   </div>
                 </div>

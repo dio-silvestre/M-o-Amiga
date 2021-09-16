@@ -15,18 +15,18 @@ const EditLine = ({name, placeholder}) => {
 
     const params = useParams();
     const [edit, setEdit] = useState(false);
-    const {userData, editProfile} = useUser();
-    //console.log(userData);
-
-      const {
-        register,
-        handleSubmit,
-      } = useForm();
+    const { editProfile } = useUser();
     
-      const onSubmitFunction = (data) => {
-        editProfile(params.userId, data)
-        setEdit(false)
-      };
+    const {
+      register,
+      handleSubmit,
+    } = useForm();
+    
+    const onSubmitFunction = (data) => {
+      editProfile(params.userId, data);
+      setEdit(false);
+    };
+
     return(
         <Content>
         {edit == false ? 
@@ -45,7 +45,7 @@ const EditLine = ({name, placeholder}) => {
           </>
         }
         </Content>
-    )
-}
+    );
+};
 
 export default EditLine;
