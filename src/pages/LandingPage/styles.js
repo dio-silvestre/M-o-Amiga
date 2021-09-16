@@ -1,6 +1,42 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
 
+<<<<<<< HEAD
+=======
+const appearFromRight = keyframes`
+from {
+    opacity: 0;
+    transform: translateX(70px)
+}
+
+to {
+    opacity: 1;
+    transform: translateX(0px)
+}
+`;
+
+export const AnimationContainer2 = styled.div`
+  animation: ${appearFromRight} 1s;
+  width: 40%;
+`;
+
+const appearFromLeft = keyframes`
+from {
+    opacity: 0;
+    transform: translateX(-70px)
+}
+
+to {
+    opacity: 1;
+    transform: translateX(0px)
+}
+`;
+
+export const AnimationContainer = styled.div`
+  animation: ${appearFromLeft} 1s;
+`;
+
+>>>>>>> develop
 export const Container = styled.div`
   width: 100vw;
   padding-top: 2rem;
@@ -97,7 +133,11 @@ export const NavBar = styled.div`
 
   @media (min-width: 1366px) {
     width: 575px;
+<<<<<<< HEAD
     font-size: 24px;
+=======
+    font-size: 22px;
+>>>>>>> develop
   }
 `;
 
@@ -124,7 +164,11 @@ export const WomanBaloonsComponent = styled.img`
 
 export const MinicalendarComponent = styled.img`
   display: none;
+<<<<<<< HEAD
   width: 40%;
+=======
+  width: 100%;
+>>>>>>> develop
 
   @media (min-width: 1024px) {
     display: block;
@@ -414,12 +458,18 @@ export const WheelchairManComponent = styled.img`
 
 export const Footer = styled.footer`
   width: 100vw;
+<<<<<<< HEAD
   box-sizing: border-box;
 
   //height: 200px;
   background-color: var(--color-placeholder);
   display: flex;
   flex-direction: column;
+=======
+  height: 130px;
+  background-color: var(--color-placeholder);
+  display: flex;
+>>>>>>> develop
   align-items: center;
   justify-content: center;
   color: var(--color-text-two);
@@ -431,6 +481,10 @@ export const Footer = styled.footer`
   }
 
   @media (min-width: 1024px) {
+<<<<<<< HEAD
     //  height: 1200px;
+=======
+    height: 200px;
+>>>>>>> develop
   }
 `;

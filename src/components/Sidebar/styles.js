@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SidebarContainer = styled.div `
+export const SidebarContainer = styled.div`
   display: none;
   flex-direction: column;
 
@@ -48,7 +48,7 @@ export const SidebarContainer = styled.div `
         margin: 10px 0;
         font-size: 1.15rem;
         font-family: var(--font-text-primary);
-        font-weight: 600;
+        font-weight: 400;
 
         :hover {
           color: var(--color-text);
@@ -68,10 +68,15 @@ export const SidebarContainer = styled.div `
       p {
         font-family: var(--font-text-primary);
         font-size: 20px;
+        font-weight: 600;
       }
 
       .Collapsible__contentInner {
         max-height: 5rem;
+        ul {
+          list-style: circle;
+          margin-left: 8px;
+        }
 
         ::-webkit-scrollbar {
           width: 10px;

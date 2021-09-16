@@ -14,6 +14,8 @@ import { Redirect } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
 import AboutUs from "../../components/AboutUs/index";
 import {
+  AnimationContainer,
+  AnimationContainer2,
   Container,
   FullContainer,
   Header,
@@ -69,6 +71,7 @@ const LandingPage = () => {
       <FullContainer>
         <PresentationSection>
           <div>
+<<<<<<< HEAD
             <section>
               <ContentOne>Transforme o mundo com uma pequena ação!</ContentOne>
               <WomanBaloonsComponent src={WomanBaloons} alt="Woman Baloons" />
@@ -79,6 +82,24 @@ const LandingPage = () => {
               </ContentTwo>
             </section>
             <MinicalendarComponent src={MiniCalendar} alt="Mini Calendar" />
+=======
+            <AnimationContainer>
+              <section>
+                <ContentOne>
+                  Transforme o mundo com uma pequena ação!
+                </ContentOne>
+                <WomanBaloonsComponent src={WomanBaloons} alt="Woman Baloons" />
+                <ContentTwo>
+                  Plataforma que conecta instituição organizadora de ação
+                  voluntária e voluntário disponível, sincronizando seus
+                  calendários gerando e compartilhando experiências.
+                </ContentTwo>
+              </section>
+            </AnimationContainer>
+            <AnimationContainer2>
+              <MinicalendarComponent src={MiniCalendar} alt="Mini Calendar" />
+            </AnimationContainer2>
+>>>>>>> develop
           </div>
           <Button theme={"signUp"} onClick={() => history.push("/register")}>
             Quero ajudar!
