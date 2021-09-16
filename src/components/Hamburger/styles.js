@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledHamburger = styled.button`
+export const StyledHamburger = styled.button `
   position: fixed;
   left: 3vw;
   top: 3vw;

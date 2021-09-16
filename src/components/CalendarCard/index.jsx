@@ -19,7 +19,10 @@ const CalendarCard = ({number,events}) => {
         {events.filter((_, index) => index < 4).map((event, index) => (
             <div 
                 key={index} 
-                onClick={() => history.push(`/action/${event.id}`)}
+                onClick={() => {
+                    history.push(`/action/${event.id}`)
+                    window.location.reload();
+                }}
             >{event.name.slice(0,10)}{event.name.length > 11 ? "..." : ""}
             </div>
         ))}

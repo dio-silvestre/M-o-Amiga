@@ -28,9 +28,9 @@ export const CommentsProvider = ({ children }) => {
     useEffect(() => {
       if(!!localToken) {
         fetchComments();
-        // setInterval(fetchComments, 3000);
+        setInterval(fetchComments, 5000);
       }
-    }, []);
+    }, [localToken]);
 
     const addComment = (comment, actionId, name) => {
         api
@@ -80,7 +80,7 @@ export const CommentsProvider = ({ children }) => {
     };
 
     return (
-        <CommentsContext.Provider value={{comments, addComment, editComment, deleteComment}}>
+        <CommentsContext.Provider value={{comments, fetchComments, addComment, editComment, deleteComment}}>
             {children}
         </CommentsContext.Provider>
     );

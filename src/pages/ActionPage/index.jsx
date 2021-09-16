@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Chat from "../../components/Chat";
 import { api } from "../../services/api";
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
@@ -17,6 +18,7 @@ import {
   FullContainer,
   Page,
   ActionData,
+  NewContainer,
   BoxInfos,
   LinkPerfil,
   Participate,
@@ -79,6 +81,7 @@ const ActionPage = () => {
           ) : (
             <ActionData>
               <h1>{specificAction.name}</h1>
+              <NewContainer>
               <BoxInfos>
                 <h3>
                   <span>Categoria: </span>
@@ -157,6 +160,8 @@ const ActionPage = () => {
                   </>
                 )}
               </BoxInfos>
+              <Chat participate={participate} isCreator={isCreator} actionId={specificAction.id} />
+              </NewContainer>
             </ActionData>
           )}
         </Page>

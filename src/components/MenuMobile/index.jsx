@@ -91,8 +91,9 @@ const MenuMobile = () => {
               {actionsCreate.map((action, index) => (
                 <li 
                   onClick={() => {
-                    history.push(`/action/${action.id}`)
+                    history.push(`/action/${action.id}`);
                     setOpen(false);
+                    window.location.reload();
                   }}
                   key={index}>
                     {action.name.slice(0, 17)}
@@ -121,8 +122,9 @@ const MenuMobile = () => {
               {actionsParticipate.map((action, index) => (
                 <li 
                   onClick={() => {
-                    history.push(`/action/${action.id}`)
+                    history.push(`/action/${action.id}`);
                     setOpen(false);
+                    window.location.reload();
                   }}
                   key={index}>
                     {action.name.slice(0, 20)}

@@ -84,7 +84,10 @@ const Sidebar = () => {
               <li>Você ainda não organizou de nenhuma ação.</li>}
               {actionsCreate.map((action, index) => (
                 <li 
-                  onClick={() => history.push(`/action/${action.id}`)}
+                  onClick={() => {
+                    history.push(`/action/${action.id}`);
+                    window.location.reload();
+                  }}
                   key={index}>
                     {action.name.slice(0, 17)}
                     {action.name.length > 17 && <>...</>}
@@ -111,7 +114,10 @@ const Sidebar = () => {
               <li>Você ainda não participa de nenhuma ação.</li>}
               {actionsParticipate.map((action, index) => (
                 <li 
-                  onClick={() => history.push(`/action/${action.id}`)}
+                  onClick={() => {
+                    history.push(`/action/${action.id}`);
+                    window.location.reload();
+                  }}
                   key={index}>
                     {action.name.slice(0, 20)}
                     {action.name.length > 20 && <>...</>}
