@@ -21,9 +21,6 @@ const EditPerfil = () => {
                     : 
                     <span>{userData?.responsable}</span>} </>: <></>}
                 </Content>
-                <div style={{display: "flex", flexDirection: "row"}}>
-                    <FcPhone /> <span>Telefone: </span>{edit ?  <EditLine name="cellphone" placeholder="Telefone" /> : <span>{userData?.cellphone}</span>}
-                </div>
                 {edit == false ?
                     <Content>
                         <FcPrint /> <span>E-mail:</span><span>{userData?.email}</span>
@@ -31,6 +28,9 @@ const EditPerfil = () => {
                     :
                     <></>
                 }
+                <div style={{display: "flex", flexDirection: "row"}}>
+                    <FcPhone /> <span>Telefone: </span>{edit ?  <EditLine name="cellphone" placeholder="Telefone" /> : <span>{userData?.cellphone}</span>}
+                </div>
                 <Content>
                      {edit ? <><FcParallelTasks /> <span>Area de atuação: </span> <EditLine  name="areas" placeholder="Area de atuação" /> </> : "" }
                 </Content>
