@@ -39,10 +39,34 @@ export const AuthProvider = ({ children }) => {
       .then((response) => {
         localStorage.setItem("authToken", response.data.accessToken);
         setIsLogged(true);
-        toast.success("Sucesso ao fazer login");
+        toast.success("Sucesso ao fazer login", {
+          style: {
+            border: "2px solid var(--color-success)",
+            padding: "16px",
+            color: "var(--color-success)",
+            fontSize: "1.4rem",
+          },
+          iconTheme: {
+            primary: "var(--color-success)",
+            secondary: "white",
+          },
+        });
         history.push("/dashboard");
       })
-      .catch((error) => toast.error("E-mail ou senha incorretas"));
+      .catch((error) =>
+        toast.error("E-mail ou senha incorretas", {
+          style: {
+            border: "2px solid var(--color-error)",
+            padding: "16px",
+            color: "var(--color-error)",
+            fontSize: "1.4rem",
+          },
+          iconTheme: {
+            primary: "var(--color-error)",
+            secondary: "white",
+          },
+        })
+      );
   };
 
   const signOut = () => {
