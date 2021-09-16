@@ -1,10 +1,29 @@
 import styled from "styled-components";
 
+export const MainContainer = styled.div`
+  background-color: white;
+  color: var(--color-text);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    width: 90vw;
+    margin: 20px auto;
+  }
+`;
+
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
+  height: 100px;
+  color: var(--color-text);
+
+  h1 {
+    font-size: 3rem;
+    margin-top: 20px auto;
+  }
 `;
 
 export const DevsContainer = styled.div`
@@ -53,4 +72,12 @@ export const DevsContainer = styled.div`
   div:hover {
     border: 2px solid whitesmoke;
   }
+`;
+
+export const DivBar = styled.div`
+  width: 40%;
+  background-color: var(--color-primary-two);
+  margin: auto 0 8px 0;
+  height: 30px;
+  margin: 0 auto;
 `;

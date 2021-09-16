@@ -1,5 +1,10 @@
 import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
-import { DevsContainer, HeaderContainer } from "./styles";
+import {
+  DevsContainer,
+  HeaderContainer,
+  MainContainer,
+  DivBar,
+} from "./styles";
 import { FiGithub } from "react-icons/fi";
 import Jose from "../../assets/josé.jpg";
 import Nicole from "../../assets/nicole.jpg";
@@ -9,11 +14,16 @@ import Igor from "../../assets/Igor.jpeg";
 
 const AboutUs = () => {
   return (
-    <div>
+    <MainContainer>
+      <DivBar />
       <HeaderContainer>
-        <img src={LogoMiniWhite} alt="Logo Mão Amiga"></img>
-        <p>Sobre nós</p>
+        <h1>Sobre nós</h1>
       </HeaderContainer>
+
+      <h2>
+        Este é um projeto final do Q2 do curso de desenvolvimento full stack na
+        Kenzie Academy Brasil .{" "}
+      </h2>
 
       <DevsContainer>
         <div>
@@ -68,7 +78,7 @@ const AboutUs = () => {
           </p>
         </div>
       </DevsContainer>
-    </div>
+    </MainContainer>
   );
 };
 

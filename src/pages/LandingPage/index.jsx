@@ -156,9 +156,9 @@ const LandingPage = () => {
           <WheelchairManComponent src={WheelchairMan} alt="Wheelchair Man" />
         </LastSection>
       </FullContainer>
-      <Footer>
-        <AboutUs />
-      </Footer>
+
+      <AboutUs />
+      <Footer />
     </Container>
   );
 };

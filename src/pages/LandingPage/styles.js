@@ -454,6 +454,6 @@ export const Footer = styled.footer`
   font-size: 25px;
 
   @media (min-width: 1024px) {
-    // height: 200px;
+    height: 50px;
   }
 `;
