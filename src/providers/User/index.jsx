@@ -15,11 +15,33 @@ export const UserProvider = ({ children }) => {
     api
       .post("/signup", data)
       .then((response) => {
-        toast.success("Conta criada com sucesso!");
+        toast.success("Conta criada com sucesso!", {
+          style: {
+            border: "2px solid var(--color-success)",
+            padding: "16px",
+            color: "var(--color-success)",
+            fontSize: "1.4rem",
+          },
+          iconTheme: {
+            primary: "var(--color-success)",
+            secondary: "white",
+          },
+        });
         history.push("/login");
       })
       .catch((error) =>
-        toast.error("Erro ao criar conta , tente com outro email")
+        toast.error("Erro ao criar conta , tente com outro email", {
+          style: {
+            border: "2px solid var(--color-error)",
+            padding: "16px",
+            color: "var(--color-error)",
+            fontSize: "1.4rem",
+          },
+          iconTheme: {
+            primary: "var(--color-error)",
+            secondary: "white",
+          },
+        })
       );
   };
 

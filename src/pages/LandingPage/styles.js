@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
+import WomanBaloons from "../../assets/img/woman-with-balloons.svg";
 
 const appearFromRight = keyframes`
 from {
@@ -446,21 +446,14 @@ export const WheelchairManComponent = styled.img`
 `;
 
 export const Footer = styled.footer`
-  width: 100vw;
-  height: 130px;
   background-color: var(--color-placeholder);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-text-two);
-  font-size: 30px;
-
-  img {
-    width: 100px;
-    margin-left: 30px;
-  }
+  font-size: 25px;
 
   @media (min-width: 1024px) {
-    height: 200px;
+    height: 50px;
   }
 `;
