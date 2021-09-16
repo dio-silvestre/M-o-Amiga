@@ -16,6 +16,9 @@ export const Container = styled.div`
     margin: auto;
     width: 300px;
   }
+  @media screen and (max-width: 1024px){
+    min-height: 100vh;
+  }
 `;
 
 export const ProfileContainer = styled.div`
@@ -23,8 +26,8 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
   align-items: center;
+  margin-top: 2rem;
 
   img {
     display: none;

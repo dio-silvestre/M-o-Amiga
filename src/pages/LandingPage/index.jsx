@@ -1,5 +1,4 @@
 import LogoFullColor from "./../../assets/img/logo.svg";
-import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
 import LogoMiniColor from "./../../assets/img/logo-mini-color.svg";
 import ManBolering from "./../../assets/img/man-bolering.svg";
 import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
@@ -14,6 +13,8 @@ import { useHistory } from "react-router";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
 import {
+  AnimationContainer,
+  AnimationContainer2,
   Container,
   FullContainer,
   Header,
@@ -42,16 +43,17 @@ import {
   ThirdSectionDesktopContentTwo,
 } from "./styles";
 import ModalListActions from "../../components/ModalListActions";
+import "../../components/AboutUs";
+import AboutUs from "../../components/AboutUs";
 
 const LandingPage = () => {
-
   const history = useHistory();
 
   const { isLogged } = useAuth();
 
   if (isLogged) {
     return <Redirect to="/dashboard" />;
-  };
+  }
 
   return (
     <Container>
@@ -63,21 +65,29 @@ const LandingPage = () => {
           <a href="#calendar">CALENDÁRIO</a>
           <span onClick={() => history.push("/login")}>Entrar</span>
         </NavBar>
-        <IconLogin onClick={() => history.push("/login")}><BiLogIn /></IconLogin>
+        <IconLogin onClick={() => history.push("/login")}>
+          <BiLogIn />
+        </IconLogin>
       </Header>
       <FullContainer>
         <PresentationSection>
           <div>
-            <section>
-              <ContentOne>Transforme o mundo com uma pequena ação!</ContentOne>
-              <WomanBaloonsComponent src={WomanBaloons} alt="Woman Baloons" />
-              <ContentTwo>
-                Plataforma que conecta instituição organizadora de ação voluntária e
-                voluntário disponível, sincronizando seus calendários gerando e
-                compartilhando experiências.
-              </ContentTwo>
-            </section>
-            <MinicalendarComponent src={MiniCalendar} alt="Mini Calendar" />
+            <AnimationContainer>
+              <section>
+                <ContentOne>
+                  Transforme o mundo com uma pequena ação!
+                </ContentOne>
+                <WomanBaloonsComponent src={WomanBaloons} alt="Woman Baloons" />
+                <ContentTwo>
+                  Plataforma que conecta instituição organizadora de ação
+                  voluntária e voluntário disponível, sincronizando seus
+                  calendários gerando e compartilhando experiências.
+                </ContentTwo>
+              </section>
+            </AnimationContainer>
+            <AnimationContainer2>
+              <MinicalendarComponent src={MiniCalendar} alt="Mini Calendar" />
+            </AnimationContainer2>
           </div>
           <Button theme={"signUp"} onClick={() => history.push("/register")}>
             Quero ajudar!
@@ -108,7 +118,7 @@ const LandingPage = () => {
         </ThirdSectionMobile>
 
         <CalendarSection id="calendar">
-        <DivBar />
+          <DivBar />
           <DivImages>
             <MiniLogoColorComponent src={LogoMiniColor} alt="Logo Mini" />
             <WomanBaloonComponent src={WomanBaloon} alt="" />
@@ -145,10 +155,10 @@ const LandingPage = () => {
           <WheelchairManComponent src={WheelchairMan} alt="Wheelchair Man" />
         </LastSection>
       </FullContainer>
-      <Footer id="aboutUs">
-        <p>Sobre nós</p>
-        <img src={LogoMiniWhite} alt="Logo Mão Amiga"></img>
-      </Footer>
+      <div id="aboutUs">
+      <AboutUs />
+      </div>
+      <Footer />
     </Container>
   );
 };

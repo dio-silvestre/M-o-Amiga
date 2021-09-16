@@ -12,241 +12,161 @@ const slidein = keyframes`
 `;
 
 export const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  background: var(--main-background);
+`;
+
+export const FullContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: var(--main-background);
 
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  img {
+    margin: auto;
+    width: 300px;
   }
 `;
 
 export const MainContainer = styled.div`
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: calc(100vw - 350px);
+  width: 100%;
+  @media (min-width: 1024px) {
+    width: calc(100% - 350px);
   }
 `;
 
 export const HeaderContainer = styled.div`
-  @media screen and (max-width: 375px) {
-    top: 20px;
-    margin-top: 4.2rem;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-text-primary);
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 2rem;
 
-    .messageContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: left;
-      justify-content: center;
-      height: 30%;
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
-      h1 {
-        font-weight: 700;
-        font-size: 1.2rem;
-        color: var(--color-title);
-        font-family: var(--font-text-primary);
-        color: var(--color-primary-two);
-        z-index: 2;
-        margin-left: 100px;
-        margin-bottom: 10px;
-      }
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 
-      h2 {
-        margin-bottom: 10px;
-        font-weight: 600;
-        font-size: 1rem;
-        color: var(--color-title);
-        margin-left: 8px;
-        font-family: var(--font-text-primary);
-        color: var(--color-primary-two);
-        //color:var(--color-text-two)
-      }
+  @media (min-width: 375px) {
+    h1 {
+      font-size: 2rem;
     }
 
-    .inputContainer {
-      height: 70%;
-      width: 90vw;
-      margin: 5px auto;
-
-      input {
-        width: 100%;
-        margin: 0 auto;
-        height: 30px;
-        border-radius: 8px;
-        border: 1px solid white;
-        padding-left: 20px;
-      }
-    }
-
-    .searchContainer {
-      height: 60px;
-      background-color: white;
-      overflow: auto;
-      animation: ${slidein} 2s;
-      border: none;
-      text-align: left;
-      padding-left: 15px;
-      box-shadow: 5px 8px 8px var(--color-secondary);
-      border-radius: 3px;
-      cursor: pointer;
-
-      p {
-        font-size: 14px;
-        margin: 5px;
-      }
+    h2 {
+      font-size: 1.5rem;
     }
   }
 
-  @media screen and (min-width: 375px) and (max-width: 768px) {
-    position: relative;
-    height: 250px;
-    width: 95vw;
-    margin: 0 auto;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 0 2rem;
+
+    h1 {
+      font-size: 3.4rem;
+    }
+
+    h2 {
+      font-size: 2.6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0;
+  }
+
+  .messageContainer {
+    color: var(--color-primary-two);
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-top: 2rem;
+    align-items: center;
+    margin: 1rem 0;
 
-    .messageContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: left;
-      justify-content: center;
-      margin-top: 55px;
-
-      h1 {
-        font-weight: 700;
-        font-size: 2rem;
-        color: var(--color-title);
-        font-family: var(--font-text-primary);
-        color: var(--color-primary-two);
-        z-index: 2;
-        margin-left: 100px;
-        margin-bottom: 20px;
-      }
-
-      h2 {
-        margin-bottom: 20px;
-        font-weight: 600;
-        font-size: 1.5rem;
-        color: var(--color-title);
-        margin-left: 8px;
-        font-family: var(--font-text-primary);
-        color: var(--color-primary-two);
-      }
-    }
-
-    .inputContainer {
-      height: 70%;
-      width: 90vw;
-      margin: 5px auto;
-
-      input {
-        width: 100%;
-        margin: 0 auto;
-        height: 30px;
-        border-radius: 8px;
-        border: 1px solid white;
-        padding-left: 20px;
-      }
-    }
-
-    .searchContainer {
-      height: 60px;
-      background-color: white;
-      overflow: auto;
-      animation: ${slidein} 2s;
-      border: none;
-      text-align: left;
-      padding-left: 15px;
-      box-shadow: 5px 8px 8px var(--color-secondary);
-      border-radius: 3px;
-      cursor: pointer;
-
-      p {
-        font-size: 14px;
-        margin: 5px;
-      }
+    @media (min-width: 768px) {
+      align-items: flex-start;
+      width: 65%;
     }
   }
 
-  @media screen and (min-width: 768px) {
-    position: relative;
-    height: 250px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .inputContainer {
+    width: 60%;
+    margin: 5px auto;
 
-    .messageContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 40%;
-
-      h1 {
-        font-weight: 700;
-        font-size: 3.8rem;
-        color: var(--color-title);
-        font-family: var(--font-text-primary);
-        color: var(--color-primary-two);
-        z-index: 2;
-        margin-left: 100px;
-        margin-bottom: 20px;
-      }
-
-      h2 {
-        margin-bottom: 20px;
-        font-weight: 600;
-        font-size: 3rem;
-        color: var(--color-title);
-        margin-left: 8px;
-        font-family: var(--font-text-primary);
-        color: var(--color-primary-two);
-      }
+    @media (min-width: 768px) {
+      width: 30%;
     }
 
-    .inputContainer {
-      height: 70%;
-      width: 90vw;
-      margin: 5px auto;
+    input {
+      width: 100%;
+      margin: 0 auto;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid white;
+      padding-left: 10px;
+      outline: none;
+    }
+  }
 
-      input {
-        width: 50%;
-        margin: 0 auto;
-        height: 30px;
-        border-radius: 8px;
-        border: 1px solid white;
-        padding-left: 20px;
-      }
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding-left: 20px;
+    outline: none;
+    background-color: white;
 
-      .searchContainer {
-        height: 60px;
-        width: 50%;
-        background-color: white;
-        overflow: auto;
-        animation: ${slidein} 2s;
-        border: none;
-        text-align: left;
-        padding-left: 15px;
-        box-shadow: 5px 8px 8px var(--color-secondary);
-        border-radius: 3px;
-        cursor: pointer;
+    svg {
+      font-size: 1.5rem;
+    }
+  }
+  .searchContainer {
+    max-height: 60px;
+    padding-left: 5px;
+    margin-left: 8px;
+    background-color: white;
+    overflow: auto;
+    animation: ${slidein} 1s;
+    border: none;
+    text-align: left;
+    box-shadow: 5px 8px 8px var(--color-secondary);
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    width: 215px;
 
-        p {
-          font-size: 14px;
-          margin: 5px;
-          font-family: var(--font-text-primary);
-        }
+    @media (min-width: 425px) {
+      width: 244px;
+    }
+    @media (min-width: 600px) {
+      width: 292px;
+    }
+    @media (min-width: 1024px) and (max-width: 1140px) {
+      max-width: 180px;
+    }
+
+    p {
+      font-size: 14px;
+      margin: 5px;
+      cursor: pointer;
+
+      :hover {
+        color: var(--color-primary-two);
       }
     }
   }

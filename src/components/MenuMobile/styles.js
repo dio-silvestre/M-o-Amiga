@@ -78,11 +78,15 @@ export const StyledMenu = styled.nav`
   }
 
   .Collapsible__contentInner {
-    max-height: 7.85rem;
+    max-height: 6rem;
+    ul {
+      list-style: circle;
+      margin-left: 8px;
+    }
   }
 
   .Collapsible__contentOuter {
-    max-height: 7.85rem;
+    max-height: 6rem;
   }
 
   @media (min-width: 1024px) {

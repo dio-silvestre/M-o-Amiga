@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useHistory } from "react-router";
 import ModalListActions from "../../components/ModalListActions";
-
 import {
   Container,
+  FullContainer,
   MainContainer,
   HeaderContainer,
   CalendarContainer,
@@ -47,45 +47,45 @@ const Dashboard = () => {
   }
 
   return (
-    <>
+    <Container>
+      <ModalListActions />
       <HeaderMobile />
-      <Container>
+      <FullContainer>
         <MenuMobile />
         <SideBar />
-        <ModalListActions />
         {isLoading ? (
           <img src={Loading} alt="Loading" className="loading" />
         ) : (
           <MainContainer>
             <HeaderContainer>
               <div className="messageContainer">
-                <h2> Seja bem vindo (a) , </h2>
-                {myData.user_type === "institution" ? (
-                  <h1> Instituição !</h1>
-                ) : (
-                  <h1> Voluntário!</h1>
-                )}
+                <h2> Seja bem vindo (a), </h2>
+                <h1>{myData.name.split(" ")[0]}!</h1>
               </div>
               <div className="inputContainer">
-                <div>
+                <div className="iconContainer">
+                  <div>
+                    <FiSearch />
+                  </div>
                   <input
                     type="text"
-                    placeholder="Pesquisar por ação ..."
+                    placeholder="Pesquisar ação..."
                     value={userInput}
                     onChange={(e) => showActions(e.target.value)}
-                    icon={<FiSearch size={16} color="red" />}
                   />
                 </div>
 
-                {userInput !== "" && (
+                {userInput !== "" && filteredProducts.length > 0 && (
                   <div className="searchContainer">
-                    {filteredProducts.map((ele) => (
+                    {filteredProducts.map((ele, index) => (
                       <p
+                        key={index}
                         onClick={() => {
                           history.push(`/action/${ele.id}`);
                         }}
                       >
-                        {ele.name}
+                        {ele.name.slice(0, 30)}
+                        {ele.name.length > 30 && <>...</>}
                       </p>
                     ))}
                   </div>
@@ -97,8 +97,8 @@ const Dashboard = () => {
             </CalendarContainer>
           </MainContainer>
         )}
-      </Container>
-    </>
+      </FullContainer>
+    </Container>
   );
 };
 

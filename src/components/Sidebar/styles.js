@@ -47,6 +47,12 @@ export const SidebarContainer = styled.div`
       li {
         margin: 10px 0;
         font-size: 1.15rem;
+        font-family: var(--font-text-primary);
+        font-weight: 400;
+
+        :hover {
+          color: var(--color-text);
+        }
       }
 
       @media (max-width: 1000px) {
@@ -62,17 +68,22 @@ export const SidebarContainer = styled.div`
       p {
         font-family: var(--font-text-primary);
         font-size: 20px;
+        font-weight: 600;
       }
 
       .Collapsible__contentInner {
-        max-height: 10.35rem;
+        max-height: 5rem;
+        ul {
+          list-style: circle;
+          margin-left: 8px;
+        }
 
         ::-webkit-scrollbar {
           width: 10px;
         }
       }
       .Collapsible__contentOuter {
-        max-height: 10.35rem;
+        max-height: 5rem;
 
         ::-webkit-scrollbar {
           width: 10px;

@@ -130,10 +130,26 @@ export const Content = styled.div`
   }
 `;
 
+const appearFromRight = keyframes`
+from {
+    opacity: 0;
+    transform: translateX(70px)
+}
+
+to {
+    opacity: 1;
+    transform: translateX(0px)
+}
+`;
+
+export const AnimationContainer2 = styled.div`
+  animation: ${appearFromRight} 1s;
+`;
+
 const appearFromLeft = keyframes`
 from {
     opacity: 0;
-    transform: translateX(-50px)
+    transform: translateX(-70px)
 }
 
 to {
@@ -155,7 +171,7 @@ export const AnimationContainer = styled.div`
   margin-bottom: 1rem;
 
   form {
-    margin: 60px 0;
+    margin: 60px 0 20px;
     width: 270px;
     text-align: center;
     line-height: 2rem;
