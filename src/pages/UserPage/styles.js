@@ -16,6 +16,9 @@ export const Container = styled.div`
     margin: auto;
     width: 300px;
   }
+  @media screen and (max-width: 1024px){
+    min-height: 100vh;
+  }
 `;
 
 export const ProfileContainer = styled.div`
