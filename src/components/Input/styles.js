@@ -26,6 +26,7 @@ export const InputContainer = styled.div`
   padding: 1rem;
   width: 100%;
   display: flex;
+  align-items: center;
   transition: all 300ms ease-in-out;
 
   ${(props) =>
