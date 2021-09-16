@@ -42,8 +42,10 @@ const EditPerfil = () => {
                             <div style={{display: "flex", flexDirection: "row", margin: 0}}><FcHome /><span>Cidate: </span><EditLine  name="city"  placeholder="Cidade" /> </div>
                             <div style={{display: "flex", flexDirection: "row", margin: 0}}><FcHome /><span>Estado: </span><EditLine  name="state" placeholder="Estado"  /> </div>
                         </div>
-                    :
+                    :(userData.street && userData.number && userData.city && userData.state) ?
                     <span>Rua {userData?.street},{userData?.number}-{userData?.city}/{userData?.state}</span>
+                    :
+                    <></>
                     }
                 </div>
                 <div>
