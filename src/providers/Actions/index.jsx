@@ -53,6 +53,7 @@ export const ActionsProvider = ({ children }) => {
       )
       .then((response) => {
         setActions([...actions, response.data]);
+        setLoad(!load);
         toast.success("Ação criada com sucesso!", {
           style: {
             border: "2px solid var(--color-success)",

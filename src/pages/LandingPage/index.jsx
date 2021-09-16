@@ -1,5 +1,4 @@
 import LogoFullColor from "./../../assets/img/logo.svg";
-import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
 import LogoMiniColor from "./../../assets/img/logo-mini-color.svg";
 import ManBolering from "./../../assets/img/man-bolering.svg";
 import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
@@ -156,8 +155,9 @@ const LandingPage = () => {
           <WheelchairManComponent src={WheelchairMan} alt="Wheelchair Man" />
         </LastSection>
       </FullContainer>
-
+      <div id="aboutUs">
       <AboutUs />
+      </div>
       <Footer />
     </Container>
   );

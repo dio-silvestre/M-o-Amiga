@@ -1,11 +1,12 @@
 import { FcBusinessman, FcPhone, FcPrint, FcHome, FcParallelTasks } from "react-icons/fc";
-import Button from "../Button"
-import {useUser} from "../../providers/User"
-import EditLine from "../EditLine"
+import Button from "../Button";
+import {useUser} from "../../providers/User";
+import EditLine from "../EditLine";
 import { useState } from "react";
-import {Container,Content} from "./styles"
+import {Container,Content} from "./styles";
 
 const EditProfile = () => {
+
     const [edit, setEdit] = useState(false);
     const {userData} = useUser();
     
@@ -14,14 +15,14 @@ const EditProfile = () => {
             <Container>
                 <h3>Contato</h3>
                 <Content>
-                    {userData.user_type === "voluntary" ? <>
+                    {userData.user_type === "institution" ? <>
                     <FcBusinessman /> <span>Responsável:</span> 
                     {edit ?
                     <EditLine name="responsable" placeholder="Responsável" />
                     : 
                     <span>{userData?.responsable}</span>} </>: <></>}
                 </Content>
-                {edit == false ?
+                {edit === false ?
                     <Content>
                         <FcPrint /> <span>E-mail:</span><span>{userData?.email}</span>
                     </Content>
@@ -48,7 +49,7 @@ const EditProfile = () => {
                     <></>
                     }
                 </div>
-                <div>
+                <div style={{marginBottom: "2rem"}}>
                     <Button theme="participate" onClick ={() => setEdit(!edit)}>{edit ? "Finalizar" : "Editar"}</Button>
                 </div>
             </Container>
