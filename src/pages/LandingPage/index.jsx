@@ -44,6 +44,8 @@ import {
   ThirdSectionDesktopContentTwo,
 } from "./styles";
 import ModalListActions from "../../components/ModalListActions";
+import "../../components/AboutUs";
+import AboutUs from "../../components/AboutUs";
 
 const LandingPage = () => {
   const history = useHistory();
@@ -154,10 +156,9 @@ const LandingPage = () => {
           <WheelchairManComponent src={WheelchairMan} alt="Wheelchair Man" />
         </LastSection>
       </FullContainer>
-      <Footer id="aboutUs">
-        <p>Sobre nós</p>
-        <img src={LogoMiniWhite} alt="Logo Mão Amiga"></img>
-      </Footer>
+
+      <AboutUs />
+      <Footer />
     </Container>
   );
 };
