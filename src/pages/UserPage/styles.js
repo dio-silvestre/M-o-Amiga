@@ -23,8 +23,8 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
   align-items: center;
+  margin-top: 2rem;
 
   img {
     display: none;

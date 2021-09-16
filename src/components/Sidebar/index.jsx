@@ -21,13 +21,11 @@ const Sidebar = () => {
   const { actions } = useActions();
   const history = useHistory();
 
-  const actionsCreate = actions.filter((action) => (
-    action.userId === myData.id
-  ));
+  const actionsCreate = actions.filter((action) => action.userId === myData.id);
 
-  const actionsParticipate = actions.filter((action) => (
+  const actionsParticipate = actions.filter((action) =>
     action.voluntaries.includes(myData.id)
-  ));
+  );
 
   return (
     <SidebarContainer>
@@ -80,14 +78,16 @@ const Sidebar = () => {
             overflowWhenOpen="auto"
           >
             <ul>
-            {actionsCreate.length === 0 && 
-              <li>Você ainda não organizou de nenhuma ação.</li>}
+              {actionsCreate.length === 0 && (
+                <li>Você ainda não organizou de nenhuma ação.</li>
+              )}
               {actionsCreate.map((action, index) => (
-                <li 
+                <li
                   onClick={() => history.push(`/action/${action.id}`)}
-                  key={index}>
-                    {action.name.slice(0, 17)}
-                    {action.name.length > 17 && <>...</>}
+                  key={index}
+                >
+                  {action.name.slice(0, 17)}
+                  {action.name.length > 17 && <>...</>}
                 </li>
               ))}
             </ul>
@@ -107,14 +107,16 @@ const Sidebar = () => {
             overflowWhenOpen="auto"
           >
             <ul>
-              {actionsParticipate.length === 0 && 
-              <li>Você ainda não participa de nenhuma ação.</li>}
+              {actionsParticipate.length === 0 && (
+                <li>Você ainda não participa de nenhuma ação.</li>
+              )}
               {actionsParticipate.map((action, index) => (
-                <li 
+                <li
                   onClick={() => history.push(`/action/${action.id}`)}
-                  key={index}>
-                    {action.name.slice(0, 20)}
-                    {action.name.length > 20 && <>...</>}
+                  key={index}
+                >
+                  {action.name.slice(0, 20)}
+                  {action.name.length > 20 && <>...</>}
                 </li>
               ))}
             </ul>
