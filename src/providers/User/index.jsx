@@ -7,6 +7,7 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
+  const localToken = localStorage.getItem("authToken") || "";
 
   const history = useHistory();
 
@@ -53,7 +54,13 @@ export const UserProvider = ({ children }) => {
 
   const editProfile = (userId, data) => {
     api
-      .patch(`/users/${userId}`, data)
+      .patch(`/users/${userId}`,
+       {...data},
+       {
+        headers: {
+          Authorization: `Bearer ${localToken}`,
+        },
+      })
       .then((response) => {})
       .catch((error) => console.error(error));
   };

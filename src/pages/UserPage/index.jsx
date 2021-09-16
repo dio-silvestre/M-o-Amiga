@@ -1,6 +1,5 @@
 import Sidebar from "../../components/Sidebar";
 import { Container, FullContainer, ProfileContainer } from "./styles";
-import { FcBusinessman, FcPhone, FcPrint, FcHome } from "react-icons/fc";
 import InstitutionImage from "../../assets/InstitutionImage.png";
 import VoluntaryImage from "../../assets/VoluntaryImage.png";
 import { useParams } from "react-router-dom";
@@ -13,6 +12,7 @@ import { Redirect } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
 import MenuMobile from "../../components/MenuMobile";
 import HeaderMobile from "../../components/HeaderMobile";
+import EditProfile from "../../components/EditProfile"
 
 const UserPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -52,6 +52,8 @@ const UserPage = () => {
     return <Redirect to="/login" />;
   }
 
+  
+
   return (
     <FullContainer>
       <Container>
@@ -84,29 +86,7 @@ const UserPage = () => {
                     src={InstitutionImage}
                     alt="Imagem de perfil da instituição"
                   />
-                  <div className="contact">
-                    <h3>Contato</h3>
-                    <div>
-                      <FcBusinessman /> <span>Responsável:</span>&nbsp;João da
-                      Silva
-                    </div>
-                    <div>
-                      <FcPhone /> <span>Telefone:</span>&nbsp;(11) 99999-9999
-                    </div>
-                    <div>
-                      <FcPrint /> <span>E-mail:</span>&nbsp;email@email.com
-                    </div>
-                    <div>
-                      <FcHome /> Endereço:{" "}
-                      <div>
-                        Rua 5, Lote 10, Loja 08
-                        <br />
-                        Bairro Jardins
-                        <br />
-                        {userData.city} - {userData.state}
-                      </div>
-                    </div>
-                  </div>
+                  <EditProfile />
                 </div>
               </ProfileContainer>
             ) : (
@@ -127,24 +107,10 @@ const UserPage = () => {
                     src={VoluntaryImage}
                     alt="Imagem de perfil do voluntário"
                   />
-                  <div className="contact">
-                    <h3>Contato</h3>
-                    <div>
-                      <FcPhone /> <span>Telefone:</span>&nbsp;(11) 99999-9999
-                    </div>
-                    <div>
-                      <FcPrint /> <span>E-mail:</span>&nbsp;{userData.email}
-                    </div>
-                    <div>
-                      <FcHome /> <span>Endereço:</span>{" "}
-                      <div>
-                        Rua 5, Lote 10, Loja 08
-                        <br />
-                        Bairro Jardins
-                        <br />
-                        {userData.city} - {userData.state}
-                      </div>
-                    </div>
+                  <div >
+                    
+                    <EditProfile />
+                    
                   </div>
                 </div>
               </ProfileContainer>
