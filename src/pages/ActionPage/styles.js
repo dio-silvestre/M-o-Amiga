@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div `
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   background: var(--main-background);
 `;
@@ -17,10 +17,10 @@ export const FullContainer = styled.div `
 
 export const Page = styled.div `
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column; */
+  /* align-items: center; */
   font-family: var(--font-text-primary);
   color: var(--color-text-two);
 
@@ -41,6 +41,8 @@ export const ActionData = styled.main `
   flex-direction: column;
   height: 100%;
 
+  /* border: 2px solid blue; */
+
   h1 {
     width: 85%;
     margin: 7rem auto 3rem;
@@ -56,6 +58,18 @@ export const ActionData = styled.main `
     }
   }
 `;
+
+export const NewContainer = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -1rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    margin: -1rem 1rem 0;
+  }
+`
 
 export const BoxInfos = styled.div `
   min-width: 300px;

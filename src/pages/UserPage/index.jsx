@@ -98,7 +98,7 @@ const UserPage = () => {
                     <span>{numberOfParticipationsVoluntary}</span>
                   </div>
                   <div>
-                    Áreas de interesse: <span>{userData.areas}</span>
+                    Áreas de interesse: <span>{userData.areas.slice(0, 37)}</span>
                   </div>
                 </div>
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
+export const Header = styled.header `
   position: fixed;
   background-color: var(--color-base-default);
   width: 100%;
