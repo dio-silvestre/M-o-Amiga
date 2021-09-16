@@ -53,45 +53,50 @@ const Dashboard = () => {
       <FullContainer>
         <MenuMobile />
         <SideBar />
-          {isLoading ? (
-            <img src={Loading} alt="Loading" className="loading" />
-          ) : (
-            <MainContainer>
-              <HeaderContainer>
-                <div className="messageContainer">
-                  <h2> Seja bem vindo (a), </h2>
-                    <h1>{myData.name.split(" ")[0]}!</h1>
+        {isLoading ? (
+          <img src={Loading} alt="Loading" className="loading" />
+        ) : (
+          <MainContainer>
+            <HeaderContainer>
+              <div className="messageContainer">
+                <h2> Seja bem vindo (a), </h2>
+                <h1>{myData.name.split(" ")[0]}!</h1>
+              </div>
+              <div className="inputContainer">
+                <div className="iconContainer">
+                  <div>
+                    <FiSearch />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Pesquisar ação..."
+                    value={userInput}
+                    onChange={(e) => showActions(e.target.value)}
+                  />
                 </div>
-                <div className="inputContainer">
-                    <input
-                      type="text"
-                      placeholder="Pesquisar ação..."
-                      value={userInput}
-                      onChange={(e) => showActions(e.target.value)}
-                      icon={<FiSearch size={16} color="red" />}
-                    />
-                    {userInput !== "" && filteredProducts.length > 0 && (
-                      <div className="searchContainer">
-                        {filteredProducts.map((ele, index) => (
-                          <p
-                            key={index}
-                            onClick={() => {
-                              history.push(`/action/${ele.id}`);
-                            }}
-                          >
-                            {ele.name.slice(0, 30)}
-                            {ele.name.length > 30 && <>...</>}
-                          </p>
-                        ))}
-                      </div>
-                    )}
-                </div>
-              </HeaderContainer>
-              <CalendarContainer>
-                <Calendar />
-              </CalendarContainer>
-            </MainContainer>
-          )}
+
+                {userInput !== "" && filteredProducts.length > 0 && (
+                  <div className="searchContainer">
+                    {filteredProducts.map((ele, index) => (
+                      <p
+                        key={index}
+                        onClick={() => {
+                          history.push(`/action/${ele.id}`);
+                        }}
+                      >
+                        {ele.name.slice(0, 30)}
+                        {ele.name.length > 30 && <>...</>}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </HeaderContainer>
+            <CalendarContainer>
+              <Calendar />
+            </CalendarContainer>
+          </MainContainer>
+        )}
       </FullContainer>
     </Container>
   );
