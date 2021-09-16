@@ -7,6 +7,7 @@ import UserPage from "../pages/UserPage";
 import { Switch, Route } from "react-router-dom";
 import ActionRegister from "../pages/ActionRegister";
 import PageNotFound from "../pages/PageNotFound";
+import Chat from "../components/Chat";
 
 const Routes = () => {
   return (
@@ -18,6 +19,7 @@ const Routes = () => {
       <Route path="/action/:actionId" component={ActionPage} />
       <Route path="/users/:userId" component={UserPage} />
       <Route path="/actionregister" component={ActionRegister} />
+      <Route path="/chat" component={Chat} />
       <Route component={PageNotFound} />
     </Switch>
   );

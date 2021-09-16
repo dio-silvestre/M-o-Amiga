@@ -26,16 +26,19 @@ export const CommentsProvider = ({ children }) => {
     };
 
     useEffect(() => {
+      if(!!localToken) {
         fetchComments();
-        // setInterval(fetchComments, 2000);
+        // setInterval(fetchComments, 3000);
+      }
     }, []);
 
-    const addComment = (comment, actionId) => {
+    const addComment = (comment, actionId, name) => {
         api
         .post(`/comments`, {
             comment: comment,
             actionID: actionId,
-            userId: Number(userID)
+            userId: Number(userID),
+            name: name
         }, {
             headers: {
               Authorization: `Bearer ${localToken}`,
