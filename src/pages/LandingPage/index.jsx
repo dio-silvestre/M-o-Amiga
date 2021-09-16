@@ -1,4 +1,5 @@
 import LogoFullColor from "./../../assets/img/logo.svg";
+import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
 import LogoMiniColor from "./../../assets/img/logo-mini-color.svg";
 import ManBolering from "./../../assets/img/man-bolering.svg";
 import WomanBaloons from "./../../assets/img/woman-with-balloons.svg";
@@ -12,7 +13,6 @@ import Calendar from "../../components/Calendar";
 import { useHistory } from "react-router";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../providers/Auth";
-import AboutUs from "../../components/AboutUs/index";
 import {
   AnimationContainer,
   AnimationContainer2,
@@ -44,6 +44,8 @@ import {
   ThirdSectionDesktopContentTwo,
 } from "./styles";
 import ModalListActions from "../../components/ModalListActions";
+import "../../components/AboutUs";
+import AboutUs from "../../components/AboutUs";
 
 const LandingPage = () => {
   const history = useHistory();
@@ -71,18 +73,6 @@ const LandingPage = () => {
       <FullContainer>
         <PresentationSection>
           <div>
-<<<<<<< HEAD
-            <section>
-              <ContentOne>Transforme o mundo com uma pequena ação!</ContentOne>
-              <WomanBaloonsComponent src={WomanBaloons} alt="Woman Baloons" />
-              <ContentTwo>
-                Plataforma que conecta instituição organizadora de ação
-                voluntária e voluntário disponível, sincronizando seus
-                calendários gerando e compartilhando experiências.
-              </ContentTwo>
-            </section>
-            <MinicalendarComponent src={MiniCalendar} alt="Mini Calendar" />
-=======
             <AnimationContainer>
               <section>
                 <ContentOne>
@@ -99,7 +89,6 @@ const LandingPage = () => {
             <AnimationContainer2>
               <MinicalendarComponent src={MiniCalendar} alt="Mini Calendar" />
             </AnimationContainer2>
->>>>>>> develop
           </div>
           <Button theme={"signUp"} onClick={() => history.push("/register")}>
             Quero ajudar!
@@ -167,8 +156,8 @@ const LandingPage = () => {
           <WheelchairManComponent src={WheelchairMan} alt="Wheelchair Man" />
         </LastSection>
       </FullContainer>
-      <Footer id="aboutUs">
-        <AboutUs></AboutUs>
+      <Footer>
+        <AboutUs />
       </Footer>
     </Container>
   );
