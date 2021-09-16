@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const slidein = keyframes `
+const slidein = keyframes`
  from {
    height: 0px;
   }
@@ -11,14 +11,14 @@ const slidein = keyframes `
 
 `;
 
-export const Container = styled.div `
+export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
   background: var(--main-background);
-`
+`;
 
-export const FullContainer = styled.div `
+export const FullContainer = styled.div`
   width: 100%;
   height: 100%;
   max-width: 1366px;
@@ -33,14 +33,14 @@ export const FullContainer = styled.div `
   }
 `;
 
-export const MainContainer = styled.div `
+export const MainContainer = styled.div`
   width: 100%;
-    @media (min-width: 1024px) {
-      width: calc(100% - 350px);
-    }
+  @media (min-width: 1024px) {
+    width: calc(100% - 350px);
+  }
 `;
 
-export const HeaderContainer = styled.div `
+export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-family: var(--font-text-primary);
@@ -62,7 +62,6 @@ export const HeaderContainer = styled.div `
   @media (min-width: 375px) {
     h1 {
       font-size: 2rem;
-
     }
 
     h2 {
@@ -115,48 +114,65 @@ export const HeaderContainer = styled.div `
       height: 40px;
       border-radius: 8px;
       border: 1px solid white;
-      padding-left: 20px;
+      padding-left: 10px;
       outline: none;
     }
   }
 
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding-left: 20px;
+    outline: none;
+    background-color: white;
+
+    svg {
+      font-size: 1.5rem;
+    }
+  }
   .searchContainer {
-      max-height: 60px;
-      padding-left: 5px;
-      margin-left: 8px;
-      background-color: white;
-      overflow: auto;
-      animation: ${slidein} 1s;
-      border: none;
-      text-align: left;
-      box-shadow: 5px 8px 8px var(--color-secondary);
-      border-radius: 0 0 5px 5px;
-      position: absolute;
-      width: 176px;
+    max-height: 60px;
+    padding-left: 5px;
+    margin-left: 8px;
+    background-color: white;
+    overflow: auto;
+    animation: ${slidein} 1s;
+    border: none;
+    text-align: left;
+    box-shadow: 5px 8px 8px var(--color-secondary);
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    width: 215px;
 
-      @media (min-width: 425px) {
-        max-width: 233px;
-      }
-      @media (min-width: 600px) {
-        max-width: 340px;
-      }
-      @media (min-width: 1024px) and (max-width: 1140px){
-        max-width: 190px;
-      }
+    @media (min-width: 425px) {
+      width: 244px;
+    }
+    @media (min-width: 600px) {
+      width: 292px;
+    }
+    @media (min-width: 1024px) and (max-width: 1140px) {
+      max-width: 180px;
+    }
 
-      p {
-        font-size: 14px;
-        margin: 5px;
-        cursor: pointer;
+    p {
+      font-size: 14px;
+      margin: 5px;
+      cursor: pointer;
 
-        :hover {
-          color: var(--color-primary-two);
-        }
+      :hover {
+        color: var(--color-primary-two);
       }
     }
+  }
 `;
 
-export const CalendarContainer = styled.div `
+export const CalendarContainer = styled.div`
   @media screen and (max-width: 768px) {
     width: 90vw;
     margin: 0 auto;
