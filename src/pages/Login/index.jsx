@@ -6,14 +6,19 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAuth } from "../../providers/Auth";
 import { Link } from "react-router-dom";
-import { AnimationContainer, Container, Content, Header } from "./styles";
+import {
+  AnimationContainer,
+  AnimationContainer2,
+  Container,
+  Content,
+  Header,
+} from "./styles";
 import LoginLogo from "../../assets/LoginLogo.svg";
 import LoginGirl from "../../assets/LoginGirl.svg";
 import LoginGroup from "../../assets/LoginGroup.svg";
 import { Redirect } from "react-router-dom";
 
 const Login = () => {
-  
   const { signIn, isLogged } = useAuth();
 
   const formSchema = yup.object().shape({
@@ -44,13 +49,15 @@ const Login = () => {
 
   if (isLogged) {
     return <Redirect to="/dashboard" />;
-  };
+  }
 
   return (
     <Container>
       <Header>
         <div>
-          <img src={LoginLogo} alt="Mão Amiga Logo" />
+          <Link to="/">
+            <img src={LoginLogo} alt="Mão Amiga Logo" />
+          </Link>
           <div>
             <h1>Ajude quem precisa</h1>
             <p>um jeito mais fácil de fazer o bem</p>
@@ -93,10 +100,12 @@ const Login = () => {
             </form>
           </AnimationContainer>
         </div>
-        <div className="images">
-          <img className="girl" src={LoginGirl} alt="Figura garota" />
-          <img className="ellipse" src={LoginGroup} alt="Figura com elipse" />
-        </div>
+        <AnimationContainer2>
+          <div className="images">
+            <img className="girl" src={LoginGirl} alt="Figura garota" />
+            <img className="ellipse" src={LoginGroup} alt="Figura com elipse" />
+          </div>
+        </AnimationContainer2>
       </Content>
     </Container>
   );

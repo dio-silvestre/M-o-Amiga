@@ -28,7 +28,7 @@ const ActionRegister = () => {
           <ContainerInfoRegister>
             <Info>
               <p>Aqui , você pode cadastrar sua ação voluntária !</p>
-              <img src={Logo}></img>
+              <img src={Logo} alt="Mão Amiga Logo"></img>
             </Info>
             <ContainerAction>
               <ActionsForm></ActionsForm>
