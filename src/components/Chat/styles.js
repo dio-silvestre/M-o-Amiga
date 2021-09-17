@@ -71,6 +71,7 @@ export const ContainerTalk = styled.div `
     overscroll-behavior-y: contain;
     height: 60%;
     margin: 0.5rem 0;
+    width: 100%;
 
     div:last-child {
         scroll-snap-align: end;

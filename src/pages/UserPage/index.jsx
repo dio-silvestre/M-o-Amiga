@@ -86,7 +86,7 @@ const UserPage = () => {
                     src={InstitutionImage}
                     alt="Imagem de perfil da instituição"
                   />
-                  <EditProfile />
+                  <EditProfile idUser={params.userId} />
                 </div>
               </ProfileContainer>
             ) : (
@@ -109,7 +109,7 @@ const UserPage = () => {
                   />
                   <div >
                     
-                    <EditProfile />
+                    <EditProfile idUser={params.userId} />
                     
                   </div>
                 </div>

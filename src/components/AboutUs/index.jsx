@@ -1,4 +1,3 @@
-import LogoMiniWhite from "./../../assets/img/logo-mini-white.svg";
 import {
   DevsContainer,
   HeaderContainer,
@@ -29,6 +28,7 @@ const AboutUs = () => {
         <div>
           <img src={Diogo} alt="Diogo Silvestre" className="Diogo"></img>
           <p> Diogo Silvestre</p>
+          <p>Tech Leader</p>
           <p>
             <FiGithub />
             <a href="https://github.com/dio-silvestre" target="_blank">
@@ -39,6 +39,7 @@ const AboutUs = () => {
         <div>
           <img src={Igor} alt="Igor Petersson"></img>
           <p>Igor Petersson</p>
+          <p>Quality Assurance</p>
           <p>
             <FiGithub />
             <a href="https://github.com/IgorPetersson" target="_blank">
@@ -50,6 +51,7 @@ const AboutUs = () => {
         <div>
           <img src={Jose} alt="José Flávio"></img>
           <p>José Flávio</p>
+          <p>Scrum Master</p>
           <p>
             <FiGithub />
             <a href="https://github.com/jotaftm" target="_blank">
@@ -60,6 +62,7 @@ const AboutUs = () => {
         <div>
           <img src={Nicole} alt="Nicole Pimenta"></img>
           <p>Nicole Pimenta</p>
+          <p>Product Owner</p>
           <p>
             <FiGithub />
             <a href="https://github.com/nicole-pimenta" target="_blank">
@@ -70,6 +73,7 @@ const AboutUs = () => {
         <div>
           <img src={Raphael} alt="Raphael Marum"></img>
           <p>Raphael Marum</p>
+          <p>Quality Assurance</p>
           <p>
             <FiGithub />
             <a href="https://github.com/RaphaelMarum" target="_blank">
