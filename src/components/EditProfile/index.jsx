@@ -4,8 +4,13 @@ import {useUser} from "../../providers/User";
 import EditLine from "../EditLine";
 import { useState } from "react";
 import {Container,Content} from "./styles";
+import jwtDecode from "jwt-decode";
 
 const EditProfile = () => {
+
+    const localToken = localStorage.getItem("authToken") || "";
+    const decodedToken = localToken === "" ? "" : jwtDecode(localToken);
+    const userID = decodedToken.sub;
 
     const [edit, setEdit] = useState(false);
     const {userData} = useUser();
@@ -49,9 +54,10 @@ const EditProfile = () => {
                     <></>
                     }
                 </div>
+                {Number(userID) === userData.id && 
                 <div style={{marginBottom: "2rem"}}>
                     <Button theme="participate" onClick ={() => setEdit(!edit)}>{edit ? "Finalizar" : "Editar"}</Button>
-                </div>
+                </div>}
             </Container>
         </>
     );
