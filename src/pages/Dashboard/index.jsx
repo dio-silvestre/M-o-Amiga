@@ -82,6 +82,7 @@ const Dashboard = () => {
                         key={index}
                         onClick={() => {
                           history.push(`/action/${ele.id}`);
+                          window.location.reload();
                         }}
                       >
                         {ele.name.slice(0, 30)}

@@ -17,10 +17,7 @@ export const FullContainer = styled.div `
 
 export const Page = styled.div `
   width: 100%;
-  /* height: 100%; */
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
   font-family: var(--font-text-primary);
   color: var(--color-text-two);
 
@@ -40,8 +37,6 @@ export const ActionData = styled.main `
   display: flex;
   flex-direction: column;
   height: 100%;
-
-  /* border: 2px solid blue; */
 
   h1 {
     width: 85%;
@@ -68,6 +63,7 @@ export const NewContainer = styled.div `
   @media (min-width: 1024px) {
     flex-direction: row;
     margin: -1rem 1rem 0;
+    max-height: 600px;
   }
 `
 
@@ -92,7 +88,7 @@ export const BoxInfos = styled.div `
   h3 {
     font-size: 1.5rem;
     line-height: 2rem;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
 `;
 
